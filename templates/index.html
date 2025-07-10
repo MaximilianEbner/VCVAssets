@@ -263,32 +263,80 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Bilder hinzufügen (max. 5)</h5>
+                    <h5 class="modal-title">Bilder hinzufügen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form id="uploadForm" enctype="multipart/form-data">
                         <input type="hidden" id="uploadItemId" name="item_id">
-                        <div class="mb-3">
-                            <label for="imageFiles" class="form-label">
-                                <i class="fas fa-images me-2"></i>Bilder auswählen (bis zu 5 Bilder)
-                            </label>
-                            <input type="file" class="form-control" id="imageFiles" name="images" 
-                                   accept="image/*" capture="environment" multiple>
-                            <div class="form-text">
-                                <i class="fas fa-info-circle me-1"></i>
-                                Sie können bis zu 5 Bilder gleichzeitig auswählen. Unterstützte Formate: JPG, PNG, GIF
+                        
+                        <!-- 5 einzelne Upload-Felder -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="imageFile1" class="form-label">
+                                    <i class="fas fa-image me-2"></i>Bild 1
+                                </label>
+                                <input type="file" class="form-control image-input" id="imageFile1" name="image1" 
+                                       accept="image/*" capture="environment" onchange="previewImage(this, 'preview1')">
+                                <div id="preview1" class="mt-2" style="display: none;">
+                                    <img class="img-thumbnail image-preview-clickable" style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="imageFile2" class="form-label">
+                                    <i class="fas fa-image me-2"></i>Bild 2
+                                </label>
+                                <input type="file" class="form-control image-input" id="imageFile2" name="image2" 
+                                       accept="image/*" capture="environment" onchange="previewImage(this, 'preview2')">
+                                <div id="preview2" class="mt-2" style="display: none;">
+                                    <img class="img-thumbnail image-preview-clickable" style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="imageFile3" class="form-label">
+                                    <i class="fas fa-image me-2"></i>Bild 3
+                                </label>
+                                <input type="file" class="form-control image-input" id="imageFile3" name="image3" 
+                                       accept="image/*" capture="environment" onchange="previewImage(this, 'preview3')">
+                                <div id="preview3" class="mt-2" style="display: none;">
+                                    <img class="img-thumbnail image-preview-clickable" style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="imageFile4" class="form-label">
+                                    <i class="fas fa-image me-2"></i>Bild 4
+                                </label>
+                                <input type="file" class="form-control image-input" id="imageFile4" name="image4" 
+                                       accept="image/*" capture="environment" onchange="previewImage(this, 'preview4')">
+                                <div id="preview4" class="mt-2" style="display: none;">
+                                    <img class="img-thumbnail image-preview-clickable" style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="imageFile5" class="form-label">
+                                    <i class="fas fa-image me-2"></i>Bild 5
+                                </label>
+                                <input type="file" class="form-control image-input" id="imageFile5" name="image5" 
+                                       accept="image/*" capture="environment" onchange="previewImage(this, 'preview5')">
+                                <div id="preview5" class="mt-2" style="display: none;">
+                                    <img class="img-thumbnail image-preview-clickable" style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
                             </div>
                         </div>
-                        <div id="imagePreview" class="mb-3" style="display: none;">
-                            <label class="form-label">Vorschau:</label>
-                            <div id="previewContainer" class="d-flex flex-wrap gap-2"></div>
+                        
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Sie können bis zu 5 Bilder einzeln hochladen. Unterstützte Formate: JPG, PNG, GIF
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-                    <button type="button" class="btn btn-primary" onclick="uploadMultipleImages()" id="uploadBtn" disabled>
+                    <button type="button" class="btn btn-primary" onclick="uploadIndividualImages()" id="uploadBtn" disabled>
                         <i class="fas fa-upload me-2"></i>Bilder hochladen
                     </button>
                 </div>

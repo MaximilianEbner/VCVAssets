@@ -186,8 +186,18 @@ function showPartDetails(partId) {
     const imageGallery = images.length > 0 ? 
         `<div class="mb-3">
             <h6>Bilder:</h6>
-            <div class="d-flex flex-wrap">
-                ${images.map(img => `<img src="/static/${img}" class="image-preview image-preview-clickable" alt="Teil-Bild" onclick="openLightbox('/static/${img}')">`).join('')}
+            <div class="d-flex flex-wrap gap-2">
+                ${images.map(img => `
+                    <div class="position-relative">
+                        <img src="/static/${img}" class="image-preview image-preview-clickable" alt="Teil-Bild" onclick="openLightbox('/static/${img}')">
+                        <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 delete-image-btn" 
+                                 onclick="event.stopPropagation(); deleteImage('${part.id}', '${img}')"
+                                 title="Bild löschen"
+                                 style="border-radius: 50%; width: 24px; height: 24px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-times" style="font-size: 10px;"></i>
+                        </button>
+                    </div>
+                `).join('')}
             </div>
         </div>` : '';
     
@@ -267,84 +277,81 @@ async function updatePartStatus() {
 function showUploadModal(partId) {
     document.getElementById('uploadItemId').value = partId;
     
-    // Event listener für Datei-Auswahl hinzufügen
-    const fileInput = document.getElementById('imageFiles');
-    fileInput.addEventListener('change', handleFileSelection);
+    // Alle Previews zurücksetzen
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById(`preview${i}`).style.display = 'none';
+        document.getElementById(`imageFile${i}`).value = '';
+    }
+    
+    // Upload-Button deaktivieren
+    document.getElementById('uploadBtn').disabled = true;
     
     const modal = new bootstrap.Modal(document.getElementById('uploadModal'));
     modal.show();
 }
 
-// Datei-Auswahl verarbeiten
-function handleFileSelection(event) {
-    const files = event.target.files;
-    const uploadBtn = document.getElementById('uploadBtn');
-    const previewSection = document.getElementById('imagePreview');
-    const previewContainer = document.getElementById('previewContainer');
+// Einzelne Bild-Vorschau
+function previewImage(input, previewId) {
+    const preview = document.getElementById(previewId);
+    const img = preview.querySelector('img');
     
-    // Maximale Anzahl Dateien prüfen
-    if (files.length > 5) {
-        showError('Maximal 5 Bilder erlaubt. Bitte wählen Sie weniger Dateien aus.');
-        event.target.value = '';
-        uploadBtn.disabled = true;
-        previewSection.style.display = 'none';
-        return;
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            img.src = e.target.result;
+            img.onclick = () => openLightbox(e.target.result);
+            preview.style.display = 'block';
+            updateUploadButton();
+        };
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        preview.style.display = 'none';
+        updateUploadButton();
     }
-    
-    if (files.length === 0) {
-        uploadBtn.disabled = true;
-        previewSection.style.display = 'none';
-        return;
-    }
-    
-    // Upload-Button aktivieren
-    uploadBtn.disabled = false;
-    uploadBtn.innerHTML = `<i class="fas fa-upload me-2"></i>${files.length} Bild${files.length > 1 ? 'er' : ''} hochladen`;
-    
-    // Vorschau erstellen
-    previewContainer.innerHTML = '';
-    previewSection.style.display = 'block';
-    
-    Array.from(files).forEach((file, index) => {
-        if (file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imgPreview = document.createElement('div');
-                imgPreview.className = 'position-relative';
-                imgPreview.innerHTML = `
-                    <img src="${e.target.result}" class="img-thumbnail image-preview-clickable" 
-                         style="width: 80px; height: 80px; object-fit: cover;" 
-                         onclick="openLightbox('${e.target.result}')">
-                    <small class="d-block text-center text-muted">${file.name}</small>
-                `;
-                previewContainer.appendChild(imgPreview);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
 }
 
-// Mehrere Bilder hochladen
-async function uploadMultipleImages() {
+// Upload-Button Status aktualisieren
+function updateUploadButton() {
+    const uploadBtn = document.getElementById('uploadBtn');
+    let selectedCount = 0;
+    
+    // Zähle ausgewählte Dateien
+    for (let i = 1; i <= 5; i++) {
+        const input = document.getElementById(`imageFile${i}`);
+        if (input.files && input.files[0]) {
+            selectedCount++;
+        }
+    }
+    
+    if (selectedCount > 0) {
+        uploadBtn.disabled = false;
+        uploadBtn.innerHTML = `<i class="fas fa-upload me-2"></i>${selectedCount} Bild${selectedCount > 1 ? 'er' : ''} hochladen`;
+    } else {
+        uploadBtn.disabled = true;
+        uploadBtn.innerHTML = '<i class="fas fa-upload me-2"></i>Bilder hochladen';
+    }
+}
+
+// Einzelne Bilder hochladen
+async function uploadIndividualImages() {
     const formData = new FormData();
-    const fileInput = document.getElementById('imageFiles');
     const itemId = document.getElementById('uploadItemId').value;
-    const files = fileInput.files;
+    let selectedFiles = 0;
     
-    if (files.length === 0) {
-        showError('Bitte wählen Sie mindestens eine Datei aus');
+    // Sammle alle ausgewählten Dateien
+    for (let i = 1; i <= 5; i++) {
+        const input = document.getElementById(`imageFile${i}`);
+        if (input.files && input.files[0]) {
+            formData.append('images', input.files[0]);
+            selectedFiles++;
+        }
+    }
+    
+    if (selectedFiles === 0) {
+        showError('Bitte wählen Sie mindestens ein Bild aus');
         return;
     }
     
-    if (files.length > 5) {
-        showError('Maximal 5 Bilder erlaubt');
-        return;
-    }
-    
-    // Alle Dateien zur FormData hinzufügen
-    Array.from(files).forEach((file, index) => {
-        formData.append('images', file);
-    });
     formData.append('item_id', itemId);
     
     // Upload-Button während Upload deaktivieren
@@ -369,7 +376,9 @@ async function uploadMultipleImages() {
             bootstrap.Modal.getInstance(document.getElementById('uploadModal')).hide();
             // Formular zurücksetzen
             document.getElementById('uploadForm').reset();
-            document.getElementById('imagePreview').style.display = 'none';
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`preview${i}`).style.display = 'none';
+            }
         } else {
             showError(result.error || 'Fehler beim Hochladen');
         }
@@ -542,14 +551,39 @@ function openImageInNewTab() {
     window.open(currentImageSrc, '_blank');
 }
 
-// Vorschau-Bilder im Upload-Modal ebenfalls klickbar machen
-function updatePreviewWithLightbox() {
-    const previewContainer = document.getElementById('previewContainer');
-    if (previewContainer) {
-        const images = previewContainer.querySelectorAll('img');
-        images.forEach(img => {
-            img.classList.add('image-preview-clickable');
-            img.onclick = () => openLightbox(img.src);
+// Bild löschen (nur für Admins)
+async function deleteImage(itemId, imagePath) {
+    if (!confirm('Möchten Sie dieses Bild wirklich löschen?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/delete_image', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                item_id: itemId,
+                image_path: imagePath
+            })
         });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showSuccess('Bild wurde erfolgreich gelöscht');
+            // Daten neu laden
+            loadAllParts();
+            // Wenn das Modal offen ist, Details neu laden
+            if (currentPart && currentPart.id == itemId) {
+                showPartDetails(itemId);
+            }
+        } else {
+            showError(result.error || 'Fehler beim Löschen des Bildes');
+        }
+    } catch (error) {
+        console.error('Fehler beim Löschen:', error);
+        showError('Fehler beim Löschen des Bildes');
     }
 }

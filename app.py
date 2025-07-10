@@ -334,6 +334,44 @@ def user_management():
                          users=auth_manager.users, 
                          current_user=session['user'])
 
+@app.route('/api/delete_image', methods=['POST'])
+@login_required
+def api_delete_image():
+    """API für Bild-Löschung"""
+    data = request.json
+    item_id = data.get('item_id')
+    image_path = data.get('image_path')
+    
+    if not item_id or not image_path:
+        return jsonify({'success': False, 'error': 'Fehlende Parameter'})
+    
+    try:
+        # Finde das Teil und entferne das Bild
+        for item in db.data:
+            if str(item.get('id', '')) == str(item_id):
+                if 'images' in item and image_path in item['images']:
+                    # Entferne aus der Datenbank
+                    item['images'].remove(image_path)
+                    
+                    # Lösche die physische Datei
+                    full_path = os.path.join('static', image_path)
+                    if os.path.exists(full_path):
+                        try:
+                            os.remove(full_path)
+                        except Exception as e:
+                            print(f"Warnung: Datei konnte nicht gelöscht werden: {e}")
+                    
+                    # Speichere Änderungen
+                    db.save_data()
+                    return jsonify({'success': True})
+                else:
+                    return jsonify({'success': False, 'error': 'Bild nicht gefunden'})
+        
+        return jsonify({'success': False, 'error': 'Teil nicht gefunden'})
+        
+    except Exception as e:
+        return jsonify({'success': False, 'error': f'Fehler beim Löschen: {str(e)}'})
+
 if __name__ == '__main__':
     print("Starte VCV Assets Datenbank...")
     print("Öffne http://localhost:5000 im Browser")
