@@ -372,6 +372,43 @@ def api_delete_image():
     except Exception as e:
         return jsonify({'success': False, 'error': f'Fehler beim Löschen: {str(e)}'})
 
+@app.route('/api/update_comment', methods=['POST'])
+@login_required
+def api_update_comment():
+    """API für Kommentar-Update"""
+    data = request.json
+    item_id = data.get('item_id')
+    comment = data.get('comment', '').strip()
+    
+    if not item_id:
+        return jsonify({'success': False, 'error': 'Keine Teil-ID angegeben'})
+    
+    try:
+        # Finde das Teil und aktualisiere den Kommentar
+        for item in db.data:
+            if str(item.get('id', '')) == str(item_id):
+                # Aktueller Benutzer aus Session
+                user = session.get('user', {})
+                username = user.get('name', 'Unbekannt')
+                
+                # Kommentar mit Timestamp und Benutzer
+                if comment:
+                    timestamp = datetime.now().strftime('%d.%m.%Y %H:%M')
+                    item['comment'] = f"[{timestamp} - {username}] {comment}"
+                else:
+                    item['comment'] = ''
+                
+                item['last_updated'] = datetime.now().isoformat()
+                
+                # Speichere Änderungen
+                db.save_data()
+                return jsonify({'success': True})
+        
+        return jsonify({'success': False, 'error': 'Teil nicht gefunden'})
+        
+    except Exception as e:
+        return jsonify({'success': False, 'error': f'Fehler beim Speichern: {str(e)}'})
+
 if __name__ == '__main__':
     print("Starte VCV Assets Datenbank...")
     print("Öffne http://localhost:5000 im Browser")
