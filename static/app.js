@@ -398,3 +398,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Benutzerverwaltung anzeigen
+function showUserManagement() {
+    window.location.href = '/user_management';
+}
