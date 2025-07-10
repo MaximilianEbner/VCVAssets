@@ -219,6 +219,64 @@ def api_upload_image():
     
     return jsonify({'success': False, 'error': 'Unbekannter Fehler'})
 
+@app.route('/api/upload_multiple_images', methods=['POST'])
+@login_required
+def api_upload_multiple_images():
+    """API für mehrere Bild-Uploads"""
+    if 'images' not in request.files:
+        return jsonify({'success': False, 'error': 'Keine Bilder hochgeladen'})
+    
+    files = request.files.getlist('images')
+    item_id = request.form.get('item_id')
+    
+    if not files or len(files) == 0:
+        return jsonify({'success': False, 'error': 'Keine Dateien ausgewählt'})
+    
+    if len(files) > 5:
+        return jsonify({'success': False, 'error': 'Maximal 5 Bilder erlaubt'})
+    
+    if not item_id:
+        return jsonify({'success': False, 'error': 'Keine Teil-ID angegeben'})
+    
+    uploaded_files = []
+    uploaded_count = 0
+    
+    try:
+        for file in files:
+            if file and file.filename != '':
+                # Eindeutigen Dateinamen generieren
+                filename = f"{uuid.uuid4()}_{file.filename}"
+                filepath = os.path.join(UPLOAD_FOLDER, filename)
+                
+                # Datei speichern
+                file.save(filepath)
+                
+                # Relativen Pfad speichern
+                relative_path = f"images/{filename}"
+                uploaded_files.append(relative_path)
+                
+                # Bild zum Teil hinzufügen
+                if db.add_image(item_id, relative_path):
+                    uploaded_count += 1
+                else:
+                    # Bei Fehler: bereits gespeicherte Datei löschen
+                    try:
+                        os.remove(filepath)
+                    except:
+                        pass
+        
+        if uploaded_count > 0:
+            return jsonify({
+                'success': True, 
+                'uploaded_count': uploaded_count,
+                'image_paths': uploaded_files[:uploaded_count]
+            })
+        else:
+            return jsonify({'success': False, 'error': 'Teil nicht gefunden oder Fehler beim Speichern'})
+            
+    except Exception as e:
+        return jsonify({'success': False, 'error': f'Fehler beim Upload: {str(e)}'})
+
 @app.route('/api/analytics')
 @login_required
 def api_analytics():
