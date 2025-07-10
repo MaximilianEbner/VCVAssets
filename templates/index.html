@@ -154,6 +154,18 @@
         .image-preview-clickable:hover {
             transform: scale(1.05);
         }
+        
+        /* Toast-Container */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+        
+        .toast {
+            min-width: 300px;
+        }
     </style>
 </head>
 <body>
@@ -344,6 +356,50 @@
         </div>
     </div>
 
+    <!-- Kommentar-Bearbeitungs Modal -->
+    <div class="modal fade" id="commentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kommentar bearbeiten</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="commentForm">
+                        <input type="hidden" id="commentItemId" name="item_id">
+                        
+                        <div class="mb-3">
+                            <label for="commentText" class="form-label">
+                                <i class="fas fa-comment me-2"></i>Kommentar
+                            </label>
+                            <textarea class="form-control" id="commentText" name="comment" 
+                                      rows="4" placeholder="Geben Sie hier Ihren Kommentar ein..."></textarea>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Der Kommentar wird automatisch mit Ihrem Namen und dem aktuellen Datum versehen.
+                            </div>
+                        </div>
+                        
+                        <div id="commentHistory" style="display: none;">
+                            <label class="form-label">
+                                <i class="fas fa-history me-2"></i>Kommentar-Verlauf
+                            </label>
+                            <div id="commentHistoryContent" class="border rounded p-2 bg-light" style="max-height: 200px; overflow-y: auto;">
+                                <!-- Verlauf wird hier eingefügt -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                    <button type="button" class="btn btn-primary" onclick="saveComment()" id="saveCommentBtn">
+                        <i class="fas fa-save me-2"></i>Kommentar speichern
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Lightbox für Bilder -->
     <div id="lightboxOverlay" class="lightbox-overlay" onclick="closeLightbox()">
         <div class="lightbox-content" onclick="event.stopPropagation()">
@@ -360,6 +416,11 @@
             </div>
             <img id="lightboxImage" class="lightbox-image" src="" alt="Vergrößertes Bild">
         </div>
+    </div>
+
+    <!-- Toast-Container für Benachrichtigungen -->
+    <div class="toast-container">
+        <!-- Toasts werden hier dynamisch eingefügt -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
