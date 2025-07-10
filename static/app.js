@@ -1,10 +1,44 @@
 // VCV Assets Datenbank - Frontend JavaScript
 let allParts = [];
 let currentPart = null;
-// Beim Laden der Seite alle Teile laden
+
+// Event-Delegation für dynamische Elemente
 document.addEventListener('DOMContentLoaded', function() {
     loadAllParts();
+    
+    // Event-Delegation für Kommentar-Bearbeitung
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.comment-preview')) {
+            e.stopPropagation();
+            const itemId = e.target.closest('.comment-preview').getAttribute('onclick').match(/editComment\('([^']+)'\)/)[1];
+            editComment(itemId);
+        }
+    });
+    
+    // Event-Delegation für Bild-Löschung
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.delete-image-btn')) {
+            e.stopPropagation();
+            const btn = e.target.closest('.delete-image-btn');
+            const onclick = btn.getAttribute('onclick');
+            if (onclick) {
+                // Extrahiere Parameter aus onclick
+                const matches = onclick.match(/deleteImage\('([^']+)',\s*'([^']+)'\)/);
+                if (matches) {
+                    deleteImage(matches[1], matches[2]);
+                }
+            }
+        }
+    });
+    
+    // Event-Delegation für Kommentar-Buttons
+    setupEventDelegation();
 });
+
+// Beim Laden der Seite alle Teile laden
+// document.addEventListener('DOMContentLoaded', function() {
+//     loadAllParts();
+// });
 
 // Alle Teile laden
 async function loadAllParts() {
@@ -77,6 +111,7 @@ function displayParts(parts) {
                             <th>Status</th>
                             <th>Supplier</th>
                             <th>Standort</th>
+                            <th>Kommentar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,7 +129,7 @@ function createPartRow(part) {
     const statusClass = getStatusClass(status);
     
     return `
-        <tr onclick="showPartDetails('${part.id || Math.random()}')" style="cursor: pointer;">
+        <tr data-item-id="${part.id || Math.random()}" onclick="showPartDetails('${part.id || Math.random()}')" style="cursor: pointer;">
             <td>
                 <div class="btn-group btn-group-sm">
                     <button class="btn btn-outline-primary" onclick="event.stopPropagation(); showPartDetails('${part.id || Math.random()}')">
@@ -111,6 +146,11 @@ function createPartRow(part) {
             <td><span class="badge ${statusClass}">${status}</span></td>
             <td>${part['Supplier'] || 'Unbekannt'}</td>
             <td>${part['Location'] || 'Unbekannt'}</td>
+            <td>
+                <span class="comment-preview" data-item-id="${part.id || Math.random()}" style="cursor: pointer; color: #0d6efd; display: block; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${part.comment || 'Klicken zum Hinzufügen'}">
+                    ${part.comment ? (part.comment.length > 30 ? part.comment.substring(0, 30) + '...' : part.comment) : '<i class="fas fa-plus-circle me-1"></i>Hinzufügen'}
+                </span>
+            </td>
         </tr>
     `;
 }
@@ -221,6 +261,15 @@ function showPartDetails(partId) {
         <div class="mt-3">
             <strong>Beschreibung:</strong>
             <p>${part['Part Description'] || part.description || part.Beschreibung || 'Part description'}</p>
+        </div>
+        <div class="mt-3">
+            <strong>Kommentar:</strong>
+            <div class="d-flex align-items-center">
+                <span class="flex-grow-1">${part.comment || 'Kein Kommentar vorhanden'}</span>
+                <button class="btn btn-sm btn-outline-primary ms-2" onclick="editComment('${part.id}')">
+                    <i class="fas fa-edit me-1"></i>Bearbeiten
+                </button>
+            </div>
         </div>
         <div class="mt-3">
             <strong>Zusätzliche Informationen:</strong>
@@ -370,14 +419,33 @@ async function uploadIndividualImages() {
         
         if (result.success) {
             showSuccess(`${result.uploaded_count} Bild${result.uploaded_count > 1 ? 'er' : ''} erfolgreich hochgeladen`);
-            // Daten neu laden
-            loadAllParts();
+            
             // Modal schließen
-            bootstrap.Modal.getInstance(document.getElementById('uploadModal')).hide();
+            const modal = bootstrap.Modal.getInstance(document.getElementById('uploadModal'));
+            if (modal) {
+                modal.hide();
+            }
+            
             // Formular zurücksetzen
             document.getElementById('uploadForm').reset();
             for (let i = 1; i <= 5; i++) {
                 document.getElementById(`preview${i}`).style.display = 'none';
+            }
+            
+            // Suchterm beibehalten und Tabelle aktualisieren
+            const searchQuery = document.getElementById('searchInput').value;
+            if (searchQuery) {
+                searchParts(); // Suche mit aktuellem Term
+            } else {
+                loadAllParts(); // Alle Teile laden
+            }
+            
+            // Wenn das Teil-Details Modal offen ist, neu laden
+            if (currentPart && currentPart.id == itemId) {
+                // Kurz warten, damit die Daten aktualisiert sind
+                setTimeout(() => {
+                    showPartDetails(itemId);
+                }, 100);
             }
         } else {
             showError(result.error || 'Fehler beim Hochladen');
@@ -445,32 +513,60 @@ function updateResultsCount(count) {
 
 // Erfolgs-Nachricht anzeigen
 function showSuccess(message) {
-    showAlert(message, 'success');
+    showToast(message, 'success');
 }
 
 // Fehler-Nachricht anzeigen
 function showError(message) {
-    showAlert(message, 'danger');
+    showToast(message, 'danger');
 }
 
-// Alert anzeigen
-function showAlert(message, type) {
-    const alertContainer = document.createElement('div');
-    alertContainer.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
-    alertContainer.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
-    alertContainer.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+// Toast-Benachrichtigung anzeigen
+function showToast(message, type = 'info') {
+    const toastContainer = document.querySelector('.toast-container');
+    const toastId = 'toast-' + Date.now();
+    
+    const iconMap = {
+        'success': 'fas fa-check-circle',
+        'danger': 'fas fa-exclamation-triangle',
+        'warning': 'fas fa-exclamation-circle',
+        'info': 'fas fa-info-circle'
+    };
+    
+    const icon = iconMap[type] || iconMap['info'];
+    
+    const toastHtml = `
+        <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-${type} text-white">
+                <i class="${icon} me-2"></i>
+                <strong class="me-auto">VCV Assets</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                ${message}
+            </div>
+        </div>
     `;
     
-    document.body.appendChild(alertContainer);
+    toastContainer.insertAdjacentHTML('beforeend', toastHtml);
     
-    // Auto-remove nach 5 Sekunden
-    setTimeout(() => {
-        if (alertContainer.parentNode) {
-            alertContainer.remove();
-        }
-    }, 5000);
+    const toastElement = document.getElementById(toastId);
+    const toast = new bootstrap.Toast(toastElement, {
+        autohide: true,
+        delay: type === 'danger' ? 5000 : 3000
+    });
+    
+    toast.show();
+    
+    // Toast nach dem Verstecken entfernen
+    toastElement.addEventListener('hidden.bs.toast', function() {
+        this.remove();
+    });
+}
+
+// Alert-Funktion als Fallback (deprecated)
+function showAlert(message, type) {
+    showToast(message, type);
 }
 
 // Enter-Taste für Suche
@@ -480,7 +576,37 @@ document.addEventListener('DOMContentLoaded', function() {
             searchParts();
         }
     });
+    
+    // Event-Delegation für dynamische Elemente
+    setupEventDelegation();
 });
+
+// Event-Delegation für dynamisch erstellte Elemente
+function setupEventDelegation() {
+    const searchResults = document.getElementById('searchResults');
+    
+    // Event-Delegation für Kommentar-Buttons
+    searchResults.addEventListener('click', function(e) {
+        // Kommentar bearbeiten
+        if (e.target.closest('.comment-preview')) {
+            e.stopPropagation();
+            const commentElement = e.target.closest('.comment-preview');
+            const itemId = commentElement.getAttribute('data-item-id');
+            if (itemId) {
+                editComment(itemId);
+            }
+        }
+        
+        // Teil-Details anzeigen (Tabellenzeile)
+        if (e.target.closest('tr') && !e.target.closest('button') && !e.target.closest('.comment-preview')) {
+            const row = e.target.closest('tr');
+            const itemId = row.getAttribute('data-item-id');
+            if (itemId) {
+                showPartDetails(itemId);
+            }
+        }
+    });
+}
 
 // Benutzerverwaltung anzeigen
 function showUserManagement() {
@@ -573,11 +699,21 @@ async function deleteImage(itemId, imagePath) {
         
         if (result.success) {
             showSuccess('Bild wurde erfolgreich gelöscht');
-            // Daten neu laden
-            loadAllParts();
-            // Wenn das Modal offen ist, Details neu laden
+            
+            // Suchterm beibehalten und Tabelle aktualisieren
+            const searchQuery = document.getElementById('searchInput').value;
+            if (searchQuery) {
+                searchParts(); // Suche mit aktuellem Term
+            } else {
+                loadAllParts(); // Alle Teile laden
+            }
+            
+            // Wenn das Teil-Details Modal offen ist, neu laden
             if (currentPart && currentPart.id == itemId) {
-                showPartDetails(itemId);
+                // Kurz warten, damit die Daten aktualisiert sind
+                setTimeout(() => {
+                    showPartDetails(itemId);
+                }, 100);
             }
         } else {
             showError(result.error || 'Fehler beim Löschen des Bildes');
@@ -585,5 +721,109 @@ async function deleteImage(itemId, imagePath) {
     } catch (error) {
         console.error('Fehler beim Löschen:', error);
         showError('Fehler beim Löschen des Bildes');
+    }
+}
+
+// Kommentar bearbeiten
+function editComment(itemId) {
+    const part = allParts.find(p => p.id == itemId);
+    if (!part) {
+        showError('Teil nicht gefunden');
+        return;
+    }
+    
+    // Modal-Felder füllen
+    document.getElementById('commentItemId').value = itemId;
+    document.getElementById('commentText').value = part.comment || '';
+    
+    // Modal anzeigen
+    const modal = new bootstrap.Modal(document.getElementById('commentModal'));
+    modal.show();
+}
+
+// Kommentar speichern
+async function saveComment() {
+    const itemId = document.getElementById('commentItemId').value;
+    const comment = document.getElementById('commentText').value.trim();
+    
+    if (!itemId) {
+        showError('Keine Teil-ID angegeben');
+        return;
+    }
+    
+    // Button deaktivieren während des Speicherns
+    const saveBtn = document.getElementById('saveCommentBtn');
+    const originalText = saveBtn.innerHTML;
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Speichern...';
+    
+    try {
+        const response = await fetch('/api/update_comment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                item_id: itemId,
+                comment: comment
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            console.log('Kommentar erfolgreich gespeichert, schließe Modal...');
+            showSuccess('Kommentar wurde erfolgreich gespeichert');
+            
+            // Modal explizit schließen - mehrere Methoden verwenden
+            const modalElement = document.getElementById('commentModal');
+            const modal = bootstrap.Modal.getInstance(modalElement);
+            if (modal) {
+                console.log('Schließe Modal mit Bootstrap-Instanz...');
+                modal.hide();
+            } else {
+                console.log('Kein Bootstrap-Modal gefunden, verwende Fallback...');
+                // Fallback: Modal direkt schließen
+                modalElement.classList.remove('show');
+                modalElement.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                const backdrop = document.querySelector('.modal-backdrop');
+                if (backdrop) {
+                    backdrop.remove();
+                }
+            }
+            
+            // Formular zurücksetzen
+            document.getElementById('commentForm').reset();
+            document.getElementById('commentText').value = '';
+            
+            console.log('Lade Daten neu...');
+            // Suchterm beibehalten und Tabelle aktualisieren
+            const searchQuery = document.getElementById('searchInput').value;
+            if (searchQuery) {
+                await searchParts(); // Suche mit aktuellem Term
+            } else {
+                await loadAllParts(); // Alle Teile laden
+            }
+            console.log('Daten neu geladen.');
+            
+            // Wenn das Teil-Details Modal offen ist, neu laden
+            if (currentPart && currentPart.id == itemId) {
+                console.log('Lade Teil-Details neu...');
+                // Kurz warten, damit die Daten aktualisiert sind
+                setTimeout(() => {
+                    showPartDetails(itemId);
+                }, 200);
+            }
+        } else {
+            showError('Fehler beim Speichern: ' + (result.error || 'Unbekannter Fehler'));
+        }
+    } catch (error) {
+        console.error('Fehler beim Speichern des Kommentars:', error);
+        showError('Fehler beim Speichern des Kommentars');
+    } finally {
+        // Button wieder aktivieren
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = originalText;
     }
 }
