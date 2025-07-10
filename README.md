@@ -7,9 +7,11 @@ Eine moderne, responsive Web-Anwendung zur Verwaltung von VCV-Teile-Datenbanken.
 
 ## 📱 Features
 
-- **🔍 Suche**: Schnelle Suche nach Teilen in der gesamten Datenbank
+- **� Benutzer-Login**: Sichere Anmeldung mit verschiedenen Benutzerrollen
+- **👥 Benutzerverwaltung**: Admin kann neue Benutzer anlegen und verwalten
+- **�🔍 Suche**: Schnelle Suche nach Teilen in der gesamten Datenbank
 - **📊 Tabellarische Ansicht**: Übersichtliche Darstellung aller Teile
-- **⚡ Status-Management**: Einfache Änderung des Teil-Status (lagernd, verkauft, etc.)
+- **⚡ Status-Management**: Einfache Änderung des Teil-Status (nur für Admins)
 - **📸 Foto-Upload**: Bilder zu Teilen hinzufügen, auch direkt vom Handy
 - **📈 Analysen**: Übersichtliche Statistiken und Auswertungen
 - **📱 Responsive Design**: Funktioniert auf Desktop, Tablet und Smartphone
@@ -134,3 +136,21 @@ Bei Problemen oder Fragen zur Anwendung können die Log-Ausgaben in der Konsole 
 - Input-Validierung
 - CORS-Schutz
 - Lokaler Betrieb (keine Cloud-Abhängigkeit)
+
+## 🔐 Login-System
+
+### Standard-Benutzer:
+- **Admin**: `admin` / `vcv2025`
+  - Vollzugriff auf alle Funktionen
+  - Kann Benutzer verwalten
+  - Kann Teil-Status ändern
+  
+- **Viewer**: `viewer` / `viewer`
+  - Nur Lesezugriff
+  - Kann suchen und Daten anzeigen
+
+### Sicherheit:
+- Sichere Password-Hashing (PBKDF2)
+- Session-basierte Authentifizierung
+- Rollenverwaltung (Admin/Viewer)
+- Automatische Session-Verwaltung

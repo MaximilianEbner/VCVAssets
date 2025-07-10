@@ -58,6 +58,25 @@
                 <a class="nav-link" href="#" onclick="showAnalytics()">
                     <i class="fas fa-chart-bar"></i> Analysen
                 </a>
+                {% if user %}
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user me-1"></i>{{ user.name }}
+                        <span class="badge bg-{{ 'danger' if user.role == 'admin' else 'info' }} ms-1">{{ user.role }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% if user.role == 'admin' %}
+                        <li><a class="dropdown-item" href="#" onclick="showUserManagement()">
+                            <i class="fas fa-users me-2"></i>Benutzerverwaltung
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        {% endif %}
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">
+                            <i class="fas fa-sign-out-alt me-2"></i>Abmelden
+                        </a></li>
+                    </ul>
+                </div>
+                {% endif %}
             </div>
         </div>
     </nav>
