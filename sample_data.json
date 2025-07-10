@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "Part number": "EXAMPLE-001",
+        "Part Description": "Example part for demonstration",
+        "Supplier": "Example Supplier Ltd",
+        "Material category": "Example Material",
+        "Category": "Demo",
+        "Location": "Demo Location",
+        "Piece cost (€)": 99.99,
+        "status": "lagernd"
+    },
+    {
+        "id": 2,
+        "Part number": "EXAMPLE-002", 
+        "Part Description": "Another example part",
+        "Supplier": "Demo Supplier GmbH",
+        "Material category": "Test Material",
+        "Category": "Sample",
+        "Location": "Test Location",
+        "Piece cost (€)": 149.99,
+        "status": "verkauf gestartet"
+    }
+]
