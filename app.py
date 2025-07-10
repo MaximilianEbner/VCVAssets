@@ -42,6 +42,12 @@ class VCVDatabase:
             elif os.path.exists(DATA_FILE):
                 with open(DATA_FILE, 'r', encoding='utf-8') as f:
                     self.data = json.load(f)
+                print(f"Geladen: {len(self.data)} Einträge aus data.json")
+            elif os.path.exists('sample_data.json'):
+                # Fallback für Production (Railway) - verwende sample_data.json
+                with open('sample_data.json', 'r', encoding='utf-8') as f:
+                    self.data = json.load(f)
+                print(f"Verwende sample_data.json für Production: {len(self.data)} Einträge")
             else:
                 self.data = []
                 
