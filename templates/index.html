@@ -190,6 +190,9 @@
                         <li><a class="dropdown-item" href="#" onclick="showUserManagement()">
                             <i class="fas fa-users me-2"></i>Benutzerverwaltung
                         </a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('customer_management') }}">
+                            <i class="fas fa-users-cog me-2"></i>Customer Management
+                        </a></li>
                         <li><hr class="dropdown-divider"></li>
                         {% endif %}
                         <li><a class="dropdown-item" href="{{ url_for('logout') }}">
@@ -221,6 +224,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Button zum Hinzufügen eines neuen Teils -->
+    {% if user.role in ['admin', 'viewer'] %}
+    <div class="container mt-4 mb-2">
+        <button class="btn btn-success" onclick="showAddPartModal()">
+            <i class="fas fa-plus me-2"></i>Neues Teil anlegen
+        </button>
+    </div>
+    {% endif %}
+
+    <!-- Customer Disclaimer -->
+    {% if user.role == 'customer' %}
+    <div class="container mt-4">
+        <div class="alert alert-warning" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-exclamation-triangle me-2 fa-lg"></i>
+                <div>
+                    <strong>Wichtiger Hinweis:</strong> Lagerbestand noch nicht durch Inventur verifiziert. 
+                    Abweichungen (+/-10%) sind möglich. Inventur kann auf Anfrage durchgeführt werden.
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
     <!-- Hauptinhalt -->
     <div class="container mt-4">
@@ -264,7 +291,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+                    {% if user.role in ['admin', 'viewer'] %}
                     <button type="button" class="btn btn-primary" onclick="updatePartStatus()">Status ändern</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -421,6 +450,85 @@
     <!-- Toast-Container für Benachrichtigungen -->
     <div class="toast-container">
         <!-- Toasts werden hier dynamisch eingefügt -->
+    </div>
+
+    <!-- Modal: Neues Teil anlegen -->
+    <div class="modal fade" id="addPartModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Neues Teil anlegen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addPartForm">
+                        <div class="mb-3">
+                            <label class="form-label">Part Number</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Beschreibung</label>
+                            <textarea class="form-control" name="description" rows="2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Kategorie</label>
+                            <input type="text" class="form-control" name="category">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" name="status">
+                                <option value="lagernd">Lagernd</option>
+                                <option value="verkauf gestartet">Verkauf gestartet</option>
+                                <option value="verkauft">Verkauft</option>
+                                <option value="teilweise verkauft">Teilweise verkauft</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Lieferant</label>
+                            <input type="text" class="form-control" name="supplier">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Standort</label>
+                            <input type="text" class="form-control" name="location">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Herstellerteilenummer</label>
+                            <input type="text" class="form-control" name="manufacturer_part_number" maxlength="50" placeholder="max. 50 Zeichen">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Kommentar</label>
+                            <textarea class="form-control" name="comment" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                    <button type="button" class="btn btn-primary" onclick="addPart()">
+                        <i class="fas fa-save me-2"></i>Speichern
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Systembestand anzeigen -->
+    <div class="modal fade" id="stockModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Systembestand für <span id="stockModalPartNumber"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="stockModalTableContainer">
+                        <!-- Tabelle wird per JS eingefügt -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

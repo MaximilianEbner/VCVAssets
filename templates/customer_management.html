@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management - VCV Assets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .customer-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .customer-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .parts-count {
+            background: #e9ecef;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .upload-area {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+        .upload-area:hover {
+            border-color: #0d6efd;
+        }
+        .upload-area.dragover {
+            border-color: #0d6efd;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-database"></i> VCV Assets
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('index') }}">
+                    <i class="fas fa-arrow-left"></i> Zurück zur Datenbank
+                </a>
+                {% if user %}
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user me-1"></i>{{ user.name }}
+                        <span class="badge bg-danger ms-1">{{ user.role }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">
+                            <i class="fas fa-sign-out-alt me-2"></i>Abmelden
+                        </a></li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">
+                    <i class="fas fa-users-cog"></i> Customer Management
+                </h1>
+                
+                <!-- Upload Section -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-upload me-2"></i>Neuen Customer erstellen
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="customerForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="customerId" class="form-label">Customer ID</label>
+                                        <input type="text" class="form-control" id="customerId" name="customer_id" required>
+                                        <div class="form-text">Eindeutige ID für den Customer (z.B. "customer_abc")</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="customerName" class="form-label">Customer Name</label>
+                                        <input type="text" class="form-control" id="customerName" name="customer_name" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="customerDescription" class="form-label">Beschreibung</label>
+                                        <textarea class="form-control" id="customerDescription" name="description" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Teileliste hochladen</label>
+                                        <div class="upload-area" id="uploadArea">
+                                            <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-muted"></i>
+                                            <p class="mb-2">Datei hier ablegen oder klicken zum Auswählen</p>
+                                            <p class="text-muted small">Unterstützte Formate: .txt, .csv</p>
+                                            <input type="file" class="form-control" id="partListFile" name="file" accept=".txt,.csv" style="display: none;">
+                                        </div>
+                                        <div class="form-text">
+                                            <strong>TXT-Format:</strong> Eine Teilenummer pro Zeile<br>
+                                            <strong>CSV-Format:</strong> Teilenummern in der ersten Spalte
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Customer erstellen
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Customers List -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-list me-2"></i>Bestehende Customers
+                        </h5>
+                    </div>
+                    <div class="card-body" id="customersList">
+                        <div class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Lädt...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer User Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Benutzer für Customer erstellen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="userForm">
+                        <input type="hidden" id="userCustomerId" name="customer_id">
+                        
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Benutzername</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="userPassword" class="form-label">Passwort</label>
+                            <input type="password" class="form-control" id="userPassword" name="password" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">Vollständiger Name</label>
+                            <input type="text" class="form-control" id="userName" name="name" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                    <button type="button" class="btn btn-primary" onclick="createUser()">
+                        <i class="fas fa-user-plus me-2"></i>Benutzer erstellen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <!-- Toasts werden hier eingefügt -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let customers = {};
+        
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCustomers();
+            setupUploadArea();
+            setupForm();
+        });
+        
+        let selectedFile = null; // Globale Variable für die ausgewählte Datei
+        
+        function setupUploadArea() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('partListFile');
+            
+            uploadArea.addEventListener('click', () => fileInput.click());
+            
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                if (e.dataTransfer.files.length > 0) {
+                    selectedFile = e.dataTransfer.files[0]; // Datei global speichern
+                    updateUploadAreaText();
+                }
+            });
+            
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    selectedFile = e.target.files[0]; // Datei global speichern
+                    updateUploadAreaText();
+                }
+            });
+        }
+        
+        function updateUploadAreaText() {
+            const uploadArea = document.getElementById('uploadArea');
+            
+            if (selectedFile) {
+                const fileName = selectedFile.name;
+                const fileSize = Math.round(selectedFile.size / 1024);
+                uploadArea.innerHTML = `
+                    <i class="fas fa-file-alt fa-2x mb-2 text-success"></i>
+                    <p class="mb-0 text-success"><strong>${fileName}</strong></p>
+                    <p class="text-muted small">${fileSize} KB - Datei ausgewählt</p>
+                    <input type="file" class="form-control" id="partListFile" name="file" accept=".txt,.csv" style="display: none;">
+                `;
+                // Event-Listener für das neue Input-Element hinzufügen
+                const newFileInput = document.getElementById('partListFile');
+                newFileInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        selectedFile = e.target.files[0];
+                        updateUploadAreaText();
+                    }
+                });
+            }
+        }
+        
+        function setupForm() {
+            const form = document.getElementById('customerForm');
+            const submitBtn = document.querySelector('#customerForm button[type="submit"]');
+            
+            // Falls kein Submit-Button vorhanden, füge Event-Listener zum Form hinzu
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                createCustomer();
+            });
+            
+            // Auch für den Fall, dass ein Button außerhalb des Forms ist
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    createCustomer();
+                });
+            }
+        }
+        
+        async function loadCustomers() {
+            try {
+                const response = await fetch('/api/customers');
+                customers = await response.json();
+                renderCustomers();
+            } catch (error) {
+                showToast('Fehler beim Laden der Customers', 'error');
+            }
+        }
+        
+        function renderCustomers() {
+            const container = document.getElementById('customersList');
+            
+            if (Object.keys(customers).length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-muted">
+                        <i class="fas fa-users fa-3x mb-3"></i>
+                        <p>Noch keine Customers vorhanden</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            for (const [customerId, customer] of Object.entries(customers)) {
+                html += `
+                    <div class="customer-card">
+                        <div class="customer-header">
+                            <div>
+                                <h6 class="mb-1">${customer.name}</h6>
+                                <small class="text-muted">ID: ${customerId}</small>
+                            </div>
+                            <div>
+                                <span class="parts-count">${customer.allowed_parts.length} Teile</span>
+                                <button class="btn btn-sm btn-outline-primary ms-2" onclick="showUserModal('${customerId}')">
+                                    <i class="fas fa-user-plus"></i> User erstellen
+                                </button>
+                            </div>
+                        </div>
+                        ${customer.description ? `<p class="mb-2 text-muted">${customer.description}</p>` : ''}
+                        <details>
+                            <summary class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-list me-1"></i>Teileliste anzeigen (${customer.allowed_parts.length})
+                            </summary>
+                            <div class="mt-2 p-2 bg-light rounded" style="max-height: 200px; overflow-y: auto;">
+                                ${customer.allowed_parts.map(part => `<span class="badge bg-secondary me-1 mb-1">${part}</span>`).join('')}
+                            </div>
+                        </details>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        async function createCustomer() {
+            console.log('createCustomer() aufgerufen');
+            
+            const form = document.getElementById('customerForm');
+            const formData = new FormData();
+            
+            // Validierung
+            const customerId = document.getElementById('customerId').value.trim();
+            const customerName = document.getElementById('customerName').value.trim();
+            
+            if (!customerId) {
+                showToast('Bitte geben Sie eine Customer ID ein', 'error');
+                return;
+            }
+            
+            if (!customerName) {
+                showToast('Bitte geben Sie einen Customer Namen ein', 'error');
+                return;
+            }
+            
+            // Prüfung der globalen selectedFile Variable
+            if (!selectedFile) {
+                showToast('Bitte wählen Sie eine Datei aus', 'error');
+                return;
+            }
+            
+            console.log('Validation passed, uploading file:', selectedFile.name);
+            
+            // Manuell alle Felder hinzufügen
+            formData.append('customer_id', customerId);
+            formData.append('customer_name', customerName);
+            formData.append('description', document.getElementById('customerDescription').value);
+            formData.append('file', selectedFile);
+            
+            console.log('FormData prepared:', {
+                customer_id: customerId,
+                customer_name: customerName,
+                file: selectedFile.name,
+                fileSize: selectedFile.size
+            });
+            
+            try {
+                showToast('Upload wird gestartet...', 'info');
+                
+                const response = await fetch('/api/upload_customer_parts', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                console.log('Response received:', response.status);
+                
+                const result = await response.json();
+                console.log('Result:', result);
+                
+                if (result.success) {
+                    showToast(result.message, 'success');
+                    form.reset();
+                    resetUploadArea();
+                    loadCustomers();
+                } else {
+                    showToast(result.error || 'Fehler beim Erstellen', 'error');
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                showToast('Netzwerkfehler beim Upload: ' + error.message, 'error');
+            }
+        }
+        
+        function resetUploadArea() {
+            selectedFile = null; // Globale Variable zurücksetzen
+            const uploadArea = document.getElementById('uploadArea');
+            uploadArea.innerHTML = `
+                <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-muted"></i>
+                <p class="mb-2">Datei hier ablegen oder klicken zum Auswählen</p>
+                <p class="text-muted small">Unterstützte Formate: .txt, .csv</p>
+                <input type="file" class="form-control" id="partListFile" name="file" accept=".txt,.csv" style="display: none;">
+            `;
+            // Event-Listener für das neue Input-Element hinzufügen
+            const newFileInput = document.getElementById('partListFile');
+            newFileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    selectedFile = e.target.files[0];
+                    updateUploadAreaText();
+                }
+            });
+        }
+        
+        function showUserModal(customerId) {
+            document.getElementById('userCustomerId').value = customerId;
+            document.getElementById('userModal').querySelector('.modal-title').textContent = 
+                `Benutzer für ${customers[customerId].name} erstellen`;
+            new bootstrap.Modal(document.getElementById('userModal')).show();
+        }
+        
+        async function createUser() {
+            const formData = new FormData(document.getElementById('userForm'));
+            const customerId = formData.get('customer_id');
+            
+            const userData = {
+                username: formData.get('username'),
+                password: formData.get('password'),
+                name: formData.get('name')
+            };
+            
+            try {
+                const response = await fetch(`/api/customers/${customerId}/users`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showToast(result.message, 'success');
+                    document.getElementById('userForm').reset();
+                    bootstrap.Modal.getInstance(document.getElementById('userModal')).hide();
+                } else {
+                    showToast(result.error || 'Fehler beim Erstellen', 'error');
+                }
+            } catch (error) {
+                showToast('Netzwerkfehler', 'error');
+            }
+        }
+        
+        function showToast(message, type = 'info') {
+            console.log('Toast:', type, message);
+            
+            const toastContainer = document.querySelector('.toast-container');
+            const toastId = 'toast-' + Date.now();
+            
+            const bgClass = type === 'error' ? 'bg-danger' : type === 'success' ? 'bg-success' : 'bg-info';
+            const icon = type === 'error' ? 'fa-exclamation-circle' : type === 'success' ? 'fa-check-circle' : 'fa-info-circle';
+            
+            const toastHtml = `
+                <div id="${toastId}" class="toast ${bgClass} text-white" role="alert">
+                    <div class="toast-body">
+                        <i class="fas ${icon} me-2"></i>
+                        ${message}
+                        <button type="button" class="btn-close btn-close-white float-end" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            `;
+            
+            toastContainer.insertAdjacentHTML('beforeend', toastHtml);
+            
+            const toast = new bootstrap.Toast(document.getElementById(toastId));
+            toast.show();
+            
+            // Toast nach 5 Sekunden automatisch entfernen
+            setTimeout(() => {
+                const element = document.getElementById(toastId);
+                if (element) element.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

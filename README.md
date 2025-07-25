@@ -1,23 +1,52 @@
-# VCV Assets Database - Web Application
+# VCV Assets Datenbank
 
-Eine moderne, responsive Web-Anwendung zur Verwaltung von VCV-Teile-Datenbanken.
+Eine webbasierte Anwendung zur Verwaltung von VCV Assets mit Bildupload, Statusverfolgung und Benutzerverwaltung.
 
-## 🚀 Live Demo
-[Demo auf Railway](https://vcvassets-production.up.railway.app) *(wird nach dem Deployment verfügbar sein)*
+## 🚀 Schnellstart für neue Benutzer
 
-## 📱 Features
+### Option 1: Vollautomatisch (Empfohlen)
+```
+Doppelklick auf: setup_und_start.bat
+```
+- Installiert automatisch Python und alle Abhängigkeiten
+- Startet die Anwendung
+- Öffnet den Browser automatisch
 
-- **� Benutzer-Login**: Sichere Anmeldung mit verschiedenen Benutzerrollen
-- **👥 Benutzerverwaltung**: Admin kann neue Benutzer anlegen und verwalten
-- **�🔍 Suche**: Schnelle Suche nach Teilen in der gesamten Datenbank
-- **📊 Tabellarische Ansicht**: Übersichtliche Darstellung aller Teile
-- **⚡ Status-Management**: Einfache Änderung des Teil-Status (nur für Admins)
-- **📸 Foto-Upload**: Bilder zu Teilen hinzufügen, auch direkt vom Handy
-- **📈 Analysen**: Übersichtliche Statistiken und Auswertungen
-- **📱 Responsive Design**: Funktioniert auf Desktop, Tablet und Smartphone
-- **🔧 Modularer Aufbau**: Einfach erweiterbar für zukünftige Funktionen
+### Option 2: PowerShell (Robuster)
+```
+Rechtsklick auf: setup_und_start.ps1 → "Mit PowerShell ausführen"
+```
+- Erweiterte Fehlerbehandlung
+- Bessere Admin-Rechte-Verwaltung
 
-## 🛠 Tech Stack
+### Option 3: Einfacher Start (Python bereits installiert)
+```
+Doppelklick auf: start_einfach.bat
+```
+
+## � Wichtige Dateien
+
+| Datei | Zweck |
+|-------|-------|
+| `setup_und_start.bat` | Vollautomatische Installation und Start |
+| `setup_und_start.ps1` | PowerShell-Version (robuster) |
+| `start_einfach.bat` | Start bei vorhandenem Python |
+| `desktop_verknuepfung.bat` | Erstellt Desktop-Symbol |
+| `SCHNELLSTART.md` | Detaillierte Anleitung für Einsteiger |
+| `BENUTZERHANDBUCH.md` | Vollständige Dokumentation |
+
+## 🌐 Zugriff
+
+Nach dem Start ist die Anwendung verfügbar unter:
+- **URL:** http://localhost:5000
+- **Login:** Wird beim ersten Start eingerichtet
+
+## 📋 Systemanforderungen
+
+- Windows 10/11
+- 4 GB RAM
+- 1 GB freier Speicherplatz
+- Internetverbindung (nur für Installation)
 
 - **Backend**: Python Flask
 - **Frontend**: HTML5, Bootstrap 5, JavaScript
