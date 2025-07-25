@@ -1,90 +1,56 @@
 // VCV Assets Datenbank - Frontend JavaScript
 let allParts = [];
 let currentPart = null;
+let currentPage = 1;
+let pageSize = 20;
+let lastFilteredParts = [];
+let userRole = 'customer'; // Standard: Customer
+
+// Helper function to get correct image URL
+function getImageUrl(imgPath) {
+    // If path already starts with 'static/', use as is
+    if (imgPath.startsWith('static/')) {
+        return `/${imgPath}`;
+    }
+    // If path starts with 'images/', prepend 'static/'
+    if (imgPath.startsWith('images/')) {
+        return `/static/${imgPath}`;
+    }
+    // Fallback: assume it needs 'static/images/' prefix
+    return `/static/images/${imgPath}`;
+}
+
+// Get user role from the page
+function getUserRole() {
+    const userBadge = document.querySelector('.navbar .badge');
+    if (userBadge) {
+        userRole = userBadge.textContent.toLowerCase();
+    }
+    return userRole;
+}
 
 // Event-Delegation für dynamische Elemente
 document.addEventListener('DOMContentLoaded', function() {
-    loadAllParts();
-    
-    // Event-Delegation für Kommentar-Bearbeitung
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.comment-preview')) {
-            e.stopPropagation();
-            const itemId = e.target.closest('.comment-preview').getAttribute('onclick').match(/editComment\('([^']+)'\)/)[1];
-            editComment(itemId);
+    // Tabelle neu laden, wenn das Teil-Details-Modal geschlossen wird
+    const partModal = document.getElementById('partModal');
+    if (partModal) {
+        // Füge echten Seiten-Refresh beim Klick auf den Schließen-Button ein
+        const closeBtn = partModal.querySelector('.modal-footer .btn.btn-secondary[data-bs-dismiss="modal"]');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                setTimeout(() => {
+                    // Hier ggf. gewünschte Aktionen nach dem Schließen des Modals einfügen
+                    // Zum Beispiel: Suche neu laden oder Tabelle aktualisieren
+                    searchParts(1);
+                }, 200);
+            });
         }
-    });
-    
-    // Event-Delegation für Bild-Löschung
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.delete-image-btn')) {
-            e.stopPropagation();
-            const btn = e.target.closest('.delete-image-btn');
-            const onclick = btn.getAttribute('onclick');
-            if (onclick) {
-                // Extrahiere Parameter aus onclick
-                const matches = onclick.match(/deleteImage\('([^']+)',\s*'([^']+)'\)/);
-                if (matches) {
-                    deleteImage(matches[1], matches[2]);
-                }
-            }
-        }
-    });
-    
-    // Event-Delegation für Kommentar-Buttons
-    setupEventDelegation();
+    }
 });
-
-// Beim Laden der Seite alle Teile laden
-// document.addEventListener('DOMContentLoaded', function() {
-//     loadAllParts();
-// });
-
-// Alle Teile laden
-async function loadAllParts() {
-    try {
-        const response = await fetch('/api/parts');
-        allParts = await response.json();
-        displayParts(allParts);
-        updateResultsCount(allParts.length);
-    } catch (error) {
-        console.error('Fehler beim Laden der Teile:', error);
-        showError('Fehler beim Laden der Daten');
-    }
-}
-
-// Teile suchen
-async function searchParts() {
-    const query = document.getElementById('searchInput').value;
-    
-    try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-        
-        // Prüfe ob die Antwort ok ist
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        // Prüfe den Content-Type
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-            const text = await response.text();
-            console.error('Antwort ist kein JSON:', text);
-            throw new Error('Server gab kein JSON zurück');
-        }
-        
-        const results = await response.json();
-        displayParts(results);
-        updateResultsCount(results.length);
-    } catch (error) {
-        console.error('Fehler bei der Suche:', error);
-        showError('Fehler bei der Suche: ' + error.message);
-    }
-}
-
-// Teile anzeigen
-function displayParts(parts) {
+// Teile anzeigen (mit Pagination)
+function displayParts(parts, page = 1) {
     const container = document.getElementById('searchResults');
+    const isCustomer = getUserRole() === 'customer';
     
     if (parts.length === 0) {
         container.innerHTML = `
@@ -94,10 +60,13 @@ function displayParts(parts) {
                 </div>
             </div>
         `;
+        renderPagination(0, 1);
         return;
     }
-    
-    // Erstelle Tabelle
+    // Pagination: nur die Datensätze für die aktuelle Seite anzeigen
+    const startIdx = (page - 1) * pageSize;
+    const endIdx = startIdx + pageSize;
+    const pageParts = parts.slice(startIdx, endIdx);
     container.innerHTML = `
         <div class="col-12">
             <div class="table-responsive">
@@ -106,16 +75,152 @@ function displayParts(parts) {
                         <tr>
                             <th>Aktionen</th>
                             <th>Part Number</th>
+                            <th>Herstellerteilenummer</th>
                             <th>Beschreibung</th>
-                            <th>Kategorie</th>
-                            <th>Status</th>
+                            ${!isCustomer ? '<th>Kategorie</th>' : ''}
+                            <th>Lagerbestand</th>
                             <th>Supplier</th>
                             <th>Standort</th>
-                            <th>Kommentar</th>
+                            ${!isCustomer ? '<th>Kommentar</th>' : ''}
                         </tr>
                     </thead>
                     <tbody>
-                        ${parts.map(part => createPartRow(part)).join('')}
+                        ${pageParts.map(part => createPartRow(part)).join('')}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+}
+
+// Pagination-UI rendern
+function renderPagination(totalItems, page) {
+    const paginationContainerId = 'paginationContainer';
+    let container = document.getElementById(paginationContainerId);
+    if (!container) {
+        // Falls noch nicht vorhanden, unter der Tabelle einfügen
+        const searchResults = document.getElementById('searchResults');
+        container = document.createElement('div');
+        container.id = paginationContainerId;
+        container.className = 'd-flex justify-content-center my-3';
+        searchResults.parentNode.insertBefore(container, searchResults.nextSibling);
+    }
+    if (totalItems <= pageSize) {
+        container.innerHTML = '';
+        return;
+    }
+    const totalPages = Math.ceil(totalItems / pageSize);
+    let html = '<nav><ul class="pagination">';
+    html += `<li class="page-item${page === 1 ? ' disabled' : ''}"><a class="page-link" href="#" data-page="${page - 1}">«</a></li>`;
+    for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || Math.abs(i - page) <= 2) {
+            html += `<li class="page-item${i === page ? ' active' : ''}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+        } else if (i === page - 3 || i === page + 3) {
+            html += '<li class="page-item disabled"><span class="page-link">…</span></li>';
+        }
+    }
+    html += `<li class="page-item${page === totalPages ? ' disabled' : ''}"><a class="page-link" href="#" data-page="${page + 1}">»</a></li>`;
+    html += '</ul></nav>';
+    container.innerHTML = html;
+    // Event-Listener für Blätterfunktion
+    container.querySelectorAll('a.page-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newPage = parseInt(this.getAttribute('data-page'));
+            if (!isNaN(newPage) && newPage >= 1 && newPage <= totalPages && newPage !== page) {
+                searchParts(newPage);
+            }
+        });
+    });
+}
+
+// Beim Laden der Seite alle Teile laden
+document.addEventListener('DOMContentLoaded', function() {
+    loadAllParts();
+});
+
+// Alle Teile laden
+async function loadAllParts() {
+    try {
+        const response = await fetch('/api/parts');
+        allParts = await response.json();
+                searchParts(1); // immer auf Seite 1 bei neuer Suche
+        updateResultsCount(allParts.length);
+    } catch (error) {
+        console.error('Fehler beim Laden der Teile:', error);
+        showError('Fehler beim Laden der Daten');
+    }
+}
+
+
+                searchParts(1);
+function searchParts(page = 1) {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    let filtered;
+    if (!query) {
+        filtered = allParts;
+    } else {
+        filtered = allParts.filter(part => {
+            return [
+                part['Part number'],
+                part.name,
+                part.Bezeichnung,
+                part.manufacturer_part_number,
+                part['Part Description'],
+                part.description,
+                part.Beschreibung,
+                part.Kategorie,
+                part.status,
+                part['Supplier'],
+                part['Location'],
+                part.comment
+            ].some(val => val && val.toString().toLowerCase().includes(query));
+        });
+    }
+    displayParts(filtered, page);
+    updateResultsCount(filtered.length);
+    renderPagination(filtered.length, page);
+}
+
+// Teile anzeigen
+function displayParts(parts, page = 1) {
+    const container = document.getElementById('searchResults');
+    const isCustomer = getUserRole() === 'customer';
+    
+    if (parts.length === 0) {
+        container.innerHTML = `
+            <div class="col-12 text-center">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> Keine Teile gefunden
+                </div>
+            </div>
+        `;
+        renderPagination(0, 1);
+        return;
+    }
+    // Pagination: nur die Datensätze für die aktuelle Seite anzeigen
+    const startIdx = (page - 1) * pageSize;
+    const endIdx = startIdx + pageSize;
+    const pageParts = parts.slice(startIdx, endIdx);
+    container.innerHTML = `
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Aktionen</th>
+                            <th>Part Number</th>
+                            <th>Herstellerteilenummer</th>
+                            <th>Beschreibung</th>
+                            ${!isCustomer ? '<th>Kategorie</th>' : ''}
+                            <th>Lagerbestand</th>
+                            <th>Supplier</th>
+                            <th>Standort</th>
+                            ${!isCustomer ? '<th>Kommentar</th>' : ''}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${pageParts.map(part => createPartRow(part)).join('')}
                     </tbody>
                 </table>
             </div>
@@ -127,30 +232,51 @@ function displayParts(parts) {
 function createPartRow(part) {
     const status = part.status || 'Unbekannt';
     const statusClass = getStatusClass(status);
+    const partNumber = part['Part number'] || part.name || part.Bezeichnung || 'Part number';
+    const isCustomer = getUserRole() === 'customer';
+    
+    // Lagerbestand aus "Inventory calculated" Feld
+    const inventoryCalculated = part['Inventory calculated'] || 0;
     
     return `
-        <tr data-item-id="${part.id || Math.random()}" onclick="showPartDetails('${part.id || Math.random()}')" style="cursor: pointer;">
+        <tr data-item-id="${part.id || Math.random()}" style="cursor: pointer;">
             <td>
                 <div class="btn-group btn-group-sm">
                     <button class="btn btn-outline-primary" onclick="event.stopPropagation(); showPartDetails('${part.id || Math.random()}')">
                         <i class="fas fa-eye"></i>
                     </button>
+                    ${!isCustomer ? `
                     <button class="btn btn-outline-secondary" onclick="event.stopPropagation(); showUploadModal('${part.id || Math.random()}')">
                         <i class="fas fa-camera"></i>
                     </button>
+                    ` : ''}
                 </div>
             </td>
-            <td><strong>${part['Part number'] || part.name || part.Bezeichnung || 'Part number'}</strong></td>
+            <td>
+                ${isCustomer ? 
+                    `<span>${partNumber}</span>` : 
+                    `<a href="#" onclick="event.preventDefault(); showStockModal('${partNumber}')" style="text-decoration: underline; color: #0d6efd;">${partNumber}</a>`
+                }
+            </td>
+            <td>
+                ${!isCustomer ? `
+                <input type="text" class="form-control form-control-sm manufacturer-part-input" value="${part.manufacturer_part_number || ''}" maxlength="50" data-item-id="${part.id}" style="min-width:120px;" title="Herstellerteilenummer direkt bearbeiten" onclick="event.stopPropagation();" />
+                ` : `
+                <span>${part.manufacturer_part_number || 'N/A'}</span>
+                `}
+            </td>
             <td>${part['Part Description'] || part.description || part.Beschreibung || 'Part description'}</td>
-            <td>${part['Category'] || part.category || part.Kategorie || 'Unbekannt'}</td>
-            <td><span class="badge ${statusClass}">${status}</span></td>
+            ${!isCustomer ? `<td>${part['Category'] || part.category || part.Kategorie || 'Unbekannt'}</td>` : ''}
+            <td class="text-end"><span class="badge bg-primary">${inventoryCalculated}</span></td>
             <td>${part['Supplier'] || 'Unbekannt'}</td>
             <td>${part['Location'] || 'Unbekannt'}</td>
+            ${!isCustomer ? `
             <td>
                 <span class="comment-preview" data-item-id="${part.id || Math.random()}" style="cursor: pointer; color: #0d6efd; display: block; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${part.comment || 'Klicken zum Hinzufügen'}">
                     ${part.comment ? (part.comment.length > 30 ? part.comment.substring(0, 30) + '...' : part.comment) : '<i class="fas fa-plus-circle me-1"></i>Hinzufügen'}
                 </span>
             </td>
+            ` : ''}
         </tr>
     `;
 }
@@ -160,7 +286,7 @@ function createPartCard(part) {
     const status = part.status || 'Unbekannt';
     const statusClass = getStatusClass(status);
     const images = part.images || [];
-    const firstImage = images.length > 0 ? `/static/${images[0]}` : '/static/placeholder.jpg';
+    const firstImage = images.length > 0 ? getImageUrl(images[0]) : '/static/placeholder.jpg';
     
     return `
         <div class="col-md-6 col-lg-4 mb-4">
@@ -216,6 +342,7 @@ function showPartDetails(partId) {
     }
     
     currentPart = part;
+    const isCustomer = getUserRole() === 'customer';
     
     const modalTitle = document.getElementById('partModalTitle');
     const modalBody = document.getElementById('partModalBody');
@@ -223,27 +350,33 @@ function showPartDetails(partId) {
     modalTitle.textContent = part['Part number'] || part.name || part.Bezeichnung || 'Part number';
     
     const images = part.images || [];
+    
     const imageGallery = images.length > 0 ? 
         `<div class="mb-3">
             <h6>Bilder:</h6>
             <div class="d-flex flex-wrap gap-2">
-                ${images.map(img => `
+                ${images.map(img => {
+                    const imageUrl = getImageUrl(img);
+                    return `
                     <div class="position-relative">
-                        <img src="/static/${img}" class="image-preview image-preview-clickable" alt="Teil-Bild" onclick="openLightbox('/static/${img}')">
+                        <img src="${imageUrl}" class="image-preview image-preview-clickable" alt="Teil-Bild" onclick="openLightbox('${imageUrl}')">
+                        ${!isCustomer ? `
                         <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 delete-image-btn" 
                                  onclick="event.stopPropagation(); deleteImage('${part.id}', '${img}')"
                                  title="Bild löschen"
                                  style="border-radius: 50%; width: 24px; height: 24px; padding: 0; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-times" style="font-size: 10px;"></i>
                         </button>
+                        ` : ''}
                     </div>
-                `).join('')}
+                `}).join('')}
             </div>
         </div>` : '';
     
     modalBody.innerHTML = `
         ${imageGallery}
         <div class="row">
+            ${!isCustomer ? `
             <div class="col-md-6">
                 <strong>Status:</strong>
                 <select id="statusSelect" class="form-select mt-1">
@@ -253,15 +386,37 @@ function showPartDetails(partId) {
                     <option value="teilweise verkauft" ${(part.status === 'teilweise verkauft') ? 'selected' : ''}>Teilweise verkauft</option>
                 </select>
             </div>
+            ` : `
+            <div class="col-md-6">
+                <strong>Status:</strong>
+                <p>${part.status || 'Unbekannt'}</p>
+            </div>
+            `}
+            ${!isCustomer ? `
             <div class="col-md-6">
                 <strong>Kategorie:</strong>
                 <p>${part['Category'] || part.category || part.Kategorie || 'Unbekannt'}</p>
             </div>
+            ` : ''}
+        </div>
+        <div class="mt-3">
+            <strong>Herstellerteilenummer:</strong>
+            ${!isCustomer ? `
+            <div class="d-flex align-items-center">
+                <input type="text" id="manufacturerPartInput" class="form-control me-2" maxlength="50" style="max-width: 300px;" value="${part.manufacturer_part_number || ''}" placeholder="max. 50 Zeichen">
+                <button class="btn btn-sm btn-outline-primary" onclick="saveManufacturerPartNumber('${part.id}')">
+                    <i class="fas fa-save me-1"></i>Speichern
+                </button>
+            </div>
+            ` : `
+            <p>${part.manufacturer_part_number || 'N/A'}</p>
+            `}
         </div>
         <div class="mt-3">
             <strong>Beschreibung:</strong>
             <p>${part['Part Description'] || part.description || part.Beschreibung || 'Part description'}</p>
         </div>
+        ${!isCustomer ? `
         <div class="mt-3">
             <strong>Kommentar:</strong>
             <div class="d-flex align-items-center">
@@ -271,18 +426,49 @@ function showPartDetails(partId) {
                 </button>
             </div>
         </div>
+        ` : ''}
         <div class="mt-3">
             <strong>Zusätzliche Informationen:</strong>
             <div class="row">
                 ${Object.entries(part).filter(([key, value]) => 
-                    !['id', 'name', 'Bezeichnung', 'status', 'category', 'Kategorie', 'description', 'Beschreibung', 'images'].includes(key)
+                    !['id', 'name', 'Bezeichnung', 'status', 'category', 'Kategorie', 'description', 'Beschreibung', 'images', 'manufacturer_part_number'].includes(key)
                 ).map(([key, value]) => 
                     `<div class="col-md-6"><small><strong>${key}:</strong> ${value || 'N/A'}</small></div>`
                 ).join('')}
             </div>
         </div>
     `;
-    
+
+    const modal = new bootstrap.Modal(document.getElementById('partModal'));
+    modal.show();
+}
+
+// Herstellerteilenummer speichern
+async function saveManufacturerPartNumber(itemId) {
+    const input = document.getElementById('manufacturerPartInput');
+    const value = input.value.trim();
+    if (value.length > 50) {
+        showError('Herstellerteilenummer darf maximal 50 Zeichen lang sein.');
+        return;
+    }
+    try {
+        const response = await fetch('/api/update_comment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ item_id: itemId, manufacturer_part_number: value })
+        });
+        const result = await response.json();
+        if (result.success) {
+            showSuccess('Herstellerteilenummer gespeichert');
+            // Nur Detailansicht neu laden, Tabelle bleibt interaktiv
+            showPartDetails(itemId);
+        } else {
+            showError(result.error || 'Fehler beim Speichern');
+        }
+    } catch (e) {
+        showError('Fehler beim Speichern');
+    }
+
     const modal = new bootstrap.Modal(document.getElementById('partModal'));
     modal.show();
 }
@@ -569,14 +755,30 @@ function showAlert(message, type) {
     showToast(message, type);
 }
 
-// Enter-Taste für Suche
+
+// Debounced Suche: Suche wird erst nach 300ms Inaktivität ausgelöst
+let searchDebounceTimeout = null;
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('searchInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            searchParts();
-        }
-    });
-    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            if (searchDebounceTimeout) {
+                clearTimeout(searchDebounceTimeout);
+            }
+            searchDebounceTimeout = setTimeout(() => {
+                searchParts();
+            }, 300);
+        });
+        // Suche weiterhin sofort bei Enter-Taste
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (searchDebounceTimeout) {
+                    clearTimeout(searchDebounceTimeout);
+                }
+                searchParts();
+            }
+        });
+    }
     // Event-Delegation für dynamische Elemente
     setupEventDelegation();
 });
@@ -825,5 +1027,88 @@ async function saveComment() {
         // Button wieder aktivieren
         saveBtn.disabled = false;
         saveBtn.innerHTML = originalText;
+    }
+}
+
+// Neues Teil anlegen Modal anzeigen
+function showAddPartModal() {
+    document.getElementById('addPartForm').reset();
+    const modal = new bootstrap.Modal(document.getElementById('addPartModal'));
+    modal.show();
+}
+
+// Neues Teil anlegen
+async function addPart() {
+    const form = document.getElementById('addPartForm');
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    // Herstellerteilenummer auf max. 50 Zeichen begrenzen (Frontend-Schutz)
+    if (data.manufacturer_part_number && data.manufacturer_part_number.length > 50) {
+        showError('Herstellerteilenummer darf maximal 50 Zeichen lang sein.');
+        return;
+    }
+    // Button deaktivieren
+    const btn = document.querySelector('#addPartModal .btn-primary');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Speichern...';
+    try {
+        const response = await fetch('/api/add_part', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        if (result.success) {
+            showSuccess('Teil erfolgreich angelegt!');
+            // Modal schließen
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addPartModal'));
+            if (modal) modal.hide();
+            // Tabelle neu laden
+            await loadAllParts();
+        } else {
+            showError(result.error || 'Fehler beim Anlegen des Teils');
+        }
+    } catch (e) {
+        showError('Fehler beim Anlegen des Teils');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-save me-2"></i>Speichern';
+    }
+}
+
+// Systembestand-Modal anzeigen
+async function showStockModal(partNumber) {
+    document.getElementById('stockModalPartNumber').textContent = partNumber;
+    const container = document.getElementById('stockModalTableContainer');
+    container.innerHTML = '<div class="text-center"><div class="spinner-border"></div> Lädt...</div>';
+    const modalElement = document.getElementById('stockModal');
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+    // Fix: Remove leftover modal-backdrop when modal is hidden
+    modalElement.addEventListener('hidden.bs.modal', function cleanupBackdrop() {
+        document.body.classList.remove('modal-open');
+        const backdrops = document.querySelectorAll('.modal-backdrop');
+        backdrops.forEach(bd => bd.parentNode && bd.parentNode.removeChild(bd));
+        // Remove this event listener after running once
+        modalElement.removeEventListener('hidden.bs.modal', cleanupBackdrop);
+    });
+    try {
+        const response = await fetch(`/api/stock_entries/${encodeURIComponent(partNumber)}`);
+        const data = await response.json();
+        if (data.length === 0) {
+            container.innerHTML = '<div class="alert alert-info">Kein Systembestand für diese Part Number gefunden.</div>';
+            return;
+        }
+        let table = `<div class="table-responsive"><table class="table table-bordered table-striped"><thead><tr><th>Ort</th><th>IST-Bestand</th></tr></thead><tbody>`;
+        data.forEach(row => {
+            table += `<tr><td>${row['Ort'] || ''}</td><td>${row['IST-Bestand'] || ''}</td></tr>`;
+        });
+        table += '</tbody></table></div>';
+        container.innerHTML = table;
+    } catch (e) {
+        container.innerHTML = '<div class="alert alert-danger">Fehler beim Laden des Systembestands.</div>';
     }
 }
