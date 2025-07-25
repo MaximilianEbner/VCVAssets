@@ -61,13 +61,7 @@
     "status": "lagernd",
     "manufacturer_part_number": "46567",
     "last_updated": "2025-07-16T09:02:49.807346",
-    "images": [
-      "images/C1000010-AA_1.jpg",
-      "images/C1000010-AA_2.png",
-      "images/C1000010-AA_3.png",
-      "images/C1000010-AA_4.png",
-      "images/C1000010-AA_5.png"
-    ]
+    "images": []
   },
   {
     "Part number": "C1000014-AA",
@@ -198,9 +192,7 @@
     "Agreement with": "Steyr Automotive",
     "id": 10,
     "status": "lagernd",
-    "images": [
-      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431642/vcv-assets/C1000027-AA/zwrmozcogefaawmrpt69.jpg"
-    ],
+    "images": [],
     "manufacturer_part_number": "123456",
     "last_updated": "2025-07-17T10:01:11.636269",
     "comment": "[17.07.2025 10:01 - VCV Administrator] Hallo Test"
