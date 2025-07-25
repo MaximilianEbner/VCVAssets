@@ -8,21 +8,14 @@ let userRole = 'customer'; // Standard: Customer
 
 // Helper function to get correct image URL
 function getImageUrl(imgPath) {
-    // If it's already a Cloudinary URL, use as is
+    // All images should now be Cloudinary URLs
     if (imgPath.startsWith('https://res.cloudinary.com/')) {
         return imgPath;
     }
     
-    // Legacy local images (fallback for existing images)
-    if (imgPath.startsWith('static/')) {
-        return `/${imgPath}`;
-    }
-    // If path starts with 'images/', prepend 'static/'
-    if (imgPath.startsWith('images/')) {
-        return `/static/${imgPath}`;
-    }
-    // Fallback: assume it needs 'static/images/' prefix
-    return `/static/images/${imgPath}`;
+    // If it's not a Cloudinary URL, something is wrong - log it and return as fallback
+    console.warn('Non-Cloudinary image path found:', imgPath);
+    return imgPath; // Return as-is as fallback
 }
 
 // Get user role from the page
@@ -243,6 +236,10 @@ function createPartRow(part) {
     // Lagerbestand aus "Inventory calculated" Feld
     const inventoryCalculated = part['Inventory calculated'] || 0;
     
+    // Foto-Anzahl berechnen
+    const imageCount = (part.images && Array.isArray(part.images)) ? part.images.length : 0;
+    const imageInfo = imageCount > 0 ? `<small class="text-muted ms-1">(${imageCount} Foto${imageCount > 1 ? 's' : ''})</small>` : '';
+    
     return `
         <tr data-item-id="${part.id || Math.random()}" style="cursor: pointer;">
             <td>
@@ -256,6 +253,7 @@ function createPartRow(part) {
                     </button>
                     ` : ''}
                 </div>
+                ${imageInfo}
             </td>
             <td>
                 ${isCustomer ? 
@@ -822,8 +820,20 @@ function showUserManagement() {
 
 // Lightbox Funktionen
 let currentImageSrc = '';
+let currentImageIndex = 0;
+let currentImageArray = [];
 
 function openLightbox(imageSrc) {
+    // Finde das aktuelle Teil und alle seine Bilder
+    if (currentPart && currentPart.images) {
+        currentImageArray = currentPart.images.map(img => getImageUrl(img));
+        currentImageIndex = currentImageArray.findIndex(url => url === imageSrc);
+        if (currentImageIndex === -1) currentImageIndex = 0;
+    } else {
+        currentImageArray = [imageSrc];
+        currentImageIndex = 0;
+    }
+    
     currentImageSrc = imageSrc;
     const lightbox = document.getElementById('lightboxOverlay');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -831,13 +841,140 @@ function openLightbox(imageSrc) {
     lightboxImage.src = imageSrc;
     lightbox.style.display = 'flex';
     
+    // Update navigation buttons
+    updateLightboxNavigation();
+    
     // Animation mit kleiner Verzögerung
     setTimeout(() => {
         lightbox.classList.add('show');
     }, 10);
     
-    // ESC-Taste zum Schließen
+    // ESC-Taste und Pfeiltasten zum Navigieren
     document.addEventListener('keydown', handleLightboxKeydown);
+}
+
+function updateLightboxNavigation() {
+    const lightbox = document.getElementById('lightboxOverlay');
+    const totalImages = currentImageArray.length;
+    
+    // Navigation nur anzeigen wenn mehr als 1 Bild vorhanden
+    if (totalImages > 1) {
+        const navInfo = `${currentImageIndex + 1} / ${totalImages}`;
+        
+        // Navigation HTML hinzufügen falls nicht vorhanden
+        if (!lightbox.querySelector('.lightbox-nav')) {
+            const navHtml = `
+                <div class="lightbox-nav">
+                    <button class="lightbox-btn lightbox-prev" onclick="navigateLightbox(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="lightbox-counter">${navInfo}</span>
+                    <button class="lightbox-btn lightbox-next" onclick="navigateLightbox(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <style>
+                    .lightbox-nav {
+                        position: absolute;
+                        bottom: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        background: rgba(0,0,0,0.7);
+                        padding: 10px 20px;
+                        border-radius: 25px;
+                        z-index: 1001;
+                    }
+                    .lightbox-btn {
+                        background: rgba(255,255,255,0.2);
+                        border: none;
+                        color: white;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    }
+                    .lightbox-btn:hover:not(:disabled) {
+                        background: rgba(255,255,255,0.4);
+                        transform: scale(1.1);
+                    }
+                    .lightbox-btn:disabled {
+                        opacity: 0.3;
+                        cursor: not-allowed;
+                        transform: none;
+                    }
+                    .lightbox-counter {
+                        color: white;
+                        font-weight: bold;
+                        min-width: 60px;
+                        text-align: center;
+                        font-size: 14px;
+                    }
+                    .lightbox-clickable {
+                        position: absolute;
+                        top: 10%;
+                        width: 30%;
+                        height: 80%;
+                        z-index: 999;
+                        cursor: pointer;
+                    }
+                    .lightbox-click-left {
+                        left: 0;
+                    }
+                    .lightbox-click-right {
+                        right: 0;
+                    }
+                    .lightbox-click-left:hover {
+                        background: linear-gradient(to right, rgba(255,255,255,0.1), transparent);
+                    }
+                    .lightbox-click-right:hover {
+                        background: linear-gradient(to left, rgba(255,255,255,0.1), transparent);
+                    }
+                </style>
+                <div class="lightbox-clickable lightbox-click-left" onclick="navigateLightbox(-1)"></div>
+                <div class="lightbox-clickable lightbox-click-right" onclick="navigateLightbox(1)"></div>
+            `;
+            lightbox.insertAdjacentHTML('beforeend', navHtml);
+        } else {
+            // Update counter
+            lightbox.querySelector('.lightbox-counter').textContent = navInfo;
+        }
+        
+        // Enable/disable navigation buttons
+        const prevBtn = lightbox.querySelector('.lightbox-prev');
+        const nextBtn = lightbox.querySelector('.lightbox-next');
+        
+        prevBtn.disabled = currentImageIndex === 0;
+        nextBtn.disabled = currentImageIndex === totalImages - 1;
+        
+        lightbox.querySelector('.lightbox-nav').style.display = 'flex';
+    } else {
+        // Hide navigation if only one image
+        const nav = lightbox.querySelector('.lightbox-nav');
+        if (nav) nav.style.display = 'none';
+    }
+}
+
+function navigateLightbox(direction) {
+    if (currentImageArray.length <= 1) return;
+    
+    const newIndex = currentImageIndex + direction;
+    
+    if (newIndex >= 0 && newIndex < currentImageArray.length) {
+        currentImageIndex = newIndex;
+        currentImageSrc = currentImageArray[currentImageIndex];
+        
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.src = currentImageSrc;
+        
+        updateLightboxNavigation();
+    }
 }
 
 function closeLightbox() {
@@ -847,6 +984,14 @@ function closeLightbox() {
     setTimeout(() => {
         lightbox.style.display = 'none';
         currentImageSrc = '';
+        currentImageArray = [];
+        currentImageIndex = 0;
+        
+        // Remove navigation elements
+        const nav = lightbox.querySelector('.lightbox-nav');
+        const clickAreas = lightbox.querySelectorAll('.lightbox-clickable');
+        if (nav) nav.remove();
+        clickAreas.forEach(area => area.remove());
     }, 300);
     
     // Event Listener entfernen
@@ -856,6 +1001,10 @@ function closeLightbox() {
 function handleLightboxKeydown(event) {
     if (event.key === 'Escape') {
         closeLightbox();
+    } else if (event.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+    } else if (event.key === 'ArrowRight') {
+        navigateLightbox(1);
     }
 }
 
