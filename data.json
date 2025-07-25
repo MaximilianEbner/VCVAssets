@@ -39,7 +39,7 @@
     "manufacturer_part_number": "46567",
     "last_updated": "2025-07-16T09:01:00.626667",
     "images": [
-      "images/C1000009-AA_1.png"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431641/vcv-assets/C1000009-AA/zspmurmrkbxdumexjmgm.jpg"
     ]
   },
   {
@@ -199,7 +199,7 @@
     "id": 10,
     "status": "lagernd",
     "images": [
-      "static/images/C1000027-AA_1.png"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431642/vcv-assets/C1000027-AA/zwrmozcogefaawmrpt69.jpg"
     ],
     "manufacturer_part_number": "123456",
     "last_updated": "2025-07-17T10:01:11.636269",
@@ -1003,7 +1003,7 @@
     "id": 54,
     "status": "lagernd",
     "images": [
-      "static/images/C1000123-AA_1.png"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431643/vcv-assets/C1000123-AA/g8luamlkg9ozusrxnigv.jpg"
     ]
   },
   {
@@ -4178,7 +4178,7 @@
     "id": 230,
     "status": "lagernd",
     "images": [
-      "static/images/C1000622-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431645/vcv-assets/C1000622-AA/lj4el5fcst2onmysyys7.jpg"
     ]
   },
   {
@@ -4559,7 +4559,7 @@
     "id": 251,
     "status": "lagernd",
     "images": [
-      "static/images/C1000724-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431647/vcv-assets/C1000724-AA/btcmdvlmxt9f4esylpwp.jpg"
     ],
     "manufacturer_part_number": "=P1002568-AA",
     "last_updated": "2025-07-18T10:27:08.794960"
@@ -6256,8 +6256,8 @@
     "id": 345,
     "status": "lagernd",
     "images": [
-      "static/images/C1001107-AA_1.jpg",
-      "static/images/C1001107-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431649/vcv-assets/C1001107-AA/vxqdkfmawpoekxpdake4.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431650/vcv-assets/C1001107-AA/mt34mm1w3vjr0w0sw8hw.jpg"
     ]
   },
   {
@@ -6368,8 +6368,8 @@
     "id": 351,
     "status": "lagernd",
     "images": [
-      "images/C1001123-AA_1.jpg",
-      "images/C1001123-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431652/vcv-assets/C1001123-AA/tglvgy2oqy3yvu7lzneh.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431655/vcv-assets/C1001123-AA/evuzai31tzh1nbvt32an.jpg"
     ]
   },
   {
@@ -9774,7 +9774,7 @@
     "id": 540,
     "status": "lagernd",
     "images": [
-      "static/images/P1000383-AC_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431657/vcv-assets/P1000383-AC/qdyye4eqv1hjt8lwmamh.jpg"
     ]
   },
   {
@@ -9831,7 +9831,7 @@
     "id": 543,
     "status": "lagernd",
     "images": [
-      "static/images/P1000384-AC_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431659/vcv-assets/P1000384-AC/oayq3ssahjqfkzidp37i.jpg"
     ]
   },
   {
@@ -9870,7 +9870,7 @@
     "id": 545,
     "status": "lagernd",
     "images": [
-      "static/images/P1000385-AB_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431661/vcv-assets/P1000385-AB/uexn2xzkr9m7df4putrr.jpg"
     ]
   },
   {
@@ -9927,7 +9927,7 @@
     "id": 548,
     "status": "lagernd",
     "images": [
-      "static/images/P1000386-AC_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431664/vcv-assets/P1000386-AC/xpfllqfx1efbhgx1w7nw.jpg"
     ]
   },
   {
@@ -9966,7 +9966,7 @@
     "id": 550,
     "status": "lagernd",
     "images": [
-      "static/images/P1000387-AB_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431666/vcv-assets/P1000387-AB/ucumbba5pchxodnnsfrt.jpg"
     ]
   },
   {
@@ -10023,7 +10023,7 @@
     "id": 553,
     "status": "lagernd",
     "images": [
-      "static/images/P1000388-AC_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431668/vcv-assets/P1000388-AC/dsmun1do43yn8q8v1tc2.jpg"
     ]
   },
   {
@@ -10368,7 +10368,7 @@
     "id": 572,
     "status": "lagernd",
     "images": [
-      "images/P1000408-AC_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431670/vcv-assets/P1000408-AC/ioa8fo1fr7de5faramha.jpg"
     ]
   },
   {
@@ -10697,8 +10697,8 @@
     "manufacturer_part_number": "14347",
     "last_updated": "2025-07-16T15:15:27.153074",
     "images": [
-      "images/P1000519-AA_1.jpg",
-      "images/P1000519-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431672/vcv-assets/P1000519-AA/ahssba5wixza7pyuav9g.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431675/vcv-assets/P1000519-AA/m1v6fbhjofbowa0in172.jpg"
     ]
   },
   {
@@ -10755,8 +10755,8 @@
     "id": 593,
     "status": "lagernd",
     "images": [
-      "static/images/P1000521-AD_1.jpg",
-      "static/images/P1000521-AD_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431677/vcv-assets/P1000521-AD/od9pyvgx9mb8f8m4od9h.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431679/vcv-assets/P1000521-AD/sd1gxmee19uu3fpj7f5v.jpg"
     ],
     "manufacturer_part_number": "ACU6 - Pro Off Highway",
     "last_updated": "2025-07-24T11:50:21.752542"
@@ -10779,9 +10779,9 @@
     "id": 594,
     "status": "lagernd",
     "images": [
-      "static/images/P1000523-AA_1.jpg",
-      "static/images/P1000523-AA_2.jpg",
-      "static/images/P1000523-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431681/vcv-assets/P1000523-AA/tii7z9mj8mrcfeukzmbr.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431684/vcv-assets/P1000523-AA/faisgbynpckskspdjcwo.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431686/vcv-assets/P1000523-AA/pemcxwfk875ewwstpekk.jpg"
     ],
     "manufacturer_part_number": "3BA 002 768-551",
     "last_updated": "2025-07-18T09:26:50.724572"
@@ -10804,7 +10804,7 @@
     "id": 595,
     "status": "lagernd",
     "images": [
-      "images/P1000524-AA_3.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431688/vcv-assets/P1000524-AA/jtrtfaygbwiw6tadfn9i.jpg",
       "images/P1000524-AA_1.jpg",
       "images/P1000524-AA_2.jpg"
     ],
@@ -11171,9 +11171,9 @@
     "id": 615,
     "status": "lagernd",
     "images": [
-      "images/P1000689-AA_1.jpg",
-      "images/P1000689-AA_2.jpg",
-      "images/P1000689-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431691/vcv-assets/P1000689-AA/mryvyo4vfabjtov1ox8y.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431694/vcv-assets/P1000689-AA/aopop2sood3al422ctjz.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431696/vcv-assets/P1000689-AA/mmudfvhkeiysndstdjnz.jpg"
     ]
   },
   {
@@ -11212,8 +11212,8 @@
     "id": 617,
     "status": "lagernd",
     "images": [
-      "static/images/P1000696-AB_1.jpg",
-      "static/images/P1000696-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431698/vcv-assets/P1000696-AB/pytr8y0cwhfuhjpvx8xd.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431700/vcv-assets/P1000696-AB/btfs47eiuoxxoxw8st9n.jpg"
     ]
   },
   {
@@ -11252,8 +11252,8 @@
     "id": 619,
     "status": "lagernd",
     "images": [
-      "static/images/P1000697-AB_1.jpg",
-      "static/images/P1000697-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431703/vcv-assets/P1000697-AB/zwfj8j8g475bwdoyibdv.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431705/vcv-assets/P1000697-AB/hdtknex87asm3ent2pts.jpg"
     ]
   },
   {
@@ -11364,9 +11364,9 @@
     "id": 625,
     "status": "lagernd",
     "images": [
-      "images/P1000708-AB_1.jpg",
-      "images/P1000708-AB_2.jpg",
-      "images/P1000708-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431707/vcv-assets/P1000708-AB/lidreyhnrlwhou72hlif.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431709/vcv-assets/P1000708-AB/fgxcfhehdeos3uleq0qk.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431711/vcv-assets/P1000708-AB/bijojmtq1hinuel7q8ys.jpg"
     ],
     "manufacturer_part_number": "A-01043-D1",
     "last_updated": "2025-07-16T10:27:25.745250"
@@ -11463,8 +11463,8 @@
     "manufacturer_part_number": "BN360-300-ECU",
     "last_updated": "2025-07-16T15:33:54.860564",
     "images": [
-      "images/P1000727-AB_1.jpg",
-      "images/P1000727-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431713/vcv-assets/P1000727-AB/yhjfdhgi4gtrnxmty9dz.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431715/vcv-assets/P1000727-AB/hcwefi2ug5xgiujynjsq.jpg"
     ]
   },
   {
@@ -11539,9 +11539,9 @@
     "id": 634,
     "status": "lagernd",
     "images": [
-      "images/P1000731-AB_1.jpg",
-      "images/P1000731-AB_2.jpg",
-      "images/P1000731-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431716/vcv-assets/P1000731-AB/jjt9pzvub6aspuruuh5z.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431718/vcv-assets/P1000731-AB/g1ca8j3fcf4zieekjkra.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431720/vcv-assets/P1000731-AB/dcrdhbygqvxkc0sub7xu.jpg"
     ],
     "manufacturer_part_number": "AC-H305",
     "last_updated": "2025-07-16T16:10:18.441665"
@@ -13996,8 +13996,8 @@
     "id": 770,
     "status": "lagernd",
     "images": [
-      "static/images/P1001097-AC_1.jpg",
-      "static/images/P1001097-AC_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431722/vcv-assets/P1001097-AC/wlsukd7exbpxa3loc5oh.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431724/vcv-assets/P1001097-AC/mv72odn5ryfcq5bmpxbe.jpg"
     ]
   },
   {
@@ -15227,10 +15227,10 @@
     "last_updated": "2025-07-16T14:48:32.094402",
     "comment": "[16.07.2025 14:48 - VCV Administrator] Hersteller Molex",
     "images": [
-      "images/P1001255-AA_1.jpg",
-      "images/P1001255-AA_2.jpg",
-      "images/P1001255-AA_3.jpg",
-      "images/P1001255-AA_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431727/vcv-assets/P1001255-AA/onxngfravqd0igitddry.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431729/vcv-assets/P1001255-AA/rgoiclhtsmdczzskonn2.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431730/vcv-assets/P1001255-AA/yxwmifubhq052hacjbgb.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431732/vcv-assets/P1001255-AA/mxm9fffawqwh4gbnxsex.jpg"
     ]
   },
   {
@@ -15560,8 +15560,8 @@
     "id": 856,
     "status": "lagernd",
     "images": [
-      "images/P1001281-AA_1.jpg",
-      "images/P1001281-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431734/vcv-assets/P1001281-AA/ndolstgn7yq9qsjav0g2.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431736/vcv-assets/P1001281-AA/lfpp5yecdtqq6sealhb3.jpg"
     ],
     "manufacturer_part_number": "4S7341VAA",
     "last_updated": "2025-07-16T15:42:00.307412"
@@ -15890,7 +15890,7 @@
     "id": 874,
     "status": "lagernd",
     "images": [
-      "images/P1001342-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431738/vcv-assets/P1001342-AA/ctblsnbhw82o6jdvjsfx.jpg"
     ]
   },
   {
@@ -16055,9 +16055,9 @@
     "id": 883,
     "status": "lagernd",
     "images": [
-      "static/images/P1001367-AA_1.jpg",
-      "static/images/P1001367-AA_2.jpg",
-      "static/images/P1001367-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431740/vcv-assets/P1001367-AA/tmwno7gbp4u3jx00gx54.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431742/vcv-assets/P1001367-AA/eyb1nbaayqy8dxikuqfp.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431743/vcv-assets/P1001367-AA/vedjpwxas0ssqwjmgofy.jpg"
     ],
     "manufacturer_part_number": "SP171041",
     "last_updated": "2025-07-24T11:33:23.036526"
@@ -16080,10 +16080,10 @@
     "id": 884,
     "status": "lagernd",
     "images": [
-      "static/images/P1001368-AA_1.jpg",
-      "static/images/P1001368-AA_2.jpg",
-      "static/images/P1001368-AA_3.jpg",
-      "static/images/P1001368-AA_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431745/vcv-assets/P1001368-AA/y2dz8zxthfnl8pytkdfr.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431747/vcv-assets/P1001368-AA/pcqe49ooihuopy9jlzp0.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431749/vcv-assets/P1001368-AA/i9qgy3lf34dzbt89yg9u.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431751/vcv-assets/P1001368-AA/o8bmoijfvdqiinzpqwng.jpg"
     ],
     "manufacturer_part_number": "700DNC40-24-8S580",
     "last_updated": "2025-07-24T11:34:37.557140"
@@ -16142,8 +16142,8 @@
     "id": 887,
     "status": "lagernd",
     "images": [
-      "images/P1001369-AC_1.jpg",
-      "images/P1001369-AC_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431753/vcv-assets/P1001369-AC/r5wh5pn6dsotp6b8ljjs.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431755/vcv-assets/P1001369-AC/oxsnl6i5eggp3x2vquuv.jpg"
     ],
     "manufacturer_part_number": "AB21C4D000704",
     "last_updated": "2025-07-16T15:59:58.384622"
@@ -16166,8 +16166,8 @@
     "id": 888,
     "status": "lagernd",
     "images": [
-      "images/P1001371-AA_1.jpg",
-      "images/P1001371-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431758/vcv-assets/P1001371-AA/fsqvfitmuzngj7pqvlpv.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431760/vcv-assets/P1001371-AA/wxyhsdbfoyxomg4zbz5r.jpg"
     ],
     "manufacturer_part_number": "HVSL630062C1S1",
     "last_updated": "2025-07-16T15:44:32.807982"
@@ -16229,9 +16229,9 @@
     "last_updated": "2025-07-16T14:49:32.643266",
     "manufacturer_part_number": "880064",
     "images": [
-      "images/P1001377-AA_1.jpg",
-      "images/P1001377-AA_2.jpg",
-      "images/P1001377-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431762/vcv-assets/P1001377-AA/ad2kyotsog1vjjzbjufx.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431764/vcv-assets/P1001377-AA/hv8weopgen5eutthz13d.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431766/vcv-assets/P1001377-AA/sauiuf60tbznf14i8fk0.jpg"
     ]
   },
   {
@@ -16273,9 +16273,9 @@
     "last_updated": "2025-07-16T15:50:58.211693",
     "comment": "[16.07.2025 15:50 - VCV Administrator] A4-9100R032",
     "images": [
-      "images/P1001380-AB_1.jpg",
-      "images/P1001380-AB_2.jpg",
-      "images/P1001380-AB_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431768/vcv-assets/P1001380-AB/fbo3udct3plpjkm5xchs.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431770/vcv-assets/P1001380-AB/t2kaf9vw7ngxagcxd2in.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431772/vcv-assets/P1001380-AB/nubh5kkuz5gg6zjazy50.jpg"
     ]
   },
   {
@@ -16299,8 +16299,8 @@
     "last_updated": "2025-07-16T15:53:54.010988",
     "comment": "[16.07.2025 15:53 - VCV Administrator] Danfoss Edition EC-1200F-1200",
     "images": [
-      "images/P1001387-AA_1.jpg",
-      "images/P1001387-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431775/vcv-assets/P1001387-AA/zmn8tajsgfs5xbsquvf3.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431777/vcv-assets/P1001387-AA/iihehecdfmcrnlssbr1j.jpg"
     ]
   },
   {
@@ -16360,7 +16360,7 @@
     "last_updated": "2025-07-16T15:48:09.803271",
     "comment": "[16.07.2025 15:48 - VCV Administrator] Amphenol",
     "images": [
-      "images/P1001395-AB_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431779/vcv-assets/P1001395-AB/hcayqgztzuotnhccfogf.jpg"
     ]
   },
   {
@@ -16399,9 +16399,9 @@
     "id": 899,
     "status": "lagernd",
     "images": [
-      "static/images/P1001409-AA_1.jpg",
-      "static/images/P1001409-AA_2.jpg",
-      "static/images/P1001409-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431781/vcv-assets/P1001409-AA/b6whwdhpuxsisdnfh3z5.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431783/vcv-assets/P1001409-AA/q1uvwt7vpiih3lxufyz2.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431786/vcv-assets/P1001409-AA/huvowadc53mnsuwcpqwt.jpg"
     ],
     "manufacturer_part_number": "500-14010",
     "last_updated": "2025-07-24T14:53:44.581377"
@@ -16424,9 +16424,9 @@
     "id": 900,
     "status": "lagernd",
     "images": [
-      "static/images/P1001409-AB_1.jpg",
-      "static/images/P1001409-AB_2.jpg",
-      "static/images/P1001409-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431788/vcv-assets/P1001409-AB/cbmbewikxyvcpipogcwm.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431791/vcv-assets/P1001409-AB/uvgoioxwbpgfgpyrrrzs.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431793/vcv-assets/P1001409-AB/ommvii7zpc5p24pysqzb.jpg"
     ],
     "manufacturer_part_number": "500-14010",
     "last_updated": "2025-07-24T14:52:44.347954"
@@ -16467,9 +16467,9 @@
     "id": 902,
     "status": "lagernd",
     "images": [
-      "static/images/P1001413-AA_1.jpg",
-      "static/images/P1001413-AA_2.jpg",
-      "static/images/P1001413-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431797/vcv-assets/P1001413-AA/ronqr6p0wfai4es5rhaw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431799/vcv-assets/P1001413-AA/ztfazptcay3p6k6q1ev2.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431801/vcv-assets/P1001413-AA/xgkgrftditoutsfmy0kj.jpg"
     ],
     "manufacturer_part_number": "TX01-2-391A",
     "last_updated": "2025-07-24T17:45:15.734639"
@@ -16513,9 +16513,9 @@
     "last_updated": "2025-07-16T15:48:26.401714",
     "comment": "[16.07.2025 15:48 - VCV Administrator] Wabco",
     "images": [
-      "images/P1001425-AA_1.jpg",
-      "images/P1001425-AA_2.jpg",
-      "images/P1001425-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431804/vcv-assets/P1001425-AA/xdxw5whfwt4w62z8vx1b.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431806/vcv-assets/P1001425-AA/rbiekbfumo3irxzqpjzs.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431808/vcv-assets/P1001425-AA/j9arzuhvw1ptxeuoempa.jpg"
     ]
   },
   {
@@ -16556,9 +16556,9 @@
     "manufacturer_part_number": "4801067020",
     "last_updated": "2025-07-16T15:57:37.272588",
     "images": [
-      "images/P1001429-AA_1.jpg",
-      "images/P1001429-AA_2.jpg",
-      "images/P1001429-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431810/vcv-assets/P1001429-AA/xcjwnjfqwnwe4dbk6tzw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431812/vcv-assets/P1001429-AA/utkz82h5ngrvwvujn4l3.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431815/vcv-assets/P1001429-AA/xcjbr0ooqfiezcxo8peo.jpg"
     ]
   },
   {
@@ -16599,10 +16599,10 @@
     "comment": "[16.07.2025 14:58 - VCV Administrator] Wabco",
     "last_updated": "2025-07-24T17:47:43.145378",
     "images": [
-      "images/P1001432-AB_1.jpg",
-      "images/P1001432-AB_2.jpg",
-      "images/P1001432-AB_3.jpg",
-      "images/P1001432-AB_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431818/vcv-assets/P1001432-AB/yll4b37tte8p22oxudy0.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431820/vcv-assets/P1001432-AB/p2agpm8rbejgltpg839k.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431823/vcv-assets/P1001432-AB/jswmg2j4kmijeohlswyp.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431824/vcv-assets/P1001432-AB/zmdbp3umosizonl0jsrh.jpg"
     ],
     "manufacturer_part_number": "Zusammenbau"
   },
@@ -16627,8 +16627,8 @@
     "last_updated": "2025-07-16T15:21:01.525920",
     "comment": "[16.07.2025 15:21 - VCV Administrator] Wabco EBS3 ZM STD",
     "images": [
-      "images/P1001435-AA_1.jpg",
-      "images/P1001435-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431827/vcv-assets/P1001435-AA/mo4kdkc1qucurlfbunjw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431830/vcv-assets/P1001435-AA/zt9udvtpp7t4ezorykcq.jpg"
     ]
   },
   {
@@ -16652,8 +16652,8 @@
     "last_updated": "2025-07-16T15:42:33.941181",
     "comment": "[16.07.2025 15:42 - VCV Administrator] Wabco",
     "images": [
-      "images/P1001437-AA_1.jpg",
-      "images/P1001437-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431832/vcv-assets/P1001437-AA/damsv139fbidbhzoxchi.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431835/vcv-assets/P1001437-AA/c8cxbsxvelcqkouqzm1u.jpg"
     ]
   },
   {
@@ -16764,8 +16764,8 @@
     "id": 916,
     "status": "lagernd",
     "images": [
-      "static/images/P1001450-AB_1.jpg",
-      "static/images/P1001450-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431837/vcv-assets/P1001450-AB/zwljdltkyxdjt6qqkmgw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431839/vcv-assets/P1001450-AB/hutxkvgswtjnb0kic7sv.jpg"
     ]
   },
   {
@@ -22139,8 +22139,8 @@
     "comment": "[16.07.2025 15:37 - VCV Administrator] www.etpic.com",
     "last_updated": "2025-07-16T15:37:13.951626",
     "images": [
-      "images/P1002108-AA_1.jpg",
-      "images/P1002108-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431841/vcv-assets/P1002108-AA/sidytjtgybqs7tmvz2xk.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431842/vcv-assets/P1002108-AA/t1xjbh3iyt4beoiysoee.jpg"
     ]
   },
   {
@@ -22521,8 +22521,8 @@
     "id": 1235,
     "status": "lagernd",
     "images": [
-      "static/images/P1002160-AB_1.jpg",
-      "static/images/P1002160-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431844/vcv-assets/P1002160-AB/m9zrzzsdwzcjdq3fhmpz.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431846/vcv-assets/P1002160-AB/ldmpbc5bsx4exc9vptrl.jpg"
     ],
     "manufacturer_part_number": "480 400 999 0",
     "last_updated": "2025-07-24T13:52:50.948132"
@@ -22566,9 +22566,9 @@
     "last_updated": "2025-07-16T15:51:08.221466",
     "comment": "[16.07.2025 15:51 - VCV Administrator] Wabco",
     "images": [
-      "images/P1002162-AB_1.jpg",
-      "images/P1002162-AB_2.jpg",
-      "images/P1002162-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431849/vcv-assets/P1002162-AB/u0bf3du50trip6fucpnt.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431851/vcv-assets/P1002162-AB/krrwallelfyhwygckp6v.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431852/vcv-assets/P1002162-AB/yab3rmexpqtue4rvo7ti.jpg"
     ]
   },
   {
@@ -22681,9 +22681,9 @@
     "manufacturer_part_number": "24INV08-230-8S579",
     "last_updated": "2025-07-16T15:29:32.888735",
     "images": [
-      "images/P1002243-AA_1.jpg",
-      "images/P1002243-AA_2.jpg",
-      "images/P1002243-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431854/vcv-assets/P1002243-AA/oigylagbrqir1br8gkfw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431856/vcv-assets/P1002243-AA/ygozyvfbg160bmtr8amm.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431858/vcv-assets/P1002243-AA/uvxqakie0f1p3syypchw.jpg"
     ]
   },
   {
@@ -23010,8 +23010,8 @@
     "id": 1261,
     "status": "lagernd",
     "images": [
-      "images/P1002289-AA_1.jpg",
-      "images/P1002289-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431860/vcv-assets/P1002289-AA/jtxk55ruv6vmd7prrbpl.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431861/vcv-assets/P1002289-AA/q4zeaarw24jjzxa4f0ww.jpg"
     ]
   },
   {
@@ -23608,8 +23608,8 @@
     "id": 1294,
     "status": "lagernd",
     "images": [
-      "images/P1002350-AB_1.jpg",
-      "images/P1002350-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431863/vcv-assets/P1002350-AB/wphfb03a5bgvjaj7tbcq.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431865/vcv-assets/P1002350-AB/cu7crvfk8ndjodeiphal.jpg"
     ]
   },
   {
@@ -23666,9 +23666,9 @@
     "id": 1297,
     "status": "lagernd",
     "images": [
-      "images/P1002351-AB_1.jpg",
-      "images/P1002351-AB_2.jpg",
-      "images/P1002351-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431867/vcv-assets/P1002351-AB/v5nibaaeaxntccy0ed5h.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431868/vcv-assets/P1002351-AB/ypuoojx2r7gwopupjchx.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431870/vcv-assets/P1002351-AB/jnmfyhbddhr7gq4xwtk0.jpg"
     ]
   },
   {
@@ -23727,10 +23727,10 @@
     "comment": "[16.07.2025 15:18 - VCV Administrator] Actuator PSS-3",
     "last_updated": "2025-07-16T15:18:01.889905",
     "images": [
-      "images/P1002363-AA_1.jpg",
-      "images/P1002363-AA_2.jpg",
-      "images/P1002363-AA_3.jpg",
-      "images/P1002363-AA_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431872/vcv-assets/P1002363-AA/oferqx9raxmzaaqmudhg.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431874/vcv-assets/P1002363-AA/cshem20msihrlvjkt8io.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431877/vcv-assets/P1002363-AA/u2rah3k9iaiidy5zbnvp.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431880/vcv-assets/P1002363-AA/eg0hnh8i41mibumtywdc.jpg"
     ]
   },
   {
@@ -23844,8 +23844,8 @@
     "id": 1306,
     "status": "lagernd",
     "images": [
-      "images/P1002371-AC_1.jpg",
-      "images/P1002371-AC_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431882/vcv-assets/P1002371-AC/tgmjgnx4kgt95tk0usp4.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431884/vcv-assets/P1002371-AC/syleelkfaql0ttfhwzat.jpg"
     ]
   },
   {
@@ -24211,8 +24211,8 @@
     "last_updated": "2025-07-16T15:23:25.013225",
     "comment": "[16.07.2025 15:23 - VCV Administrator] Wabco ECAS Can3 24v",
     "images": [
-      "images/P1002423-AB_1.jpg",
-      "images/P1002423-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431887/vcv-assets/P1002423-AB/f1nel7zfbiwzzasehtk3.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431890/vcv-assets/P1002423-AB/cqqtmasakvlixp4okmdh.jpg"
     ]
   },
   {
@@ -24235,8 +24235,8 @@
     "manufacturer_part_number": "4728900220",
     "last_updated": "2025-07-16T15:55:44.416023",
     "images": [
-      "images/P1002427-AA_1.jpg",
-      "images/P1002427-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431891/vcv-assets/P1002427-AA/btyiht3qpa1c4hykcsko.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431894/vcv-assets/P1002427-AA/twznbdjgitrkelgsqhwh.jpg"
     ]
   },
   {
@@ -24259,9 +24259,9 @@
     "manufacturer_part_number": "4728900410",
     "last_updated": "2025-07-16T15:53:20.345077",
     "images": [
-      "images/P1002428-AA_1.jpg",
-      "images/P1002428-AA_2.jpg",
-      "images/P1002428-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431895/vcv-assets/P1002428-AA/c5jrtvkkulycqjuqewqf.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431897/vcv-assets/P1002428-AA/hguwacmzprt4di5mi5yw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431899/vcv-assets/P1002428-AA/kzjnevwg0njasy5vbysl.jpg"
     ]
   },
   {
@@ -24356,8 +24356,8 @@
     "manufacturer_part_number": "0 392 024 041 -oah",
     "last_updated": "2025-07-24T11:39:57.603211",
     "images": [
-      "static/images/P1002442-AA_1.jpg",
-      "static/images/P1002442-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431901/vcv-assets/P1002442-AA/mchpytqvatxce2oyklta.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431903/vcv-assets/P1002442-AA/hkmzgp0ndzl5mbr2hlr4.jpg"
     ]
   },
   {
@@ -24432,9 +24432,9 @@
     "id": 1337,
     "status": "lagernd",
     "images": [
-      "static/images/P1002451-AA_1.jpg",
-      "static/images/P1002451-AA_2.jpg",
-      "static/images/P1002451-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431905/vcv-assets/P1002451-AA/obgggqvsjrmi4b0myd2d.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431909/vcv-assets/P1002451-AA/jjulbacgt0kgi9fowdrf.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431911/vcv-assets/P1002451-AA/ex9fgivusggi7tjkgyup.jpg"
     ]
   },
   {
@@ -25391,10 +25391,10 @@
     "id": 1390,
     "status": "lagernd",
     "images": [
-      "images/P1002526-AB_1.jpg",
-      "images/P1002526-AB_2.jpg",
-      "static/images/P1002526-AB_1.jpg",
-      "static/images/P1002526-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431913/vcv-assets/P1002526-AB/k0cjsibobpmntaoepbzo.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431914/vcv-assets/P1002526-AB/bwnxjrjbrcu5el42n7oo.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431917/vcv-assets/P1002526-AB/oubuvmbb8m8w8o7k4zyq.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431918/vcv-assets/P1002526-AB/jfz1pdrguokq2orbxhxj.jpg"
     ]
   },
   {
@@ -25973,8 +25973,8 @@
     "id": 1422,
     "status": "lagernd",
     "images": [
-      "static/images/P1002568-AA_1.jpg",
-      "static/images/P1002568-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431921/vcv-assets/P1002568-AA/jxqefpj4yvfuheccylla.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431924/vcv-assets/P1002568-AA/ay6wkon40hq0sxpqxtyb.jpg"
     ]
   },
   {
@@ -25995,9 +25995,9 @@
     "id": 1423,
     "status": "lagernd",
     "images": [
-      "static/images/P1002573-AA_1.jpg",
-      "static/images/P1002573-AA_2.jpg",
-      "static/images/P1002573-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431926/vcv-assets/P1002573-AA/n7ogkpjylosqfiai1kds.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431929/vcv-assets/P1002573-AA/trqjwua0tkxozxpiz2nr.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431932/vcv-assets/P1002573-AA/sbahpeclcg5zrywqvtaa.jpg"
     ]
   },
   {
@@ -26036,7 +26036,7 @@
     "id": 1425,
     "status": "lagernd",
     "images": [
-      "static/images/P1002579-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431935/vcv-assets/P1002579-AA/adfk0ygcio9w7zksdou4.jpg"
     ]
   },
   {
@@ -26111,8 +26111,8 @@
     "id": 1429,
     "status": "lagernd",
     "images": [
-      "static/images/P1002586-AB_1.jpg",
-      "static/images/P1002586-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431938/vcv-assets/P1002586-AB/g38vgmhetnw5sct9a1dg.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431939/vcv-assets/P1002586-AB/ofvzkyl2ozcnxeegfcox.jpg"
     ],
     "manufacturer_part_number": "72555227",
     "last_updated": "2025-07-21T08:55:50.571304",
@@ -26156,9 +26156,9 @@
     "manufacturer_part_number": "MA/HVH100 STD",
     "last_updated": "2025-07-16T11:01:47.331339",
     "images": [
-      "images/P1002591-AB_1.jpg",
-      "images/P1002591-AB_2.jpg",
-      "images/P1002591-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431941/vcv-assets/P1002591-AB/r6rjh4h0e87rtoosq12j.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431944/vcv-assets/P1002591-AB/v6kdnaqscjld2tge5zbm.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431946/vcv-assets/P1002591-AB/yotsu17azncuunf5jq8c.jpg"
     ]
   },
   {
@@ -26739,8 +26739,8 @@
     "manufacturer_part_number": "4410502030",
     "last_updated": "2025-07-18T08:40:35.680983",
     "images": [
-      "images/P1002682-AA_1.jpg",
-      "images/P1002682-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431950/vcv-assets/P1002682-AA/ufluucir2gf5vmivqwk6.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431951/vcv-assets/P1002682-AA/zqqeuivghhwmxznmqp4b.jpg"
     ],
     "comment": "[18.07.2025 08:40 - VCV Administrator] Wabco"
   },
@@ -26764,7 +26764,7 @@
     "manufacturer_part_number": "4410442040",
     "last_updated": "2025-07-16T10:54:15.302046",
     "images": [
-      "images/P1002683-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431953/vcv-assets/P1002683-AA/f2pkhifyarfgabpavbgc.jpg"
     ]
   },
   {
@@ -31339,9 +31339,9 @@
     "id": 1718,
     "status": "lagernd",
     "images": [
-      "static/images/P1003164-AA_1.jpg",
-      "static/images/P1003164-AA_2.jpg",
-      "static/images/P1003164-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431956/vcv-assets/P1003164-AA/dgvo4lugop6qja9drvch.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431959/vcv-assets/P1003164-AA/jzonmurieqi2x44fujgj.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431962/vcv-assets/P1003164-AA/v2fvuegftjebsgpctufs.jpg"
     ]
   },
   {
@@ -31362,9 +31362,9 @@
     "id": 1719,
     "status": "lagernd",
     "images": [
-      "static/images/P1003176-AA_1.jpg",
-      "static/images/P1003176-AA_2.jpg",
-      "static/images/P1003176-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431965/vcv-assets/P1003176-AA/qxm4tcmooq5kjkbfjirg.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431968/vcv-assets/P1003176-AA/kefyc8onazh0jcjxugbf.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431971/vcv-assets/P1003176-AA/ji9pvpqmdtdp6oftrjm1.jpg"
     ],
     "manufacturer_part_number": "4410141170",
     "last_updated": "2025-07-18T10:34:46.426614"
@@ -31657,7 +31657,7 @@
     "id": 1735,
     "status": "lagernd",
     "images": [
-      "images/P1003219-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431973/vcv-assets/P1003219-AA/vkwquoronlda4uvi9fo7.jpg"
     ]
   },
   {
@@ -32386,9 +32386,9 @@
     "id": 1775,
     "status": "lagernd",
     "images": [
-      "static/images/P1003331-AB_1.jpg",
-      "static/images/P1003331-AB_2.jpg",
-      "static/images/P1003331-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431977/vcv-assets/P1003331-AB/crdyuebl2ehyqi0obubj.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431980/vcv-assets/P1003331-AB/xxwsf1eywn2vtbayoetb.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431983/vcv-assets/P1003331-AB/cwzg61smb1wo93xkvj0l.jpg"
     ]
   },
   {
@@ -32427,8 +32427,8 @@
     "id": 1777,
     "status": "lagernd",
     "images": [
-      "static/images/P1003349-AB_1.jpg",
-      "static/images/P1003349-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431986/vcv-assets/P1003349-AB/jo5wvvildusatwbbczcl.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431989/vcv-assets/P1003349-AB/rzblmmjuepeo57zllqau.jpg"
     ]
   },
   {
@@ -32467,10 +32467,10 @@
     "id": 1779,
     "status": "lagernd",
     "images": [
-      "static/images/P1003352-AB_1.jpg",
-      "static/images/P1003352-AB_2.jpg",
-      "static/images/P1003352-AB_3.jpg",
-      "static/images/P1003352-AB_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431991/vcv-assets/P1003352-AB/bk36mfeerxdd4gbkygze.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431993/vcv-assets/P1003352-AB/bnkawqk7849nnftgmjai.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431995/vcv-assets/P1003352-AB/hledbliv35aue633z28f.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431997/vcv-assets/P1003352-AB/hfy0qqusr5wb4pjgop1q.jpg"
     ],
     "manufacturer_part_number": "4474152055",
     "last_updated": "2025-07-18T09:18:12.190851"
@@ -32511,9 +32511,9 @@
     "id": 1781,
     "status": "lagernd",
     "images": [
-      "static/images/P1003354-AB_1.jpg",
-      "static/images/P1003354-AB_2.jpg",
-      "static/images/P1003354-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431999/vcv-assets/P1003354-AB/rwvasltz7n76f743zssd.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432001/vcv-assets/P1003354-AB/szobjuat2hzx5pc8oawq.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432003/vcv-assets/P1003354-AB/wbypwwofgzr1ggmiw5mr.jpg"
     ],
     "manufacturer_part_number": "4474152056",
     "last_updated": "2025-07-18T09:15:58.909822"
@@ -32539,10 +32539,10 @@
     "last_updated": "2025-07-18T08:45:48.808820",
     "comment": "[18.07.2025 08:45 - VCV Administrator] Vibracoustic",
     "images": [
-      "static/images/P1003364-AA_1.jpg",
-      "static/images/P1003364-AA_2.jpg",
-      "static/images/P1003364-AA_3.jpg",
-      "static/images/P1003364-AA_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432006/vcv-assets/P1003364-AA/wyvaqfdsgb3xctyjx2vf.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432009/vcv-assets/P1003364-AA/ykvffbuabgsqwjoc7vhv.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432012/vcv-assets/P1003364-AA/ofgtb1cwlr97mivlsgom.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432014/vcv-assets/P1003364-AA/taifmijbkmttrkwhm9oo.jpg"
     ]
   },
   {
@@ -32619,9 +32619,9 @@
     "manufacturer_part_number": "A115369-009",
     "last_updated": "2025-07-16T10:22:17.617198",
     "images": [
-      "images/P1003371-AC_1.jpg",
-      "images/P1003371-AC_2.jpg",
-      "images/P1003371-AC_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432016/vcv-assets/P1003371-AC/mchcml6n8cmbbovz1tlr.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432018/vcv-assets/P1003371-AC/r1vshg9glmi4qfaovrcx.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432020/vcv-assets/P1003371-AC/nslxniyxadqrncn9b0jj.jpg"
     ]
   },
   {
@@ -32714,8 +32714,8 @@
     "id": 1791,
     "status": "lagernd",
     "images": [
-      "static/images/P1003399-AA_1.jpg",
-      "static/images/P1003399-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432023/vcv-assets/P1003399-AA/l0yzo1ievsmo6bntkppz.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432026/vcv-assets/P1003399-AA/modnygurojzvy3aiehwk.jpg"
     ]
   },
   {
@@ -32736,9 +32736,9 @@
     "id": 1792,
     "status": "lagernd",
     "images": [
-      "static/images/P1003400-AA_1.jpg",
-      "static/images/P1003400-AA_2.jpg",
-      "static/images/P1003400-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432029/vcv-assets/P1003400-AA/fczbxowuzln80xfb6uwe.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432031/vcv-assets/P1003400-AA/klwfvwyd76d1fz5qgsla.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432034/vcv-assets/P1003400-AA/iq0trk480yhlxhfunxtp.jpg"
     ]
   },
   {
@@ -33443,8 +33443,8 @@
     "id": 1831,
     "status": "lagernd",
     "images": [
-      "static/images/P1003527-AA_1.jpg",
-      "static/images/P1003527-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432037/vcv-assets/P1003527-AA/krugfpcrqxrof32fnkli.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432039/vcv-assets/P1003527-AA/qofwmoqv34okz6dgtw1z.jpg"
     ]
   },
   {
@@ -33465,8 +33465,8 @@
     "id": 1832,
     "status": "lagernd",
     "images": [
-      "static/images/P1003528-AA_1.jpg",
-      "static/images/P1003528-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432042/vcv-assets/P1003528-AA/sy0mprgd1wry8h0l11lg.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432045/vcv-assets/P1003528-AA/plxtltqsfcrt1b6ca9va.jpg"
     ]
   },
   {
@@ -33487,8 +33487,8 @@
     "id": 1833,
     "status": "lagernd",
     "images": [
-      "static/images/P1003530-AA_1.jpg",
-      "static/images/P1003530-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432048/vcv-assets/P1003530-AA/vuhcwlpdxzgrohhnxcpu.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432050/vcv-assets/P1003530-AA/rgmeazmcvoh0d5nkilza.jpg"
     ]
   },
   {
@@ -33509,8 +33509,8 @@
     "id": 1834,
     "status": "lagernd",
     "images": [
-      "static/images/P1003531-AA_1.jpg",
-      "static/images/P1003531-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432053/vcv-assets/P1003531-AA/drrjztmysbjqhcqpzihb.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432055/vcv-assets/P1003531-AA/ofbqkrylcufofypd01hu.jpg"
     ]
   },
   {
@@ -33533,9 +33533,9 @@
     "manufacturer_part_number": "93150022A",
     "last_updated": "2025-07-16T10:29:45.748783",
     "images": [
-      "images/P1003532-AA_1.jpg",
-      "images/P1003532-AA_2.jpg",
-      "images/P1003532-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432057/vcv-assets/P1003532-AA/ahgaowwf6ue7ggbcojy3.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432059/vcv-assets/P1003532-AA/mfqc2ztonb4k12g0bvu5.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432062/vcv-assets/P1003532-AA/qrky1g6ldptgeh7tux8x.jpg"
     ]
   },
   {
@@ -33556,7 +33556,7 @@
     "id": 1836,
     "status": "lagernd",
     "images": [
-      "static/images/P1003533-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432064/vcv-assets/P1003533-AA/cx7ithxjbaagfm0kcokc.jpg"
     ]
   },
   {
@@ -33631,9 +33631,9 @@
     "id": 1840,
     "status": "lagernd",
     "images": [
-      "images/P1003547-AA_1.jpg",
-      "static/images/P1003547-AA_1.jpg",
-      "static/images/P1003547-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432066/vcv-assets/P1003547-AA/lhldia5c3dsshdhxx5wj.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432068/vcv-assets/P1003547-AA/rph1wyhgluebrwmrataz.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432070/vcv-assets/P1003547-AA/p4uo0vz6rnx5verqdrv6.jpg"
     ]
   },
   {
@@ -33656,8 +33656,8 @@
     "manufacturer_part_number": "90212005A",
     "last_updated": "2025-07-16T10:34:53.832784",
     "images": [
-      "images/P1003548-AA_1.jpg",
-      "images/P1003548-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432072/vcv-assets/P1003548-AA/uctd6t2lorhlcwqfk7hs.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432074/vcv-assets/P1003548-AA/apdwtpkhdzsgsyxjwhve.jpg"
     ]
   },
   {
@@ -33678,9 +33678,9 @@
     "id": 1842,
     "status": "lagernd",
     "images": [
-      "static/images/P1003564-AA_1.jpg",
-      "static/images/P1003564-AA_2.jpg",
-      "static/images/P1003564-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432077/vcv-assets/P1003564-AA/p7ophatexxoa6ulnpces.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432079/vcv-assets/P1003564-AA/oycwlwwpfjyqeo8zt1uf.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432081/vcv-assets/P1003564-AA/nqnvzfwy8h2qltbqafnx.jpg"
     ]
   },
   {
@@ -33737,8 +33737,8 @@
     "id": 1845,
     "status": "lagernd",
     "images": [
-      "static/images/P1003591-AA_1.jpg",
-      "static/images/P1003591-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432083/vcv-assets/P1003591-AA/btedjwidjd1znyqxyr7t.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432086/vcv-assets/P1003591-AA/c7xx5wtthr8u3fjodziu.jpg"
     ]
   },
   {
@@ -34641,9 +34641,9 @@
     "id": 1895,
     "status": "lagernd",
     "images": [
-      "static/images/P1003668-AA_1.jpg",
-      "static/images/P1003668-AA_2.jpg",
-      "static/images/P1003668-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432089/vcv-assets/P1003668-AA/mnpectlz6bymu81kzlfj.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432092/vcv-assets/P1003668-AA/g7jkhpsptiqyk1p91scr.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432095/vcv-assets/P1003668-AA/oks7wvfflbvherksei1n.jpg"
     ],
     "manufacturer_part_number": "21AXC0009",
     "last_updated": "2025-07-17T11:38:06.449626"
@@ -34684,8 +34684,8 @@
     "id": 1897,
     "status": "lagernd",
     "images": [
-      "static/images/P1003674-AA_1.jpg",
-      "static/images/P1003674-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432097/vcv-assets/P1003674-AA/bzzagjcgnh0qmikuvtdk.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432100/vcv-assets/P1003674-AA/wqy1wbfbdichv6fgokjr.jpg"
     ]
   },
   {
@@ -34706,10 +34706,10 @@
     "id": 1898,
     "status": "lagernd",
     "images": [
-      "static/images/P1003676-AA_1.jpg",
-      "static/images/P1003676-AA_2.jpg",
-      "static/images/P1003676-AA_3.jpg",
-      "static/images/P1003676-AA_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432102/vcv-assets/P1003676-AA/ys3xzb1ecasor2bmans7.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432105/vcv-assets/P1003676-AA/cfbp7qv5ozcl6w14qysx.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432107/vcv-assets/P1003676-AA/bf7zdefa2wqe9naswgza.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432110/vcv-assets/P1003676-AA/wajwdjgypfbqro6p7huw.jpg"
     ]
   },
   {
@@ -34768,8 +34768,8 @@
     "manufacturer_part_number": "0049002993",
     "last_updated": "2025-07-18T09:06:03.717349",
     "images": [
-      "static/images/P1003679-AA_1.jpg",
-      "static/images/P1003679-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432113/vcv-assets/P1003679-AA/bjwonquxifu2dgjbyaqf.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432115/vcv-assets/P1003679-AA/sgx2orj6nt6y2dx3sc2j.jpg"
     ]
   },
   {
@@ -34808,8 +34808,8 @@
     "id": 1903,
     "status": "lagernd",
     "images": [
-      "static/images/P1003680-AB_1.jpg",
-      "static/images/P1003680-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432118/vcv-assets/P1003680-AB/jsrk53w940gpkuvqqdxo.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432120/vcv-assets/P1003680-AB/ddraojp8owkahtgdl3sy.jpg"
     ]
   },
   {
@@ -34832,8 +34832,8 @@
     "manufacturer_part_number": "THP90635:000",
     "last_updated": "2025-07-18T09:07:17.835045",
     "images": [
-      "static/images/P1003682-AA_1.jpg",
-      "static/images/P1003682-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432122/vcv-assets/P1003682-AA/ydrx3oy6uosgzrpoalgc.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432124/vcv-assets/P1003682-AA/ef4wihya7xsctsdc24ev.jpg"
     ]
   },
   {
@@ -34890,10 +34890,10 @@
     "id": 1907,
     "status": "lagernd",
     "images": [
-      "images/P1003686-AA_1.jpg",
-      "images/P1003686-AA_2.jpg",
-      "images/P1003686-AA_3.jpg",
-      "images/P1003686-AA_4.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432126/vcv-assets/P1003686-AA/klotbsp7ljbjfiv2meh0.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432128/vcv-assets/P1003686-AA/f0pdjche0uwdds90ghrk.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432130/vcv-assets/P1003686-AA/m94rtxgpnhpvsaqytpog.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432132/vcv-assets/P1003686-AA/cxlx1h92yg48ocllamaw.jpg"
     ]
   },
   {
@@ -35094,9 +35094,9 @@
     "id": 1918,
     "status": "lagernd",
     "images": [
-      "static/images/P1003755-AA_1.jpg",
-      "static/images/P1003755-AA_2.jpg",
-      "static/images/P1003755-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432135/vcv-assets/P1003755-AA/uegqixybudw8xphcy8od.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432138/vcv-assets/P1003755-AA/nnk47rrtr4adiqhfxhbo.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432140/vcv-assets/P1003755-AA/vdh109nvrsqnt99jxrrw.jpg"
     ]
   },
   {
@@ -35117,8 +35117,8 @@
     "id": 1919,
     "status": "lagernd",
     "images": [
-      "static/images/P1003773-AA_1.jpg",
-      "static/images/P1003773-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432142/vcv-assets/P1003773-AA/b3uxxs3ahnarxbhnxyt1.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432143/vcv-assets/P1003773-AA/ntcyoamu5wbmpx8z9a9r.jpg"
     ],
     "comment": "[24.07.2025 13:40 - VCV Administrator] WABCO",
     "last_updated": "2025-07-24T13:40:47.493641",
@@ -35142,10 +35142,10 @@
     "id": 1920,
     "status": "lagernd",
     "images": [
-      "static/images/P1003779-AA_1.jpg",
-      "static/images/P1003779-AA_2.jpg",
-      "static/images/P1003779-AA_1.jpg",
-      "static/images/P1003779-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432145/vcv-assets/P1003779-AA/pg0azvazyba3omhnzhur.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432147/vcv-assets/P1003779-AA/zes1dxi3gnarefmzz87r.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432149/vcv-assets/P1003779-AA/aqsvctqkefg2rhijmi8j.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432152/vcv-assets/P1003779-AA/pv4wguw4wlpbk4zafwyo.jpg"
     ],
     "manufacturer_part_number": "441 014 108 0",
     "last_updated": "2025-07-24T13:37:54.385274"
@@ -35168,8 +35168,8 @@
     "id": 1921,
     "status": "lagernd",
     "images": [
-      "static/images/P1003791-AA_1.jpg",
-      "static/images/P1003791-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432155/vcv-assets/P1003791-AA/x1brxoaqowz7lau7hjtd.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432157/vcv-assets/P1003791-AA/wf9lfvdwybk413rbtdkv.jpg"
     ]
   },
   {
@@ -35838,9 +35838,9 @@
     "id": 1958,
     "status": "lagernd",
     "images": [
-      "images/P1003867-AB_1.jpg",
-      "images/P1003867-AB_2.jpg",
-      "images/P1003867-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432159/vcv-assets/P1003867-AB/nzi29cnwivnmghpz58zl.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432161/vcv-assets/P1003867-AB/rpvrbxogp7ffhcnxjsgw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432163/vcv-assets/P1003867-AB/ppizykftt8c1c78i6wgj.jpg"
     ]
   },
   {
@@ -36117,8 +36117,8 @@
     "manufacturer_part_number": "1221429",
     "last_updated": "2025-07-16T10:06:08.541770",
     "images": [
-      "images/P1003911-AB_1.jpg",
-      "images/P1003911-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432165/vcv-assets/P1003911-AB/raedyrsnrgjrcpzvm0wg.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432167/vcv-assets/P1003911-AB/qjwvdmpgvngkiffypqyb.jpg"
     ]
   },
   {
@@ -36627,8 +36627,8 @@
     "manufacturer_part_number": "6237749A",
     "last_updated": "2025-07-16T10:33:10.487470",
     "images": [
-      "images/P1004071-AA_1.jpg",
-      "images/P1004071-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432169/vcv-assets/P1004071-AA/ujehgmhvvouxpkoihhom.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432171/vcv-assets/P1004071-AA/x4mllgleyaswonb5cguy.jpg"
     ]
   },
   {
@@ -36685,9 +36685,9 @@
     "id": 2004,
     "status": "lagernd",
     "images": [
-      "static/images/P1004079-AA_1.jpg",
-      "static/images/P1004079-AA_2.jpg",
-      "static/images/P1004079-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432174/vcv-assets/P1004079-AA/sgnyleymcpgokoouth7k.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432178/vcv-assets/P1004079-AA/tgdwe6ecy45koybt4rwv.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432180/vcv-assets/P1004079-AA/e268ujo2cx6arjiwydfb.jpg"
     ]
   },
   {
@@ -36726,7 +36726,7 @@
     "id": 2006,
     "status": "lagernd",
     "images": [
-      "images/P1004102-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432182/vcv-assets/P1004102-AA/u5w437itvgavdaoyki1k.jpg"
     ]
   },
   {
@@ -36783,8 +36783,8 @@
     "id": 2009,
     "status": "lagernd",
     "images": [
-      "static/images/P1004129-AA_1.jpg",
-      "static/images/P1004129-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432185/vcv-assets/P1004129-AA/qvziqwtac7mmelcmqofs.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432188/vcv-assets/P1004129-AA/vzuxbgdpc0jrpxirq3zx.jpg"
     ]
   },
   {
@@ -36805,8 +36805,8 @@
     "id": 2010,
     "status": "lagernd",
     "images": [
-      "static/images/P1004147-AA_1.jpg",
-      "static/images/P1004147-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432191/vcv-assets/P1004147-AA/am9sinbowtnhsvcmgsog.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432194/vcv-assets/P1004147-AA/sgp8zkopgievsstbgjti.jpg"
     ]
   },
   {
@@ -37529,8 +37529,8 @@
     "id": 2050,
     "status": "lagernd",
     "images": [
-      "images/P1004296-AA_1.jpg",
-      "images/P1004296-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432195/vcv-assets/P1004296-AA/rvvkwahrzyiasadghhn9.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432197/vcv-assets/P1004296-AA/lnawwdn79odeqnnysupg.jpg"
     ]
   },
   {
@@ -37695,8 +37695,8 @@
     "id": 2059,
     "status": "lagernd",
     "images": [
-      "static/images/P1004356-AA_1.jpg",
-      "static/images/P1004356-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432200/vcv-assets/P1004356-AA/paubfz61v3pszhsvsk1i.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432202/vcv-assets/P1004356-AA/x16wegxexqpedvzkek1t.jpg"
     ]
   },
   {
@@ -38743,8 +38743,8 @@
     "id": 2117,
     "status": "lagernd",
     "images": [
-      "static/images/P1004454-AB_1.jpg",
-      "static/images/P1004454-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432205/vcv-assets/P1004454-AB/vlxjdgpi5lwyxr21mpyj.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432208/vcv-assets/P1004454-AB/klyvyn7difngaqqit2oo.jpg"
     ]
   },
   {
@@ -38909,7 +38909,7 @@
     "id": 2126,
     "status": "lagernd",
     "images": [
-      "static/images/P1004463-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432211/vcv-assets/P1004463-AA/hd2u3kohzdxtuktmyb0n.jpg"
     ]
   },
   {
@@ -38930,9 +38930,9 @@
     "id": 2127,
     "status": "lagernd",
     "images": [
-      "static/images/P1004464-AA_1.jpg",
-      "static/images/P1004464-AA_2.jpg",
-      "static/images/P1004464-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432213/vcv-assets/P1004464-AA/gedwwvcuavcihvjomfwp.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432216/vcv-assets/P1004464-AA/lijiv5ijevtdljpp43mq.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432219/vcv-assets/P1004464-AA/vt9cgct6nwwmw3ksmuwf.jpg"
     ]
   },
   {
@@ -38953,9 +38953,9 @@
     "id": 2128,
     "status": "lagernd",
     "images": [
-      "static/images/P1004465-AA_1.jpg",
-      "static/images/P1004465-AA_2.jpg",
-      "static/images/P1004465-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432221/vcv-assets/P1004465-AA/brmw0gcmvhi1klzecsbt.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432223/vcv-assets/P1004465-AA/zwbygjsbweoicsqpgfjy.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432226/vcv-assets/P1004465-AA/bbpgor0hvqap42qarsvq.jpg"
     ]
   },
   {
@@ -39552,8 +39552,8 @@
     "id": 2161,
     "status": "lagernd",
     "images": [
-      "static/images/P1004517-AB_1.jpg",
-      "static/images/P1004517-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432228/vcv-assets/P1004517-AB/fmdtlxidmqjn6dedjxde.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432231/vcv-assets/P1004517-AB/kk8qxku2maldkytrtfru.jpg"
     ]
   },
   {
@@ -39592,8 +39592,8 @@
     "id": 2163,
     "status": "lagernd",
     "images": [
-      "static/images/P1004518-AB_1.jpg",
-      "static/images/P1004518-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432234/vcv-assets/P1004518-AB/guiymqzj4an4tr9yxyoc.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432238/vcv-assets/P1004518-AB/rxtxh6cqgd6r1jssoi9e.jpg"
     ]
   },
   {
@@ -39812,7 +39812,7 @@
     "id": 2175,
     "status": "lagernd",
     "images": [
-      "images/P1004559-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432240/vcv-assets/P1004559-AA/gt3rcucxh1tepq38p10s.jpg"
     ]
   },
   {
@@ -41471,8 +41471,8 @@
     "id": 2267,
     "status": "lagernd",
     "images": [
-      "static/images/P1004707-AB_1.jpg",
-      "static/images/P1004707-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432242/vcv-assets/P1004707-AB/tkf1qqm34z9ghwp2esyq.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432246/vcv-assets/P1004707-AB/z0kgyxcqriwrspe0b8in.jpg"
     ]
   },
   {
@@ -42231,8 +42231,8 @@
     "id": 2309,
     "status": "lagernd",
     "images": [
-      "static/images/P1004832-AA_1.jpg",
-      "static/images/P1004832-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432249/vcv-assets/P1004832-AA/rp3ud90ixabrqimdwicy.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432251/vcv-assets/P1004832-AA/hrdf2mvsussicvnto7jv.jpg"
     ]
   },
   {
@@ -42973,9 +42973,9 @@
     "id": 2350,
     "status": "lagernd",
     "images": [
-      "static/images/P1005091-AA_1.jpg",
-      "static/images/P1005091-AA_2.jpg",
-      "static/images/P1005091-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432254/vcv-assets/P1005091-AA/rrpawinfuxcptysvikkz.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432256/vcv-assets/P1005091-AA/ryklzgcwmfzmot7msfx3.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432258/vcv-assets/P1005091-AA/ezpwcnbdjij7rrbyrn4h.jpg"
     ]
   },
   {
@@ -43014,9 +43014,9 @@
     "id": 2352,
     "status": "lagernd",
     "images": [
-      "static/images/P1005133-AA_1.jpg",
-      "static/images/P1005133-AA_2.jpg",
-      "static/images/P1005133-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432261/vcv-assets/P1005133-AA/s3iqotif5vebdlgdkhyl.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432263/vcv-assets/P1005133-AA/tgj9vus0qzrkkymkl1uk.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432265/vcv-assets/P1005133-AA/zn0zyunlhsmoo7cxj1z2.jpg"
     ]
   },
   {
@@ -43055,7 +43055,7 @@
     "id": 2354,
     "status": "lagernd",
     "images": [
-      "static/images/P1005135-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432268/vcv-assets/P1005135-AA/vip1r2wldq6xbgqahkar.jpg"
     ]
   },
   {
@@ -43328,8 +43328,8 @@
     "id": 2369,
     "status": "lagernd",
     "images": [
-      "images/P1005242-AA_1.jpg",
-      "images/P1005242-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432270/vcv-assets/P1005242-AA/k8notqlg7dzh7ltypz5u.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432272/vcv-assets/P1005242-AA/oreoy5efc1aoxkeykhhb.jpg"
     ],
     "manufacturer_part_number": "",
     "last_updated": "2025-07-16T10:15:04.833759"
@@ -43354,8 +43354,8 @@
     "manufacturer_part_number": "(E) 3661-39035",
     "last_updated": "2025-07-16T10:15:07.629081",
     "images": [
-      "images/P1005242-AB_1.jpg",
-      "images/P1005242-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432275/vcv-assets/P1005242-AB/itob7rjxq0iszmfmm9g8.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432277/vcv-assets/P1005242-AB/wthc9ndfoouf7awvqndv.jpg"
     ]
   },
   {
@@ -43448,8 +43448,8 @@
     "id": 2375,
     "status": "lagernd",
     "images": [
-      "static/images/P1005245-AB_1.jpg",
-      "static/images/P1005245-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432280/vcv-assets/P1005245-AB/ye6mavo0nxhlhgrutybm.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432283/vcv-assets/P1005245-AB/uzd0jyyx5czav1ystaou.jpg"
     ]
   },
   {
@@ -43506,8 +43506,8 @@
     "id": 2378,
     "status": "lagernd",
     "images": [
-      "static/images/P1005272-AA_1.jpg",
-      "static/images/P1005272-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432286/vcv-assets/P1005272-AA/e8l39tnf8btzvmkagx6j.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432288/vcv-assets/P1005272-AA/dyes3f0mobcdmmwjmajn.jpg"
     ]
   },
   {
@@ -43726,9 +43726,9 @@
     "id": 2390,
     "status": "lagernd",
     "images": [
-      "images/P1005585-AB_1.jpg",
-      "images/P1005585-AB_2.jpg",
-      "images/P1005585-AB_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432290/vcv-assets/P1005585-AB/xmqzhtgqdaoa8dsx8dov.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432292/vcv-assets/P1005585-AB/mj1uyzlkuen5vzje1scq.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432295/vcv-assets/P1005585-AB/dvqdpmmtrof189t6qug7.jpg"
     ],
     "manufacturer_part_number": "MDR-644 SERIES",
     "last_updated": "2025-07-16T16:11:31.539188"
@@ -44939,8 +44939,8 @@
     "id": 2457,
     "status": "lagernd",
     "images": [
-      "static/images/P1005878-AA_1.jpg",
-      "static/images/P1005878-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432299/vcv-assets/P1005878-AA/wkjh1kv4g4tcwcspgxla.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432303/vcv-assets/P1005878-AA/vquijjmg37dtiawzxren.jpg"
     ]
   },
   {
@@ -45987,8 +45987,8 @@
     "id": 2515,
     "status": "lagernd",
     "images": [
-      "static/images/P1006308-AB_1.jpg",
-      "static/images/P1006308-AB_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432305/vcv-assets/P1006308-AB/ijic15z3pcfredlynci2.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432307/vcv-assets/P1006308-AB/b6kzg0bfdc3nkqas2d2r.jpg"
     ],
     "manufacturer_part_number": "7.620.000.880",
     "last_updated": "2025-07-24T13:59:48.529792"
@@ -46824,8 +46824,8 @@
     "last_updated": "2025-07-16T15:44:45.564268",
     "comment": "[16.07.2025 15:44 - VCV Administrator] BHsense",
     "images": [
-      "images/P1006678-AA_1.jpg",
-      "images/P1006678-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432310/vcv-assets/P1006678-AA/svw5gilcloib6wvjfdy4.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432312/vcv-assets/P1006678-AA/dsdjxvjbbk0etlw9zuzt.jpg"
     ]
   },
   {
@@ -47008,9 +47008,9 @@
     "id": 2571,
     "status": "lagernd",
     "images": [
-      "static/images/P1006818-AA_1.jpg",
-      "static/images/P1006818-AA_2.jpg",
-      "static/images/P1006818-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432314/vcv-assets/P1006818-AA/f91nspq98b19ovvy10pq.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432317/vcv-assets/P1006818-AA/slvaxgpdnrlbaxgqfnij.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432319/vcv-assets/P1006818-AA/b9hswfg9ohxabaujvlub.jpg"
     ],
     "manufacturer_part_number": "72556320",
     "last_updated": "2025-07-24T11:23:19.766499"
@@ -47033,8 +47033,8 @@
     "id": 2572,
     "status": "lagernd",
     "images": [
-      "static/images/P1006819-AA_1.jpg",
-      "static/images/P1006819-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432322/vcv-assets/P1006819-AA/nvmntpasohfanuqheehk.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432325/vcv-assets/P1006819-AA/mzaj8i4i9ogg3f6sqahj.jpg"
     ]
   },
   {
@@ -47649,7 +47649,7 @@
     "id": 2606,
     "status": "lagernd",
     "images": [
-      "images/P1007046-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432327/vcv-assets/P1007046-AA/fmmd5skw4a85v3ceqpoe.jpg"
     ]
   },
   {
@@ -48606,8 +48606,8 @@
     "id": 2659,
     "status": "lagernd",
     "images": [
-      "static/images/P1007319-AA_1.jpg",
-      "static/images/P1007319-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432329/vcv-assets/P1007319-AA/x3mxf4fqfwjhculvuj5s.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432331/vcv-assets/P1007319-AA/tbhjivmaiakgvzfv5pxf.jpg"
     ],
     "manufacturer_part_number": "8843400130",
     "last_updated": "2025-07-24T13:25:18.793464"
@@ -48813,8 +48813,8 @@
     "last_updated": "2025-07-24T13:36:12.676563",
     "comment": "[24.07.2025 13:36 - VCV Administrator] Wabco",
     "images": [
-      "static/images/P1007347-AA_1.jpg",
-      "static/images/P1007347-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432334/vcv-assets/P1007347-AA/uuffd72ez0wgg1j7zkcc.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432336/vcv-assets/P1007347-AA/r7qollxu6n9mlqrjotgb.jpg"
     ]
   },
   {
@@ -49395,8 +49395,8 @@
     "id": 2702,
     "status": "lagernd",
     "images": [
-      "static/images/P1007887-AC_1.jpg",
-      "static/images/P1007887-AC_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432340/vcv-assets/P1007887-AC/f1buvr6qjkgdhplshnoz.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432343/vcv-assets/P1007887-AC/drmz99koe7efhajmmvm4.jpg"
     ]
   },
   {
@@ -50173,9 +50173,9 @@
     "id": 2745,
     "status": "lagernd",
     "images": [
-      "static/images/P1008261-AA_1.jpg",
-      "static/images/P1008261-AA_2.jpg",
-      "static/images/P1008261-AA_3.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432346/vcv-assets/P1008261-AA/ljsovfqo0mnp1c5w6hlu.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432348/vcv-assets/P1008261-AA/h1vbcculqaatdc0rz7ju.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432351/vcv-assets/P1008261-AA/ow9jnubt3syn1xwowxqt.jpg"
     ]
   },
   {
@@ -50952,7 +50952,7 @@
     "id": 2788,
     "status": "lagernd",
     "images": [
-      "static/images/P1008812-AA_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432354/vcv-assets/P1008812-AA/jfrve2pyjlx3hz5i1nm3.jpg"
     ]
   },
   {
@@ -56303,8 +56303,8 @@
     "manufacturer_part_number": "100-1179",
     "last_updated": "2025-07-16T10:43:43.416135",
     "images": [
-      "images/P1011482-AA_1.jpg",
-      "images/P1011482-AA_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432357/vcv-assets/P1011482-AA/hha2lyj4p7bt4hw7ioij.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432361/vcv-assets/P1011482-AA/uy4sfqsang9qbljtk5hl.jpg"
     ]
   },
   {
@@ -58920,8 +58920,8 @@
     "last_updated": "2025-07-16T10:51:37.569561",
     "comment": "[16.07.2025 10:51 - VCV Administrator] M10x30 DIN 1665+A FT8.8 D230",
     "images": [
-      "images/STD-003672_1.jpg",
-      "images/STD-003672_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432364/vcv-assets/STD-003672/ewopn1w85nkzr38pfwzw.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432366/vcv-assets/STD-003672/r6uuc0od8na2eecrtvgv.jpg"
     ]
   },
   {
@@ -59140,8 +59140,8 @@
     "id": 3242,
     "status": "lagernd",
     "images": [
-      "images/STD-003750_1.jpg",
-      "images/STD-003750_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432369/vcv-assets/STD-003750/diu4lfzdcgdq9z6k2pjb.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432371/vcv-assets/STD-003750/tve89swzx3zaqhmreht5.jpg"
     ]
   },
   {
@@ -60262,8 +60262,8 @@
     "manufacturer_part_number": "M16 1664 T.SIZ CL10 D230",
     "last_updated": "2025-07-16T10:10:51.931635",
     "images": [
-      "images/STD-004195_1.jpg",
-      "images/STD-004195_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432374/vcv-assets/STD-004195/kra16tgl3z5k0qqmul4y.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432377/vcv-assets/STD-004195/gjypbijuulfzgvisnkfj.jpg"
     ]
   },
   {
@@ -60484,8 +60484,8 @@
     "manufacturer_part_number": "ISO 14579 TORKS 8.8",
     "last_updated": "2025-07-16T10:18:49.882145",
     "images": [
-      "images/STD-004618_1.jpg",
-      "images/STD-004618_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432380/vcv-assets/STD-004618/zxum2gzvderpijnwireo.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432383/vcv-assets/STD-004618/h6r2m3spq2io7yq1qejr.jpg"
     ],
     "comment": "[16.07.2025 10:18 - VCV Administrator] CETIN CIVATA"
   },
@@ -60615,8 +60615,8 @@
     "id": 3323,
     "status": "lagernd",
     "images": [
-      "images/STD-004815_1.jpg",
-      "images/STD-004815_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432385/vcv-assets/STD-004815/gcilsymeh97mlu2yqd52.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432388/vcv-assets/STD-004815/gcoe0quivndqiphqnyq5.jpg"
     ],
     "manufacturer_part_number": "RDN18Z04815",
     "last_updated": "2025-07-16T10:48:27.643548"
@@ -60747,7 +60747,7 @@
     "id": 3330,
     "status": "lagernd",
     "images": [
-      "static/images/STD-005131_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432391/vcv-assets/STD-005131/z1yqq1nlhesk0do06sao.jpg"
     ]
   },
   {
@@ -60768,7 +60768,7 @@
     "id": 3331,
     "status": "lagernd",
     "images": [
-      "static/images/STD-005134_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432394/vcv-assets/STD-005134/b6lepglizsduobcuymwx.jpg"
     ]
   },
   {
@@ -60789,7 +60789,7 @@
     "id": 3332,
     "status": "lagernd",
     "images": [
-      "static/images/STD-005137_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432397/vcv-assets/STD-005137/xunjlh0sh7zmah4jnkj5.jpg"
     ]
   },
   {
@@ -60810,7 +60810,7 @@
     "id": 3333,
     "status": "lagernd",
     "images": [
-      "static/images/STD-005143_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432400/vcv-assets/STD-005143/lfe6kvwzj2kgneu2iow0.jpg"
     ]
   },
   {
@@ -60867,7 +60867,7 @@
     "id": 3336,
     "status": "lagernd",
     "images": [
-      "static/images/STD-005162_1.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432403/vcv-assets/STD-005162/haldziodfdheuwbscust.jpg"
     ]
   },
   {
@@ -62531,8 +62531,8 @@
     "manufacturer_part_number": "EDN06D05783",
     "last_updated": "2025-07-16T10:59:04.705633",
     "images": [
-      "images/STD-005783_1.jpg",
-      "images/STD-005783_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432405/vcv-assets/STD-005783/vwmgwl7lsgeguaxvg3l3.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432408/vcv-assets/STD-005783/rnw1j3qrnm8lzm8cprvw.jpg"
     ]
   },
   {
@@ -62987,8 +62987,8 @@
     "manufacturer_part_number": "156-00020",
     "last_updated": "2025-07-16T10:38:47.333934",
     "images": [
-      "images/STD-005817_1.jpg",
-      "images/STD-005817_2.jpg"
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432410/vcv-assets/STD-005817/otncsdkkwiynsvzjn1q2.jpg",
+      "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432413/vcv-assets/STD-005817/uarlvdhulfjtupevugqz.jpg"
     ]
   },
   {

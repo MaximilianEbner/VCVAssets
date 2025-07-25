@@ -8,6 +8,9 @@ from datetime import datetime
 import uuid
 import secrets
 import csv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 app = Flask(__name__)
 CORS(app)
@@ -31,9 +34,37 @@ EXCEL_FILE = os.path.join(SHARED_BASE_PATH, 'Datenbank_VCV_Assets.xlsx')
 DATA_FILE = os.path.join(SHARED_BASE_PATH, 'data.json')
 SYSTEM_STOCK_FILE = os.path.join(SHARED_BASE_PATH, 'Systembestand_StA.csv')
 
+# Cloudinary-Konfiguration
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dwdjbldcg'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY', '197529524277377'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'csZZwUPt4SE9x0wVrj2MlrHwjVI')
+)
+
 # Ordner erstellen falls nicht vorhanden
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(SHARED_BASE_PATH, exist_ok=True)
+
+def upload_image_to_cloudinary(file, part_number):
+    """Upload image to Cloudinary"""
+    try:
+        # Create folder structure: vcv-assets/part-number/
+        folder = f"vcv-assets/{part_number}"
+        
+        # Upload to Cloudinary
+        result = cloudinary.uploader.upload(
+            file,
+            folder=folder,
+            resource_type="image",
+            format="jpg",  # Convert all to JPG for consistency
+            quality="auto:good",  # Optimize file size
+            fetch_format="auto"  # Auto-optimize format for browsers
+        )
+        
+        return result['secure_url']  # Return HTTPS URL
+    except Exception as e:
+        print(f"Cloudinary upload error: {e}")
+        return None
 
 class VCVDatabase:
     def __init__(self):
@@ -330,10 +361,11 @@ def api_update_status():
 @app.route('/api/upload_image', methods=['POST'])
 @login_required
 def api_upload_image():
-    """API für Bild-Upload - nur für Admin/Viewer"""
+    """API für Bild-Upload mit Cloudinary - nur für Admin/Viewer"""
     user = session.get('user', {})
     if user.get('role') == 'customer':
         return jsonify({'success': False, 'error': 'Keine Berechtigung für Bild-Uploads'}), 403
+    
     if 'image' not in request.files:
         return jsonify({'success': False, 'error': 'Kein Bild hochgeladen'})
     
@@ -344,27 +376,32 @@ def api_upload_image():
         return jsonify({'success': False, 'error': 'Keine Datei ausgewählt'})
     
     if file and item_id:
-        # Eindeutigen Dateinamen generieren
-        filename = f"{uuid.uuid4()}_{file.filename}"
-        filepath = os.path.join(UPLOAD_FOLDER, filename)
-        file.save(filepath)
+        # Hole die Part Number für das Teil
+        part_number = None
+        for item in db.data:
+            if str(item.get('id', '')) == str(item_id):
+                part_number = item.get('Part number') or item.get('name') or item.get('Bezeichnung') or str(item_id)
+                break
         
-        # Relativen Pfad speichern (relativ zum SHARED_BASE_PATH)
-        relative_path = os.path.join("static", "images", filename).replace("\\", "/")
+        if not part_number:
+            part_number = str(item_id)
         
-        if db.add_image(item_id, relative_path):
-            print(f"Bild-Upload: Teil-ID {item_id}, Bild {relative_path}")
-            return jsonify({'success': True, 'image_path': relative_path})
+        # Upload to Cloudinary
+        cloudinary_url = upload_image_to_cloudinary(file, part_number)
+        
+        if cloudinary_url and db.add_image(item_id, cloudinary_url):
+            print(f"Cloudinary-Upload: Teil-ID {item_id}, URL {cloudinary_url}")
+            return jsonify({'success': True, 'image_path': cloudinary_url})
         else:
-            print(f"Bild-Upload fehlgeschlagen: Teil-ID {item_id} nicht gefunden")
-            return jsonify({'success': False, 'error': 'Teil nicht gefunden'})
+            print(f"Cloudinary-Upload fehlgeschlagen: Teil-ID {item_id}")
+            return jsonify({'success': False, 'error': 'Fehler beim Hochladen zu Cloudinary'})
     
     return jsonify({'success': False, 'error': 'Unbekannter Fehler'})
 
 @app.route('/api/upload_multiple_images', methods=['POST'])
 @login_required
 def api_upload_multiple_images():
-    """API für mehrere Bild-Uploads"""
+    """API für mehrere Bild-Uploads mit Cloudinary"""
     if 'images' not in request.files:
         return jsonify({'success': False, 'error': 'Keine Bilder hochgeladen'})
     
@@ -380,48 +417,40 @@ def api_upload_multiple_images():
     if not item_id:
         return jsonify({'success': False, 'error': 'Keine Teil-ID angegeben'})
     
-    uploaded_files = []
-    uploaded_count = 0
     # Hole die Part Number für das Teil
     part_number = None
     for item in db.data:
         if str(item.get('id', '')) == str(item_id):
             part_number = item.get('Part number') or item.get('name') or item.get('Bezeichnung') or str(item_id)
             break
+    
     if not part_number:
         part_number = str(item_id)
-    # Zähle bereits vorhandene Bilder für das Teil, um den Suffix zu bestimmen
-    for idx, file in enumerate(files, start=1):
+    
+    uploaded_urls = []
+    uploaded_count = 0
+    
+    # Upload zu Cloudinary
+    for file in files:
         if file and file.filename != '':
-            # Dateiendung extrahieren
-            ext = os.path.splitext(file.filename)[1]
-            # Dateiname nach Schema: PartNumber_1.jpg
-            filename = f"{part_number}_{idx}{ext}"
-            filepath = os.path.join(UPLOAD_FOLDER, filename)
-            # Datei speichern
-            file.save(filepath)
-            # Relativen Pfad speichern (relativ zum SHARED_BASE_PATH)
-            relative_path = os.path.join("static", "images", filename).replace("\\", "/")
-            uploaded_files.append(relative_path)
-            # Bild zum Teil hinzufügen
-            if db.add_image(item_id, relative_path):
-                uploaded_count += 1
-            else:
-                # Bei Fehler: bereits gespeicherte Datei löschen
-                try:
-                    os.remove(filepath)
-                except:
-                    pass
+            # Upload to Cloudinary instead of local storage
+            cloudinary_url = upload_image_to_cloudinary(file, part_number)
+            if cloudinary_url:
+                uploaded_urls.append(cloudinary_url)
+                # Bild zum Teil hinzufügen
+                if db.add_image(item_id, cloudinary_url):
+                    uploaded_count += 1
+    
     if uploaded_count > 0:
-        print(f"Mehrfach-Bild-Upload: Teil-ID {item_id}, {uploaded_count} Bilder")
+        print(f"Cloudinary-Upload: Teil-ID {item_id}, {uploaded_count} Bilder")
         return jsonify({
             'success': True, 
             'uploaded_count': uploaded_count,
-            'image_paths': uploaded_files[:uploaded_count]
+            'image_paths': uploaded_urls[:uploaded_count]
         })
     else:
-        print(f"Mehrfach-Bild-Upload fehlgeschlagen: Teil-ID {item_id} nicht gefunden oder Fehler beim Speichern")
-        return jsonify({'success': False, 'error': 'Teil nicht gefunden oder Fehler beim Speichern'})
+        print(f"Cloudinary-Upload fehlgeschlagen: Teil-ID {item_id}")
+        return jsonify({'success': False, 'error': 'Fehler beim Hochladen zu Cloudinary'})
 
 @app.route('/api/analytics')
 @login_required
