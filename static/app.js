@@ -8,7 +8,12 @@ let userRole = 'customer'; // Standard: Customer
 
 // Helper function to get correct image URL
 function getImageUrl(imgPath) {
-    // If path already starts with 'static/', use as is
+    // If it's already a Cloudinary URL, use as is
+    if (imgPath.startsWith('https://res.cloudinary.com/')) {
+        return imgPath;
+    }
+    
+    // Legacy local images (fallback for existing images)
     if (imgPath.startsWith('static/')) {
         return `/${imgPath}`;
     }
