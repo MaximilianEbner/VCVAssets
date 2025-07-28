@@ -19660,7 +19660,7 @@
   },
   {
     "Part number": "P1001790-AA",
-    "Part Description": "M22 LOCK NUT WITH ORING",
+    "Part Description": "DE: Kontermutter mit O‑Ring M22×1,5 / ENG: Locking nut with O‑ring M22×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -19674,7 +19674,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1078,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6237747",
+    "description": "DE: Kontermutter mit O‑Ring M22×1,5 / ENG: Locking nut with O‑ring M22×1.5",
+    "Beschreibung": "DE: Kontermutter mit O‑Ring M22×1,5 / ENG: Locking nut with O‑ring M22×1.5"
   },
   {
     "Part number": "P1001791-AA",
@@ -27805,7 +27808,7 @@
   },
   {
     "Part number": "P1002761-AA",
-    "Part Description": "M22 BLANKING PLUG WITH O RING",
+    "Part Description": "DE: Stopfen M22×1,5 (Schutz- / Dichtstopfen) / ENG: Plug M22×1.5 (threaded plug)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -27819,7 +27822,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1523,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6237608",
+    "description": "DE: Stopfen M22×1,5 (Schutz- / Dichtstopfen) / ENG: Plug M22×1.5 (threaded plug)",
+    "Beschreibung": "DE: Stopfen M22×1,5 (Schutz- / Dichtstopfen) / ENG: Plug M22×1.5 (threaded plug)"
   },
   {
     "Part number": "P1002764-AA",
@@ -30127,7 +30133,7 @@
   },
   {
     "Part number": "P1002969-AA",
-    "Part Description": "M16 THRUST WASHER WITH ORING",
+    "Part Description": "DE: Druckring mit O‑Ring M16×1,5 / ENG: Pressure ring with O‑ring M16×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -30141,7 +30147,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1652,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6239142",
+    "description": "DE: Druckring mit O‑Ring M16×1,5 / ENG: Pressure ring with O‑ring M16×1.5",
+    "Beschreibung": "DE: Druckring mit O‑Ring M16×1,5 / ENG: Pressure ring with O‑ring M16×1.5"
   },
   {
     "Part number": "P1002972-AA",
@@ -31315,7 +31324,7 @@
   },
   {
     "Part number": "P1003164-AA",
-    "Part Description": "ABC SWIVEL WITH INTERNAL THREADS M16X1.5",
+    "Part Description": "DE: Threadless Innengewinde M 16×1,5 / ENG: Threadless inside thread M 16×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -31334,7 +31343,10 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431956/vcv-assets/P1003164-AA/dgvo4lugop6qja9drvch.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431959/vcv-assets/P1003164-AA/jzonmurieqi2x44fujgj.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753431962/vcv-assets/P1003164-AA/v2fvuegftjebsgpctufs.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "93150116",
+    "description": "DE: Threadless Innengewinde M 16×1,5 / ENG: Threadless inside thread M 16×1.5",
+    "Beschreibung": "DE: Threadless Innengewinde M 16×1,5 / ENG: Threadless inside thread M 16×1.5"
   },
   {
     "Part number": "P1003176-AA",
@@ -32690,7 +32702,7 @@
   },
   {
     "Part number": "P1003399-AA",
-    "Part Description": "UNION MALE ABC NEWLINE PUSH IN M22X1.5 12X1.5",
+    "Part Description": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 22×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 22×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -32708,11 +32720,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432023/vcv-assets/P1003399-AA/l0yzo1ievsmo6bntkppz.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432026/vcv-assets/P1003399-AA/modnygurojzvy3aiehwk.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90112022",
+    "description": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 22×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 22×1.5",
+    "Beschreibung": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 22×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 22×1.5"
   },
   {
     "Part number": "P1003400-AA",
-    "Part Description": "UNION F",
+    "Part Description": "DE: Union F (komposit) / ENG: ABC Push‑In union F composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -32731,7 +32746,10 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432029/vcv-assets/P1003400-AA/fczbxowuzln80xfb6uwe.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432031/vcv-assets/P1003400-AA/klwfvwyd76d1fz5qgsla.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432034/vcv-assets/P1003400-AA/iq0trk480yhlxhfunxtp.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "92050015",
+    "description": "DE: Union F (komposit) / ENG: ABC Push‑In union F composite",
+    "Beschreibung": "DE: Union F (komposit) / ENG: ABC Push‑In union F composite"
   },
   {
     "Part number": "P1003449-AA",
@@ -33419,7 +33437,7 @@
   },
   {
     "Part number": "P1003527-AA",
-    "Part Description": "TEST POINT MALE M16",
+    "Part Description": "DE: Stopfen M16×1,5 / ENG: Plug M16×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33437,11 +33455,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432037/vcv-assets/P1003527-AA/krugfpcrqxrof32fnkli.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432039/vcv-assets/P1003527-AA/qofwmoqv34okz6dgtw1z.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "6237776",
+    "description": "DE: Stopfen M16×1,5 / ENG: Plug M16×1.5",
+    "Beschreibung": "DE: Stopfen M16×1,5 / ENG: Plug M16×1.5"
   },
   {
     "Part number": "P1003528-AA",
-    "Part Description": "3 WAY BULKHEAD WITH NUT 1X MALE M16 2X FEMALE M16",
+    "Part Description": "DE: 3‑Weg-Schottstutzen M16×1,5 / ENG: 3‑way bulkhead coupling M16×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33459,11 +33480,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432042/vcv-assets/P1003528-AA/sy0mprgd1wry8h0l11lg.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432045/vcv-assets/P1003528-AA/plxtltqsfcrt1b6ca9va.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "6237860",
+    "description": "DE: 3‑Weg-Schottstutzen M16×1,5 / ENG: 3‑way bulkhead coupling M16×1.5",
+    "Beschreibung": "DE: 3‑Weg-Schottstutzen M16×1,5 / ENG: 3‑way bulkhead coupling M16×1.5"
   },
   {
     "Part number": "P1003530-AA",
-    "Part Description": "ABC PUSH IN COUPLING 12X1.5 M16X1.5",
+    "Part Description": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 16×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 16×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33481,11 +33505,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432048/vcv-assets/P1003530-AA/vuhcwlpdxzgrohhnxcpu.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432050/vcv-assets/P1003530-AA/rgmeazmcvoh0d5nkilza.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90112016",
+    "description": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 16×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 16×1.5",
+    "Beschreibung": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 16×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 16×1.5"
   },
   {
     "Part number": "P1003531-AA",
-    "Part Description": "ELBOW INTEGRAL PUSH IN 12X1.5",
+    "Part Description": "DE: Integral Push‑In 12×1,5 (regulär) / ENG: Integral Push‑In coupling 12×1.5 (regular)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33503,11 +33530,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432053/vcv-assets/P1003531-AA/drrjztmysbjqhcqpzihb.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432055/vcv-assets/P1003531-AA/ofbqkrylcufofypd01hu.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90312205",
+    "description": "DE: Integral Push‑In 12×1,5 (regulär) / ENG: Integral Push‑In coupling 12×1.5 (regular)",
+    "Beschreibung": "DE: Integral Push‑In 12×1,5 (regulär) / ENG: Integral Push‑In coupling 12×1.5 (regular)"
   },
   {
     "Part number": "P1003532-AA",
-    "Part Description": "ABC SWIVEL M22X1.5",
+    "Part Description": "DE: ABC Swivel M 22×1,5 / ENG: ABC Swivel connector M 22×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33522,17 +33552,19 @@
     "Agreement with": "Steyr Automotive",
     "id": 1835,
     "status": "lagernd",
-    "manufacturer_part_number": "93150022A",
+    "manufacturer_part_number": "93150022",
     "last_updated": "2025-07-16T10:29:45.748783",
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432057/vcv-assets/P1003532-AA/ahgaowwf6ue7ggbcojy3.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432059/vcv-assets/P1003532-AA/mfqc2ztonb4k12g0bvu5.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432062/vcv-assets/P1003532-AA/qrky1g6ldptgeh7tux8x.jpg"
-    ]
+    ],
+    "description": "DE: ABC Swivel M 22×1,5 / ENG: ABC Swivel connector M 22×1.5",
+    "Beschreibung": "DE: ABC Swivel M 22×1,5 / ENG: ABC Swivel connector M 22×1.5"
   },
   {
     "Part number": "P1003533-AA",
-    "Part Description": "ROTOLOCK PLATE HEX 28",
+    "Part Description": "DE: Rotoloc Hex 28 (komposit) / ENG: Rotoloc Hex 28 connector composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33549,11 +33581,14 @@
     "status": "lagernd",
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432064/vcv-assets/P1003533-AA/cx7ithxjbaagfm0kcokc.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "96452028",
+    "description": "DE: Rotoloc Hex 28 (komposit) / ENG: Rotoloc Hex 28 connector composite",
+    "Beschreibung": "DE: Rotoloc Hex 28 (komposit) / ENG: Rotoloc Hex 28 connector composite"
   },
   {
     "Part number": "P1003536-AA",
-    "Part Description": "ROTOLOCK PLATE HEX 22",
+    "Part Description": "DE: Rotoloc Hex 22 (komposit) / ENG: Rotoloc Hex 22 connector composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33567,11 +33602,14 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1837,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "96450022",
+    "description": "DE: Rotoloc Hex 22 (komposit) / ENG: Rotoloc Hex 22 connector composite",
+    "Beschreibung": "DE: Rotoloc Hex 22 (komposit) / ENG: Rotoloc Hex 22 connector composite"
   },
   {
     "Part number": "P1003537-AA",
-    "Part Description": "ABC SWIVEL M16X1.5",
+    "Part Description": "DE: ABC Swivel M 16×1,5 / ENG: ABC Swivel connector M 16×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33585,11 +33623,14 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1838,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "93150016",
+    "description": "DE: ABC Swivel M 16×1,5 / ENG: ABC Swivel connector M 16×1.5",
+    "Beschreibung": "DE: ABC Swivel M 16×1,5 / ENG: ABC Swivel connector M 16×1.5"
   },
   {
     "Part number": "P1003542-AA",
-    "Part Description": "M12X1.5 TO M16X1.5 ADAPTER",
+    "Part Description": "DE: Reduzieradapter M16×1,5 → M12×1,5 / ENG: Adapter M16×1.5 to M12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33603,11 +33644,14 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1839,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6237614",
+    "description": "DE: Reduzieradapter M16×1,5 → M12×1,5 / ENG: Adapter M16×1.5 to M12×1.5",
+    "Beschreibung": "DE: Reduzieradapter M16×1,5 → M12×1,5 / ENG: Adapter M16×1.5 to M12×1.5"
   },
   {
     "Part number": "P1003547-AA",
-    "Part Description": "ABC UNION FEMALE",
+    "Part Description": "DE: Kupplung mit Innengewinde (komposit) / ENG: Union female composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33626,11 +33670,14 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432066/vcv-assets/P1003547-AA/lhldia5c3dsshdhxx5wj.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432068/vcv-assets/P1003547-AA/rph1wyhgluebrwmrataz.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432070/vcv-assets/P1003547-AA/p4uo0vz6rnx5verqdrv6.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "96150205",
+    "description": "DE: Kupplung mit Innengewinde (komposit) / ENG: Union female composite",
+    "Beschreibung": "DE: Kupplung mit Innengewinde (komposit) / ENG: Union female composite"
   },
   {
     "Part number": "P1003548-AA",
-    "Part Description": "THREADLESS PUSH IN COUPLING 12X1.5",
+    "Part Description": "DE: Threadless Push‑In 12×1,5 (regulär) / ENG: Threadless Push‑In coupling 12×1.5 (regular)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33645,16 +33692,18 @@
     "Agreement with": "Steyr Automotive",
     "id": 1841,
     "status": "lagernd",
-    "manufacturer_part_number": "90212005A",
+    "manufacturer_part_number": "90212005",
     "last_updated": "2025-07-16T10:34:53.832784",
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432072/vcv-assets/P1003548-AA/uctd6t2lorhlcwqfk7hs.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432074/vcv-assets/P1003548-AA/apdwtpkhdzsgsyxjwhve.jpg"
-    ]
+    ],
+    "description": "DE: Threadless Push‑In 12×1,5 (regulär) / ENG: Threadless Push‑In coupling 12×1.5 (regular)",
+    "Beschreibung": "DE: Threadless Push‑In 12×1,5 (regulär) / ENG: Threadless Push‑In coupling 12×1.5 (regular)"
   },
   {
     "Part number": "P1003564-AA",
-    "Part Description": "ELBOW INTEGRAL PUSH IN 10X1",
+    "Part Description": "DE: Integral Push‑In 10×1 (regulär) / ENG: Integral Push‑In coupling 10×1 (regular)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33673,11 +33722,14 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432077/vcv-assets/P1003564-AA/p7ophatexxoa6ulnpces.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432079/vcv-assets/P1003564-AA/oycwlwwpfjyqeo8zt1uf.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432081/vcv-assets/P1003564-AA/nqnvzfwy8h2qltbqafnx.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90310005",
+    "description": "DE: Integral Push‑In 10×1 (regulär) / ENG: Integral Push‑In coupling 10×1 (regular)",
+    "Beschreibung": "DE: Integral Push‑In 10×1 (regulär) / ENG: Integral Push‑In coupling 10×1 (regular)"
   },
   {
     "Part number": "P1003579-AA",
-    "Part Description": "ELBOW M16 FEMALE TO M22 MALE",
+    "Part Description": "DE: 90° Winkel-Schottstutzen M22×1,5 → M16×1,5 / ENG: 90° elbow with bulkhead socket M22×1.5 to M16×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33691,7 +33743,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1843,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6237809",
+    "description": "DE: 90° Winkel-Schottstutzen M22×1,5 → M16×1,5 / ENG: 90° elbow with bulkhead socket M22×1.5 to M16×1.5",
+    "Beschreibung": "DE: 90° Winkel-Schottstutzen M22×1,5 → M16×1,5 / ENG: 90° elbow with bulkhead socket M22×1.5 to M16×1.5"
   },
   {
     "Part number": "P1003580-AA",
@@ -33713,7 +33768,7 @@
   },
   {
     "Part number": "P1003591-AA",
-    "Part Description": "THREADLESS PUSH IN COUPLING 10X1",
+    "Part Description": "DE: Threadless Push‑In 10×1 (regulär) / ENG: Threadless Push‑In coupling 10×1 (regular)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33731,11 +33786,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432083/vcv-assets/P1003591-AA/btedjwidjd1znyqxyr7t.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432086/vcv-assets/P1003591-AA/c7xx5wtthr8u3fjodziu.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90210005",
+    "description": "DE: Threadless Push‑In 10×1 (regulär) / ENG: Threadless Push‑In coupling 10×1 (regular)",
+    "Beschreibung": "DE: Threadless Push‑In 10×1 (regulär) / ENG: Threadless Push‑In coupling 10×1 (regular)"
   },
   {
     "Part number": "P1003603-AA",
-    "Part Description": "ABC DOUBLE SWIVEL BULKHEAD M22X1.5 REG",
+    "Part Description": "DE: Doppelschwenk Swivel M 22×1,5 / ENG: Double swivel connector M 22×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -33749,7 +33807,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1846,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "93352205",
+    "description": "DE: Doppelschwenk Swivel M 22×1,5 / ENG: Double swivel connector M 22×1.5",
+    "Beschreibung": "DE: Doppelschwenk Swivel M 22×1,5 / ENG: Double swivel connector M 22×1.5"
   },
   {
     "Part number": "P1003629-AA",
@@ -35070,7 +35131,7 @@
   },
   {
     "Part number": "P1003755-AA",
-    "Part Description": "UNION L&T",
+    "Part Description": "DE: ABC Union L+T (komposit) / ENG: ABC Push‑In union L+T composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -35089,7 +35150,10 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432135/vcv-assets/P1003755-AA/uegqixybudw8xphcy8od.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432138/vcv-assets/P1003755-AA/nnk47rrtr4adiqhfxhbo.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432140/vcv-assets/P1003755-AA/vdh109nvrsqnt99jxrrw.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "92050010",
+    "description": "DE: ABC Union L+T (komposit) / ENG: ABC Push‑In union L+T composite",
+    "Beschreibung": "DE: ABC Union L+T (komposit) / ENG: ABC Push‑In union L+T composite"
   },
   {
     "Part number": "P1003773-AA",
@@ -35144,7 +35208,7 @@
   },
   {
     "Part number": "P1003791-AA",
-    "Part Description": "ABC SWIVEL M12X1.5",
+    "Part Description": "DE: ABC Swivel M 12×1,5 / ENG: ABC Swivel connector M 12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -35162,11 +35226,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432155/vcv-assets/P1003791-AA/x1brxoaqowz7lau7hjtd.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432157/vcv-assets/P1003791-AA/wf9lfvdwybk413rbtdkv.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "93150012",
+    "description": "DE: ABC Swivel M 12×1,5 / ENG: ABC Swivel connector M 12×1.5",
+    "Beschreibung": "DE: ABC Swivel M 12×1,5 / ENG: ABC Swivel connector M 12×1.5"
   },
   {
     "Part number": "P1003793-AA",
-    "Part Description": "ROTOLOCK PLATE HEX 18",
+    "Part Description": "DE: Rotoloc Hex 18 (komposit) / ENG: Rotoloc Hex 18 connector composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -35180,7 +35247,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 1922,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "96452018",
+    "description": "DE: Rotoloc Hex 18 (komposit) / ENG: Rotoloc Hex 18 connector composite",
+    "Beschreibung": "DE: Rotoloc Hex 18 (komposit) / ENG: Rotoloc Hex 18 connector composite"
   },
   {
     "Part number": "P1003799-AB",
@@ -36601,7 +36671,7 @@
   },
   {
     "Part number": "P1004071-AA",
-    "Part Description": "M22 LOCK NUT",
+    "Part Description": "DE: Kontermutter M22×1,5 / ENG: Locking nut M22×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -36616,12 +36686,14 @@
     "Agreement with": "Steyr Automotive",
     "id": 2001,
     "status": "lagernd",
-    "manufacturer_part_number": "6237749A",
+    "manufacturer_part_number": "6237749",
     "last_updated": "2025-07-16T10:33:10.487470",
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432169/vcv-assets/P1004071-AA/ujehgmhvvouxpkoihhom.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432171/vcv-assets/P1004071-AA/x4mllgleyaswonb5cguy.jpg"
-    ]
+    ],
+    "description": "DE: Kontermutter M22×1,5 / ENG: Locking nut M22×1.5",
+    "Beschreibung": "DE: Kontermutter M22×1,5 / ENG: Locking nut M22×1.5"
   },
   {
     "Part number": "P1004073-AA",
@@ -36661,7 +36733,7 @@
   },
   {
     "Part number": "P1004079-AA",
-    "Part Description": "ELBOW 90 DEG",
+    "Part Description": "DE: 90° Winkel Push‑In (komposit) / ENG: ABC Push‑In 90° elbow composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -36680,7 +36752,10 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432174/vcv-assets/P1004079-AA/sgnyleymcpgokoouth7k.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432178/vcv-assets/P1004079-AA/tgdwe6ecy45koybt4rwv.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432180/vcv-assets/P1004079-AA/e268ujo2cx6arjiwydfb.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "92050090",
+    "description": "DE: 90° Winkel Push‑In (komposit) / ENG: ABC Push‑In 90° elbow composite",
+    "Beschreibung": "DE: 90° Winkel Push‑In (komposit) / ENG: ABC Push‑In 90° elbow composite"
   },
   {
     "Part number": "P1004091-AA",
@@ -36702,7 +36777,7 @@
   },
   {
     "Part number": "P1004102-AA",
-    "Part Description": "THREADLESS PUSH IN COUPLING 4X1",
+    "Part Description": "DE: ABC Threadless Push‑In 4×1 mm / ENG: Threadless Push‑In coupling 4×1 mm",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -36719,7 +36794,10 @@
     "status": "lagernd",
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432182/vcv-assets/P1004102-AA/u5w437itvgavdaoyki1k.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90204005",
+    "description": "DE: ABC Threadless Push‑In 4×1 mm / ENG: Threadless Push‑In coupling 4×1 mm",
+    "Beschreibung": "DE: ABC Threadless Push‑In 4×1 mm / ENG: Threadless Push‑In coupling 4×1 mm"
   },
   {
     "Part number": "P1004114",
@@ -36759,7 +36837,7 @@
   },
   {
     "Part number": "P1004129-AA",
-    "Part Description": "TEST POINT BULKHEAD M18X1.5 M12X1.5",
+    "Part Description": "DE: Prüfanschluss mit Schottstutzen M18×1,5 / M12×1,5 / ENG: Test point with bulkhead M18×1.5 / M12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -36777,11 +36855,14 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432185/vcv-assets/P1004129-AA/qvziqwtac7mmelcmqofs.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432188/vcv-assets/P1004129-AA/vzuxbgdpc0jrpxirq3zx.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "6239144",
+    "description": "DE: Prüfanschluss mit Schottstutzen M18×1,5 / M12×1,5 / ENG: Test point with bulkhead M18×1.5 / M12×1.5",
+    "Beschreibung": "DE: Prüfanschluss mit Schottstutzen M18×1,5 / M12×1,5 / ENG: Test point with bulkhead M18×1.5 / M12×1.5"
   },
   {
     "Part number": "P1004147-AA",
-    "Part Description": "M18 LOCK NUT",
+    "Part Description": "DE: Kontermutter M18×1,5 / ENG: Locking nut M18×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -36799,7 +36880,10 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432191/vcv-assets/P1004147-AA/am9sinbowtnhsvcmgsog.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432194/vcv-assets/P1004147-AA/sgp8zkopgievsstbgjti.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "6237775",
+    "description": "DE: Kontermutter M18×1,5 / ENG: Locking nut M18×1.5",
+    "Beschreibung": "DE: Kontermutter M18×1,5 / ENG: Locking nut M18×1.5"
   },
   {
     "Part number": "P1004187-AA",
@@ -38719,7 +38803,7 @@
   },
   {
     "Part number": "P1004454-AB",
-    "Part Description": "M16X1.5 TO DIN ADAPTER",
+    "Part Description": "DE: Adapter M16×1,5 – M16×1,5 Ko24‑10 / ENG: Adapter M16×1.5 to M16×1.5 (24° cone)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -38737,7 +38821,10 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432205/vcv-assets/P1004454-AB/vlxjdgpi5lwyxr21mpyj.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432208/vcv-assets/P1004454-AB/klyvyn7difngaqqit2oo.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "6237784",
+    "description": "DE: Adapter M16×1,5 – M16×1,5 Ko24‑10 / ENG: Adapter M16×1.5 to M16×1.5 (24° cone)",
+    "Beschreibung": "DE: Adapter M16×1,5 – M16×1,5 Ko24‑10 / ENG: Adapter M16×1.5 to M16×1.5 (24° cone)"
   },
   {
     "Part number": "P1004457-AA",
@@ -38831,7 +38918,7 @@
   },
   {
     "Part number": "P1004460-AB",
-    "Part Description": "M22 X 1.5 TO DIN ADAPTER",
+    "Part Description": "DE: Adapter M22×1,5 – M16×1,5 Ko24‑10 / ENG: Adapter M22×1.5 to M16×1.5 (24° cone)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -38845,7 +38932,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 2123,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6237786",
+    "description": "DE: Adapter M22×1,5 – M16×1,5 Ko24‑10 / ENG: Adapter M22×1.5 to M16×1.5 (24° cone)",
+    "Beschreibung": "DE: Adapter M22×1,5 – M16×1,5 Ko24‑10 / ENG: Adapter M22×1.5 to M16×1.5 (24° cone)"
   },
   {
     "Part number": "P1004461-AA",
@@ -38885,7 +38975,7 @@
   },
   {
     "Part number": "P1004463-AA",
-    "Part Description": "90 ELBOW PRE-ASSEMBLED WITH O-RING AND NUT M10 TO M12",
+    "Part Description": "DE: 90° Schottstutzen mit Mutter M10×1 → M12×1,5 / ENG: 90° elbow with nut M10×1 to M12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -38902,11 +38992,14 @@
     "status": "lagernd",
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432211/vcv-assets/P1004463-AA/hd2u3kohzdxtuktmyb0n.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "6237928",
+    "description": "DE: 90° Schottstutzen mit Mutter M10×1 → M12×1,5 / ENG: 90° elbow with nut M10×1 to M12×1.5",
+    "Beschreibung": "DE: 90° Schottstutzen mit Mutter M10×1 → M12×1,5 / ENG: 90° elbow with nut M10×1 to M12×1.5"
   },
   {
     "Part number": "P1004464-AA",
-    "Part Description": "ABC NEWLINE PUSH-IN COUPLING M12X1.5 10X1.0",
+    "Part Description": "DE: Steckverbinder NewLine ABC T 10×1 → M 12×1,5 / ENG: NewLine Push‑In coupling T 10×1 to M 12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -38925,11 +39018,14 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432213/vcv-assets/P1004464-AA/gedwwvcuavcihvjomfwp.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432216/vcv-assets/P1004464-AA/lijiv5ijevtdljpp43mq.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432219/vcv-assets/P1004464-AA/vt9cgct6nwwmw3ksmuwf.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90110012",
+    "description": "DE: Steckverbinder NewLine ABC T 10×1 → M 12×1,5 / ENG: NewLine Push‑In coupling T 10×1 to M 12×1.5",
+    "Beschreibung": "DE: Steckverbinder NewLine ABC T 10×1 → M 12×1,5 / ENG: NewLine Push‑In coupling T 10×1 to M 12×1.5"
   },
   {
     "Part number": "P1004465-AA",
-    "Part Description": "ABC NEWLINE PUSH-IN COUPLING M12X1.5 D12X1.5",
+    "Part Description": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 12×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -38948,7 +39044,10 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432221/vcv-assets/P1004465-AA/brmw0gcmvhi1klzecsbt.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432223/vcv-assets/P1004465-AA/zwbygjsbweoicsqpgfjy.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432226/vcv-assets/P1004465-AA/bbpgor0hvqap42qarsvq.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "90112012",
+    "description": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 12×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 12×1.5",
+    "Beschreibung": "DE: Steckverbinder NewLine ABC T 12×1,5 → M 12×1,5 / ENG: NewLine Push‑In coupling T 12×1.5 to M 12×1.5"
   },
   {
     "Part number": "P1004466-AA",
@@ -42949,7 +43048,7 @@
   },
   {
     "Part number": "P1005091-AA",
-    "Part Description": "ABC UNION MALE THREADLESS ADAPTOR",
+    "Part Description": "DE: Threadless Adapter (komposit) / ENG: Threadless adapter composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -42968,7 +43067,10 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432254/vcv-assets/P1005091-AA/rrpawinfuxcptysvikkz.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432256/vcv-assets/P1005091-AA/ryklzgcwmfzmot7msfx3.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432258/vcv-assets/P1005091-AA/ezpwcnbdjij7rrbyrn4h.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "96550005",
+    "description": "DE: Threadless Adapter (komposit) / ENG: Threadless adapter composite",
+    "Beschreibung": "DE: Threadless Adapter (komposit) / ENG: Threadless adapter composite"
   },
   {
     "Part number": "P1005097-AA",
@@ -42990,7 +43092,7 @@
   },
   {
     "Part number": "P1005133-AA",
-    "Part Description": "THREADLESS TEST POINT",
+    "Part Description": "DE: Testanschluss (komposit) / ENG: Testpoint composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -43009,11 +43111,14 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432261/vcv-assets/P1005133-AA/s3iqotif5vebdlgdkhyl.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432263/vcv-assets/P1005133-AA/tgj9vus0qzrkkymkl1uk.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432265/vcv-assets/P1005133-AA/zn0zyunlhsmoo7cxj1z2.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "96050000",
+    "description": "DE: Testanschluss (komposit) / ENG: Testpoint composite",
+    "Beschreibung": "DE: Testanschluss (komposit) / ENG: Testpoint composite"
   },
   {
     "Part number": "P1005134-AA",
-    "Part Description": "PRESSURE RING WITH ORING M12X1.5",
+    "Part Description": "DE: Druckring mit O‑Ring M12×1,5 / ENG: Pressure ring with O‑ring M12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -43027,11 +43132,14 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 2353,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6239140",
+    "description": "DE: Druckring mit O‑Ring M12×1,5 / ENG: Pressure ring with O‑ring M12×1.5",
+    "Beschreibung": "DE: Druckring mit O‑Ring M12×1,5 / ENG: Pressure ring with O‑ring M12×1.5"
   },
   {
     "Part number": "P1005135-AA",
-    "Part Description": "ABC SWIVEL WITH INTERNAL THREADS M12X1.5",
+    "Part Description": "DE: Threadless Innengewinde M 12×1,5 / ENG: Threadless inside thread M 12×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -43048,7 +43156,10 @@
     "status": "lagernd",
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432268/vcv-assets/P1005135-AA/vip1r2wldq6xbgqahkar.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "93150112",
+    "description": "DE: Threadless Innengewinde M 12×1,5 / ENG: Threadless inside thread M 12×1.5",
+    "Beschreibung": "DE: Threadless Innengewinde M 12×1,5 / ENG: Threadless inside thread M 12×1.5"
   },
   {
     "Part number": "P1005149-AA",
@@ -43124,7 +43235,7 @@
   },
   {
     "Part number": "P1005177-AA",
-    "Part Description": "UNION MALE ABC NEWLINE PUSH-IN M22X1.5",
+    "Part Description": "DE: Steckverbinder NewLine ABC T 10×1 → M 22×1,5 / ENG: NewLine Push‑In coupling T 10×1 to M 22×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -43138,7 +43249,10 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 2359,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "90110022",
+    "description": "DE: Steckverbinder NewLine ABC T 10×1 → M 22×1,5 / ENG: NewLine Push‑In coupling T 10×1 to M 22×1.5",
+    "Beschreibung": "DE: Steckverbinder NewLine ABC T 10×1 → M 22×1,5 / ENG: NewLine Push‑In coupling T 10×1 to M 22×1.5"
   },
   {
     "Part number": "P1005179-AA",
@@ -44879,7 +44993,7 @@
   },
   {
     "Part number": "P1005876-AA",
-    "Part Description": "UNION T M22 X M22 X M22",
+    "Part Description": "DE: T‑Schottstutzen M22×1,5 (vormontiert) / ENG: T‑bulkhead M22×1.5 (pre‑assembled)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -44893,11 +45007,14 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 2455,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6237868",
+    "description": "DE: T‑Schottstutzen M22×1,5 (vormontiert) / ENG: T‑bulkhead M22×1.5 (pre‑assembled)",
+    "Beschreibung": "DE: T‑Schottstutzen M22×1,5 (vormontiert) / ENG: T‑bulkhead M22×1.5 (pre‑assembled)"
   },
   {
     "Part number": "P1005877-AA",
-    "Part Description": "TRANSFER ADAPTER - APU",
+    "Part Description": "DE: Vormontierter Schottstutzen M22×1,5 / M22×1,5 / ENG: Preassembled bulkhead M22×1.5 / M22×1.5",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -44911,11 +45028,14 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 2456,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "6237887",
+    "description": "DE: Vormontierter Schottstutzen M22×1,5 / M22×1,5 / ENG: Preassembled bulkhead M22×1.5 / M22×1.5",
+    "Beschreibung": "DE: Vormontierter Schottstutzen M22×1,5 / M22×1,5 / ENG: Preassembled bulkhead M22×1.5 / M22×1.5"
   },
   {
     "Part number": "P1005878-AA",
-    "Part Description": "ELBOW 90 M22X1.5 - M26X1.5",
+    "Part Description": "DE: Vormontierter Schottstutzen M26×1,5 / M22×1,5 (Stahl) / ENG: Preassembled elbow M26×1.5 / M22×1.5 (steel)",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -44933,7 +45053,10 @@
     "images": [
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432299/vcv-assets/P1005878-AA/wkjh1kv4g4tcwcspgxla.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432303/vcv-assets/P1005878-AA/vquijjmg37dtiawzxren.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "6239970",
+    "description": "DE: Vormontierter Schottstutzen M26×1,5 / M22×1,5 (Stahl) / ENG: Preassembled elbow M26×1.5 / M22×1.5 (steel)",
+    "Beschreibung": "DE: Vormontierter Schottstutzen M26×1,5 / M22×1,5 (Stahl) / ENG: Preassembled elbow M26×1.5 / M22×1.5 (steel)"
   },
   {
     "Part number": "P1005879-AA",
@@ -50131,7 +50254,7 @@
   },
   {
     "Part number": "P1008253-AA",
-    "Part Description": "3 WAY BLOCK",
+    "Part Description": "DE: 3‑Wege‑Block Push‑In (komposit) / ENG: ABC Push‑In 3‑way bloc composite",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -50145,11 +50268,14 @@
     "Target value": "",
     "Agreement with": "Steyr Automotive",
     "id": 2744,
-    "status": "lagernd"
+    "status": "lagernd",
+    "manufacturer_part_number": "92052060",
+    "description": "DE: 3‑Wege‑Block Push‑In (komposit) / ENG: ABC Push‑In 3‑way bloc composite",
+    "Beschreibung": "DE: 3‑Wege‑Block Push‑In (komposit) / ENG: ABC Push‑In 3‑way bloc composite"
   },
   {
     "Part number": "P1008261-AA",
-    "Part Description": "ELBOW M16 FEMALE TO M22 MALE - WITH SHOULDER",
+    "Part Description": "DE: Profi Entriegelungswerkzeug 12×1.5 (kurz) / ENG: Professional release tool 12×1.5 short",
     "Supplier": "Kongsberg Driveline Systems SAS",
     "Material category": "Others (Sealing, NVH, Hoses, …)",
     "Category": "Off the shelf - standard",
@@ -50168,7 +50294,10 @@
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432346/vcv-assets/P1008261-AA/ljsovfqo0mnp1c5w6hlu.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432348/vcv-assets/P1008261-AA/h1vbcculqaatdc0rz7ju.jpg",
       "https://res.cloudinary.com/dwdjbldcg/image/upload/v1753432351/vcv-assets/P1008261-AA/ow9jnubt3syn1xwowxqt.jpg"
-    ]
+    ],
+    "manufacturer_part_number": "96612021",
+    "description": "DE: Profi Entriegelungswerkzeug 12×1.5 (kurz) / ENG: Professional release tool 12×1.5 short",
+    "Beschreibung": "DE: Profi Entriegelungswerkzeug 12×1.5 (kurz) / ENG: Professional release tool 12×1.5 short"
   },
   {
     "Part number": "P1008270-AA",
