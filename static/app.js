@@ -6,6 +6,27 @@ let pageSize = 20;
 let lastFilteredParts = [];
 let userRole = 'customer'; // Standard: Customer
 
+// Helper function to refresh data and modal after changes
+async function refreshDataAndModal(itemId) {
+    try {
+        // Tabelle mit aktuellem Filter aktualisieren
+        const searchQuery = document.getElementById('searchInput').value;
+        if (searchQuery) {
+            await searchParts(); // Suche mit aktuellem Term beibehalten
+        } else {
+            await loadAllParts(); // Alle Teile laden
+        }
+        
+        // Modal mit neuen Daten aktualisieren
+        setTimeout(() => {
+            showPartDetails(itemId);
+        }, 100);
+    } catch (error) {
+        console.error('Error refreshing data:', error);
+        showError('Fehler beim Aktualisieren der Daten');
+    }
+}
+
 // Helper function to get correct image URL
 function getImageUrl(imgPath) {
     // All images should now be Cloudinary URLs
@@ -142,7 +163,7 @@ async function loadAllParts() {
     try {
         const response = await fetch('/api/parts');
         allParts = await response.json();
-                searchParts(1); // immer auf Seite 1 bei neuer Suche
+        searchParts(1); // immer auf Seite 1 bei neuer Suche
         updateResultsCount(allParts.length);
     } catch (error) {
         console.error('Fehler beim Laden der Teile:', error);
@@ -150,9 +171,7 @@ async function loadAllParts() {
     }
 }
 
-
-                searchParts(1);
-function searchParts(page = 1) {
+async function searchParts(page = 1) {
     const query = document.getElementById('searchInput').value.trim().toLowerCase();
     let filtered;
     if (!query) {
@@ -419,6 +438,19 @@ function showPartDetails(partId) {
             <strong>Beschreibung:</strong>
             <p>${part['Part Description'] || part.description || part.Beschreibung || 'Part description'}</p>
         </div>
+        <div class="mt-3">
+            <strong>Supplier:</strong>
+            ${!isCustomer ? `
+            <div class="d-flex align-items-center">
+                <input type="text" id="supplierInput" class="form-control me-2" maxlength="100" style="max-width: 300px;" value="${part['Supplier'] || ''}" placeholder="max. 100 Zeichen">
+                <button class="btn btn-sm btn-outline-primary" onclick="saveSupplier('${part.id}')">
+                    <i class="fas fa-save me-1"></i>Speichern
+                </button>
+            </div>
+            ` : `
+            <p>${part['Supplier'] || 'Unbekannt'}</p>
+            `}
+        </div>
         ${!isCustomer ? `
         <div class="mt-3">
             <strong>Kommentar:</strong>
@@ -463,17 +495,43 @@ async function saveManufacturerPartNumber(itemId) {
         const result = await response.json();
         if (result.success) {
             showSuccess('Herstellerteilenummer gespeichert');
-            // Nur Detailansicht neu laden, Tabelle bleibt interaktiv
-            showPartDetails(itemId);
+            
+            // Aktualisierte Daten vom Server holen
+            await refreshDataAndModal(itemId);
         } else {
             showError(result.error || 'Fehler beim Speichern');
         }
     } catch (e) {
         showError('Fehler beim Speichern');
     }
+}
 
-    const modal = new bootstrap.Modal(document.getElementById('partModal'));
-    modal.show();
+// Supplier speichern
+async function saveSupplier(itemId) {
+    const input = document.getElementById('supplierInput');
+    const value = input.value.trim();
+    if (value.length > 100) {
+        showError('Supplier darf maximal 100 Zeichen lang sein.');
+        return;
+    }
+    try {
+        const response = await fetch('/api/update_comment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ item_id: itemId, supplier: value })
+        });
+        const result = await response.json();
+        if (result.success) {
+            showSuccess('Supplier gespeichert');
+            
+            // Aktualisierte Daten vom Server holen
+            await refreshDataAndModal(itemId);
+        } else {
+            showError(result.error || 'Fehler beim Speichern');
+        }
+    } catch (e) {
+        showError('Fehler beim Speichern');
+    }
 }
 
 // Status aktualisieren
@@ -1153,24 +1211,10 @@ async function saveComment() {
             document.getElementById('commentForm').reset();
             document.getElementById('commentText').value = '';
             
-            console.log('Lade Daten neu...');
-            // Suchterm beibehalten und Tabelle aktualisieren
-            const searchQuery = document.getElementById('searchInput').value;
-            if (searchQuery) {
-                await searchParts(); // Suche mit aktuellem Term
-            } else {
-                await loadAllParts(); // Alle Teile laden
-            }
-            console.log('Daten neu geladen.');
-            
-            // Wenn das Teil-Details Modal offen ist, neu laden
-            if (currentPart && currentPart.id == itemId) {
-                console.log('Lade Teil-Details neu...');
-                // Kurz warten, damit die Daten aktualisiert sind
-                setTimeout(() => {
-                    showPartDetails(itemId);
-                }, 200);
-            }
+            console.log('Aktualisiere Daten und Modal...');
+            // Aktualisierte Daten vom Server holen
+            await refreshDataAndModal(itemId);
+            console.log('Daten und Modal aktualisiert.');
         } else {
             showError('Fehler beim Speichern: ' + (result.error || 'Unbekannter Fehler'));
         }
@@ -1266,3 +1310,95 @@ async function showStockModal(partNumber) {
         container.innerHTML = '<div class="alert alert-danger">Fehler beim Laden des Systembestands.</div>';
     }
 }
+
+// Event-Handler für Modal-Events
+document.addEventListener('DOMContentLoaded', function() {
+    // Part Details Modal Event-Handler
+    const partModal = document.getElementById('partModal');
+    if (partModal) {
+        partModal.addEventListener('hidden.bs.modal', function() {
+            // Beim Schließen des Modals die Tabelle reaktivieren
+            console.log('Part Modal geschlossen - reaktiviere Tabelle');
+            
+            // Entferne alle modal-backdrop Elemente
+            const backdrops = document.querySelectorAll('.modal-backdrop');
+            backdrops.forEach(backdrop => {
+                if (backdrop.parentNode) {
+                    backdrop.parentNode.removeChild(backdrop);
+                }
+            });
+            
+            // Entferne modal-open Klasse vom Body
+            document.body.classList.remove('modal-open');
+            
+            // Stelle sicher, dass die Tabelle wieder interaktiv ist
+            const searchResults = document.getElementById('searchResults');
+            if (searchResults) {
+                searchResults.style.pointerEvents = 'auto';
+                searchResults.style.opacity = '1';
+            }
+            
+            // Trigger eine kleine Aktualisierung um sicherzustellen, dass alles funktioniert
+            setTimeout(() => {
+                const currentQuery = document.getElementById('searchInput').value;
+                if (currentQuery) {
+                    searchParts();
+                } else {
+                    // Nur die Anzeige aktualisieren, ohne neue Daten zu laden
+                    const filtered = allParts;
+                    displayParts(filtered, currentPage);
+                    updateResultsCount(filtered.length);
+                    renderPagination(filtered.length, currentPage);
+                }
+            }, 100);
+        });
+    }
+    
+    // Upload Modal Event-Handler
+    const uploadModal = document.getElementById('uploadModal');
+    if (uploadModal) {
+        uploadModal.addEventListener('hidden.bs.modal', function() {
+            // Beim Schließen des Upload-Modals auch die Tabelle reaktivieren
+            console.log('Upload Modal geschlossen - reaktiviere Tabelle');
+            
+            const backdrops = document.querySelectorAll('.modal-backdrop');
+            backdrops.forEach(backdrop => {
+                if (backdrop.parentNode) {
+                    backdrop.parentNode.removeChild(backdrop);
+                }
+            });
+            
+            document.body.classList.remove('modal-open');
+            
+            const searchResults = document.getElementById('searchResults');
+            if (searchResults) {
+                searchResults.style.pointerEvents = 'auto';
+                searchResults.style.opacity = '1';
+            }
+        });
+    }
+    
+    // Comment Modal Event-Handler
+    const commentModal = document.getElementById('commentModal');
+    if (commentModal) {
+        commentModal.addEventListener('hidden.bs.modal', function() {
+            // Beim Schließen des Kommentar-Modals auch die Tabelle reaktivieren
+            console.log('Comment Modal geschlossen - reaktiviere Tabelle');
+            
+            const backdrops = document.querySelectorAll('.modal-backdrop');
+            backdrops.forEach(backdrop => {
+                if (backdrop.parentNode) {
+                    backdrop.parentNode.removeChild(backdrop);
+                }
+            });
+            
+            document.body.classList.remove('modal-open');
+            
+            const searchResults = document.getElementById('searchResults');
+            if (searchResults) {
+                searchResults.style.pointerEvents = 'auto';
+                searchResults.style.opacity = '1';
+            }
+        });
+    }
+});
