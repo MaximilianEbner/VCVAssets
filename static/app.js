@@ -356,7 +356,7 @@ function getStatusClass(status) {
 }
 
 // Teil-Details anzeigen
-function showPartDetails(partId) {
+async function showPartDetails(partId) {
     const part = allParts.find(p => (p.id || Math.random()).toString() === partId.toString());
     if (!part) {
         showError('Teil nicht gefunden');
@@ -371,32 +371,15 @@ function showPartDetails(partId) {
     
     modalTitle.textContent = part['Part number'] || part.name || part.Bezeichnung || 'Part number';
     
-    const images = part.images || [];
-    
-    const imageGallery = images.length > 0 ? 
-        `<div class="mb-3">
-            <h6>Bilder:</h6>
-            <div class="d-flex flex-wrap gap-2">
-                ${images.map(img => {
-                    const imageUrl = getImageUrl(img);
-                    return `
-                    <div class="position-relative">
-                        <img src="${imageUrl}" class="image-preview image-preview-clickable" alt="Teil-Bild" onclick="openLightbox('${imageUrl}')">
-                        ${!isCustomer ? `
-                        <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 delete-image-btn" 
-                                 onclick="event.stopPropagation(); deleteImage('${part.id}', '${img}')"
-                                 title="Bild löschen"
-                                 style="border-radius: 50%; width: 24px; height: 24px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-times" style="font-size: 10px;"></i>
-                        </button>
-                        ` : ''}
-                    </div>
-                `}).join('')}
-            </div>
-        </div>` : '';
-    
+    // Zeige Loading-Spinner für Bilder
     modalBody.innerHTML = `
-        ${imageGallery}
+        <div class="mb-3">
+            <h6>Bilder:</h6>
+            <div class="d-flex align-items-center">
+                <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+                <span>Lade aktuelle Bilder von Cloudinary...</span>
+            </div>
+        </div>
         <div class="row">
             ${!isCustomer ? `
             <div class="col-md-6">
@@ -474,8 +457,111 @@ function showPartDetails(partId) {
         </div>
     `;
 
+    // Modal anzeigen
     const modal = new bootstrap.Modal(document.getElementById('partModal'));
     modal.show();
+
+    // Lade aktuelle Cloudinary-Bilder
+    try {
+        const partNumber = part['Part number'] || part.name || part.Bezeichnung;
+        if (partNumber) {
+            const response = await fetch(`/api/cloudinary_images/${encodeURIComponent(partNumber)}`);
+            const result = await response.json();
+            
+            if (result.success && result.images.length > 0) {
+                // Aktualisiere die Bildergalerie mit Cloudinary-Bildern
+                const imageGallery = `
+                    <div class="mb-3">
+                        <h6>Bilder (${result.count} aus Cloudinary):</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            ${result.images.map(imageUrl => `
+                                <div class="position-relative">
+                                    <img src="${imageUrl}" class="image-preview image-preview-clickable" alt="Teil-Bild" onclick="openLightbox('${imageUrl}')">
+                                    ${!isCustomer ? `
+                                    <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 delete-image-btn" 
+                                             onclick="event.stopPropagation(); deleteImage('${part.id}', '${imageUrl}')"
+                                             title="Bild löschen"
+                                             style="border-radius: 50%; width: 24px; height: 24px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-times" style="font-size: 10px;"></i>
+                                    </button>
+                                    ` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Ersetze nur den Bildbereich
+                const currentContent = modalBody.innerHTML;
+                const newContent = currentContent.replace(
+                    /<div class="mb-3">[\s\S]*?<\/div>/,
+                    imageGallery
+                );
+                modalBody.innerHTML = newContent;
+            } else {
+                // Keine Bilder gefunden - zeige Upload-Button für Admins
+                const noImagesContent = `
+                    <div class="mb-3">
+                        <h6>Bilder:</h6>
+                        <p class="text-muted">Keine Bilder in Cloudinary gefunden.</p>
+                        ${!isCustomer ? `
+                        <button class="btn btn-sm btn-primary" onclick="showUploadModal('${part.id}')">
+                            <i class="fas fa-upload me-1"></i>Bilder hinzufügen
+                        </button>
+                        ` : ''}
+                    </div>
+                `;
+                
+                const currentContent = modalBody.innerHTML;
+                const newContent = currentContent.replace(
+                    /<div class="mb-3">[\s\S]*?<\/div>/,
+                    noImagesContent
+                );
+                modalBody.innerHTML = newContent;
+            }
+        }
+    } catch (error) {
+        console.error('Error loading Cloudinary images:', error);
+        // Fallback: zeige ursprüngliche Bilder aus data.json falls vorhanden
+        const images = part.images || [];
+        const fallbackGallery = images.length > 0 ? 
+            `<div class="mb-3">
+                <h6>Bilder (Fallback aus Datenbank):</h6>
+                <div class="d-flex flex-wrap gap-2">
+                    ${images.map(img => {
+                        const imageUrl = getImageUrl(img);
+                        return `
+                        <div class="position-relative">
+                            <img src="${imageUrl}" class="image-preview image-preview-clickable" alt="Teil-Bild" onclick="openLightbox('${imageUrl}')">
+                            ${!isCustomer ? `
+                            <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 delete-image-btn" 
+                                     onclick="event.stopPropagation(); deleteImage('${part.id}', '${img}')"
+                                     title="Bild löschen"
+                                     style="border-radius: 50%; width: 24px; height: 24px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-times" style="font-size: 10px;"></i>
+                            </button>
+                            ` : ''}
+                        </div>
+                    `}).join('')}
+                </div>
+            </div>` : 
+            `<div class="mb-3">
+                <h6>Bilder:</h6>
+                <p class="text-muted">Keine Bilder verfügbar.</p>
+                ${!isCustomer ? `
+                <button class="btn btn-sm btn-primary" onclick="showUploadModal('${part.id}')">
+                    <i class="fas fa-upload me-1"></i>Bilder hinzufügen
+                </button>
+                ` : ''}
+            </div>`;
+            
+        const currentContent = modalBody.innerHTML;
+        const newContent = currentContent.replace(
+            /<div class="mb-3">[\s\S]*?<\/div>/,
+            fallbackGallery
+        );
+        modalBody.innerHTML = newContent;
+    }
 }
 
 // Herstellerteilenummer speichern
