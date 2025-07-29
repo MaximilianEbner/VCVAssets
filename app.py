@@ -66,6 +66,32 @@ def upload_image_to_cloudinary(file, part_number):
         print(f"Cloudinary upload error: {e}")
         return None
 
+def get_cloudinary_images_for_part(part_number):
+    """Get all images for a part number from Cloudinary"""
+    try:
+        # Search for images in the vcv-assets/part-number folder
+        folder = f"vcv-assets/{part_number}"
+        
+        # Use Cloudinary API to list resources in the folder
+        result = cloudinary.api.resources(
+            type="upload",
+            prefix=folder,
+            resource_type="image",
+            max_results=100  # Adjust if you expect more than 100 images per part
+        )
+        
+        # Extract secure URLs from the results
+        image_urls = []
+        for resource in result.get('resources', []):
+            image_urls.append(resource['secure_url'])
+        
+        print(f"Found {len(image_urls)} images for part {part_number} in Cloudinary")
+        return image_urls
+        
+    except Exception as e:
+        print(f"Error fetching images from Cloudinary for {part_number}: {e}")
+        return []
+
 class VCVDatabase:
     def __init__(self):
         self.load_data()
@@ -776,6 +802,25 @@ def api_stock_entries(part_number):
         for row in entries
     ]
     return jsonify(result)
+
+@app.route('/api/cloudinary_images/<part_number>')
+@login_required
+def api_cloudinary_images(part_number):
+    """API: Liefert alle Cloudinary-Bilder für eine Part Number"""
+    try:
+        images = get_cloudinary_images_for_part(part_number)
+        return jsonify({
+            'success': True,
+            'images': images,
+            'count': len(images)
+        })
+    except Exception as e:
+        print(f"Error in api_cloudinary_images: {e}")
+        return jsonify({
+            'success': False,
+            'error': str(e),
+            'images': []
+        })
 
 # Statische Route für Bilder im geteilten Pfad
 @app.route('/shared_images/<path:filename>')
