@@ -551,24 +551,34 @@ def api_delete_image():
 @app.route('/api/update_comment', methods=['POST'])
 @login_required
 def api_update_comment():
-    """API für Kommentar- und Herstellerteilenummer-Update"""
+    """API für Kommentar-, Herstellerteilenummer- und Supplier-Update"""
     data = request.json
     item_id = data.get('item_id')
     comment = data.get('comment', '').strip() if 'comment' in data else None
     manufacturer_part_number = data.get('manufacturer_part_number', None)
+    supplier = data.get('supplier', None)
+    
     if manufacturer_part_number is not None:
         manufacturer_part_number = manufacturer_part_number.strip()
         if len(manufacturer_part_number) > 50:
             return jsonify({'success': False, 'error': 'Herstellerteilenummer darf maximal 50 Zeichen lang sein.'})
+    
+    if supplier is not None:
+        supplier = supplier.strip()
+        if len(supplier) > 100:
+            return jsonify({'success': False, 'error': 'Supplier darf maximal 100 Zeichen lang sein.'})
+    
     if not item_id:
         return jsonify({'success': False, 'error': 'Keine Teil-ID angegeben'})
+    
     try:
-        # Finde das Teil und aktualisiere Kommentar und/oder Herstellerteilenummer
+        # Finde das Teil und aktualisiere Kommentar, Herstellerteilenummer und/oder Supplier
         for item in db.data:
             if str(item.get('id', '')) == str(item_id):
                 user = session.get('user', {})
                 username = user.get('name', 'Unbekannt')
                 updated = False
+                
                 if comment is not None:
                     # Kommentar mit Timestamp und Benutzer
                     if comment:
@@ -577,16 +587,23 @@ def api_update_comment():
                     else:
                         item['comment'] = ''
                     updated = True
+                
                 if manufacturer_part_number is not None:
                     item['manufacturer_part_number'] = manufacturer_part_number
                     updated = True
+                
+                if supplier is not None:
+                    item['Supplier'] = supplier
+                    updated = True
+                
                 if updated:
                     item['last_updated'] = datetime.now().isoformat()
                     db.save_data()
-                    print(f"Kommentar/Herstellerteilenummer-Update: Teil-ID {item_id} durch {username}")
+                    print(f"Update: Teil-ID {item_id} durch {username}")
                     return jsonify({'success': True})
                 else:
                     return jsonify({'success': False, 'error': 'Keine Änderung übergeben.'})
+        
         return jsonify({'success': False, 'error': 'Teil nicht gefunden'})
     except Exception as e:
         return jsonify({'success': False, 'error': f'Fehler beim Speichern: {str(e)}'})
