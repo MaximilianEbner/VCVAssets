@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 // Teile anzeigen (mit Pagination)
-function displayParts(parts, page = 1) {
+async function displayParts(parts, page = 1) {
     const container = document.getElementById('searchResults');
     const isCustomer = getUserRole() === 'customer';
     
@@ -86,6 +86,8 @@ function displayParts(parts, page = 1) {
     const startIdx = (page - 1) * pageSize;
     const endIdx = startIdx + pageSize;
     const pageParts = parts.slice(startIdx, endIdx);
+    
+    // Erstelle initiale Tabelle mit Loading-Indikatoren
     container.innerHTML = `
         <div class="col-12">
             <div class="table-responsive">
@@ -104,12 +106,15 @@ function displayParts(parts, page = 1) {
                         </tr>
                     </thead>
                     <tbody>
-                        ${pageParts.map(part => createPartRow(part)).join('')}
+                        ${pageParts.map(part => createPartRow(part, true)).join('')}
                     </tbody>
                 </table>
             </div>
         </div>
     `;
+    
+    // Lade Cloudinary-Bildanzahlen asynchron
+    updateImageCounts(pageParts);
 }
 
 // Pagination-UI rendern
@@ -246,7 +251,7 @@ function displayParts(parts, page = 1) {
 }
 
 // Teil-Tabellenzeile erstellen
-function createPartRow(part) {
+function createPartRow(part, showLoading = false) {
     const status = part.status || 'Unbekannt';
     const statusClass = getStatusClass(status);
     const partNumber = part['Part number'] || part.name || part.Bezeichnung || 'Part number';
@@ -255,9 +260,15 @@ function createPartRow(part) {
     // Lagerbestand aus "Inventory calculated" Feld
     const inventoryCalculated = part['Inventory calculated'] || 0;
     
-    // Foto-Anzahl berechnen
-    const imageCount = (part.images && Array.isArray(part.images)) ? part.images.length : 0;
-    const imageInfo = imageCount > 0 ? `<small class="text-muted ms-1">(${imageCount} Foto${imageCount > 1 ? 's' : ''})</small>` : '';
+    // Foto-Anzahl berechnen - zeige Loading oder leeren Zustand
+    let imageInfo = '';
+    if (showLoading) {
+        imageInfo = `<small class="text-muted ms-1" id="image-count-${part.id}"><i class="fas fa-spinner fa-spin"></i> Lädt...</small>`;
+    } else {
+        // Fallback zu alter Logik falls Loading nicht angezeigt werden soll
+        const imageCount = (part.images && Array.isArray(part.images)) ? part.images.length : 0;
+        imageInfo = imageCount > 0 ? `<small class="text-muted ms-1">(${imageCount} Foto${imageCount > 1 ? 's' : ''})</small>` : '';
+    }
     
     return `
         <tr data-item-id="${part.id || Math.random()}" style="cursor: pointer;">
@@ -301,6 +312,41 @@ function createPartRow(part) {
             ` : ''}
         </tr>
     `;
+}
+
+// Aktualisiere Bildanzahlen asynchron
+async function updateImageCounts(parts) {
+    for (const part of parts) {
+        try {
+            const partNumber = part['Part number'] || part.name || part.Bezeichnung;
+            if (partNumber && part.id) {
+                const response = await fetch(`/api/cloudinary_images/${encodeURIComponent(partNumber)}`);
+                const result = await response.json();
+                
+                const imageCountElement = document.getElementById(`image-count-${part.id}`);
+                if (imageCountElement) {
+                    if (result.success && result.images.length > 0) {
+                        const count = result.count;
+                        imageCountElement.innerHTML = `<i class="fas fa-images text-success"></i> ${count} Foto${count > 1 ? 's' : ''}`;
+                        imageCountElement.className = 'text-success ms-1';
+                        imageCountElement.title = `${count} Bild${count > 1 ? 'er' : ''} verfügbar`;
+                    } else {
+                        imageCountElement.innerHTML = '<i class="fas fa-image text-muted"></i> Kein Foto';
+                        imageCountElement.className = 'text-muted ms-1';
+                        imageCountElement.title = 'Keine Bilder verfügbar';
+                    }
+                }
+            }
+        } catch (error) {
+            console.error(`Error loading image count for part ${part.id}:`, error);
+            const imageCountElement = document.getElementById(`image-count-${part.id}`);
+            if (imageCountElement) {
+                imageCountElement.innerHTML = '<i class="fas fa-exclamation-triangle text-warning"></i> Fehler';
+                imageCountElement.className = 'text-warning ms-1';
+                imageCountElement.title = 'Fehler beim Laden der Bildanzahl';
+            }
+        }
+    }
 }
 
 // Teil-Karte erstellen (für eventuelle spätere Nutzung beibehalten)
